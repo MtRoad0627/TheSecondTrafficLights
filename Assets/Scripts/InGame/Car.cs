@@ -14,95 +14,95 @@ namespace InGame
 
         [SerializeField] private State state;
 
-        [Header("runningRoad‚Ì‘¬“xƒ‚ƒfƒ‹")]
+        [Header("runningRoadã®é€Ÿåº¦ãƒ¢ãƒ‡ãƒ«")]
 
-        [Tooltip("”½‰’x‚êŠÔTi•bj")]
+        [Tooltip("åå¿œé…ã‚Œæ™‚é–“Tï¼ˆç§’ï¼‰")]
         [SerializeField] private float runningRoadT = 0.74f;
 
-        [Tooltip("Šó–]‘¬“xv0iƒOƒ[ƒoƒ‹À•Wj")]
+        [Tooltip("å¸Œæœ›é€Ÿåº¦v0ï¼ˆã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ï¼‰")]
         [SerializeField] private float runningRoadV0 = 5f;
 
-        [Tooltip("ŠÉ˜aŠÔt_1i•bj")]
+        [Tooltip("ç·©å’Œæ™‚é–“t_1ï¼ˆç§’ï¼‰")]
         [SerializeField] private float runningRoadT1 = 2.45f;
 
-        [Tooltip("ŠÉ˜aŠÔt_2i•bj")]
+        [Tooltip("ç·©å’Œæ™‚é–“t_2ï¼ˆç§’ï¼‰")]
         [SerializeField] private float runningRoadT2 = 0.77f;
 
-        [Tooltip("‘ŠŒİì—p‹——£RiƒOƒ[ƒoƒ‹À•Wj")]
+        [Tooltip("ç›¸äº’ä½œç”¨è·é›¢Rï¼ˆã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ï¼‰")]
         [SerializeField] private float runningRoadR = 1f;
 
-        [Tooltip("‘ŠŒİì—p‹——£R'iƒOƒ[ƒoƒ‹À•Wj")]
+        [Tooltip("ç›¸äº’ä½œç”¨è·é›¢R'ï¼ˆã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ï¼‰")]
         [SerializeField] private float runningRoadRp = 20f;
 
-        [Tooltip("’âÔ‚ÌÔŠÔ‹——£d")]
+        [Tooltip("åœè»Šæ™‚ã®è»Šé–“è·é›¢d")]
         [SerializeField] private float runningRoadD = 0.5f;
 
-        [Tooltip("ƒXƒ|[ƒ“‚Ì‘¬“x‚ÌŒW”iv0‚ÉŠ|‚¯Z‚·‚éj")]
+        [Tooltip("ã‚¹ãƒãƒ¼ãƒ³æ™‚ã®é€Ÿåº¦ã®ä¿‚æ•°ï¼ˆv0ã«æ›ã‘ç®—ã™ã‚‹ï¼‰")]
         [SerializeField] private float spawnedSpeedCoef = 0.75f;
 
-        [Tooltip("‚±‚ÌŠp“xˆÈ“à‚È‚ç‘¼‚ÌÔ‚ª“¯‚¶Œü‚«‚ğ‘–‚Á‚Ä‚¢‚é‚Æ”»’f")]
+        [Tooltip("ã“ã®è§’åº¦ä»¥å†…ãªã‚‰ä»–ã®è»ŠãŒåŒã˜å‘ãã‚’èµ°ã£ã¦ã„ã‚‹ã¨åˆ¤æ–­")]
         [SerializeField] private float runningRoadSameDirectionThreshold = 60f;
 
-        [Tooltip("‘ÎŒüÔ‚ª‚±‚Ì‹——£ˆÈ“à‚É—ˆ‚½‚ç’âÔ‚·‚éB")]
+        [Tooltip("å¯¾å‘è»ŠãŒã“ã®è·é›¢ä»¥å†…ã«æ¥ãŸã‚‰åœè»Šã™ã‚‹ã€‚")]
         [SerializeField] private float runningRoadStopDistanceThreshold = 0.5f;
 
-        [Header("runningJoint‚Ì‘¬“xƒ‚ƒfƒ‹")]
+        [Header("runningJointã®é€Ÿåº¦ãƒ¢ãƒ‡ãƒ«")]
 
-        [Tooltip("”½‰’x‚êŠÔTi•bj")]
+        [Tooltip("åå¿œé…ã‚Œæ™‚é–“Tï¼ˆç§’ï¼‰")]
         [SerializeField] private float runningJointT = 0.74f;
 
-        [Tooltip("Šó–]‘¬“xv0iƒOƒ[ƒoƒ‹À•Wj")]
+        [Tooltip("å¸Œæœ›é€Ÿåº¦v0ï¼ˆã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ï¼‰")]
         [SerializeField] private float runningJointV0 = 2f;
 
-        [Tooltip("ŠÉ˜aŠÔt_1i•bj")]
+        [Tooltip("ç·©å’Œæ™‚é–“t_1ï¼ˆç§’ï¼‰")]
         [SerializeField] private float runningJointT1 = 2.45f;
 
-        [Tooltip("ŠÉ˜aŠÔt_2i•bj")]
+        [Tooltip("ç·©å’Œæ™‚é–“t_2ï¼ˆç§’ï¼‰")]
         [SerializeField] private float runningJointT2 = 0.77f;
 
-        [Tooltip("‘ŠŒİì—p‹——£RiƒOƒ[ƒoƒ‹À•Wj")]
+        [Tooltip("ç›¸äº’ä½œç”¨è·é›¢Rï¼ˆã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ï¼‰")]
         [SerializeField] private float runningJointR = 1f;
 
-        [Tooltip("‘ŠŒİì—p‹——£R'iƒOƒ[ƒoƒ‹À•Wj")]
+        [Tooltip("ç›¸äº’ä½œç”¨è·é›¢R'ï¼ˆã‚°ãƒ­ãƒ¼ãƒãƒ«åº§æ¨™ï¼‰")]
         [SerializeField] private float runningJointRp = 20f;
 
-        [Tooltip("’âÔ‚ÌÔŠÔ‹——£d")]
+        [Tooltip("åœè»Šæ™‚ã®è»Šé–“è·é›¢d")]
         [SerializeField] private float runningJointD = 0.5f;
 
-        [Tooltip("‚±‚ÌŠp“xˆÈ“à‚È‚ç‘¼‚ÌÔ‚ª“¯‚¶Œü‚«‚ğ‘–‚Á‚Ä‚¢‚é‚Æ”»’f")]
+        [Tooltip("ã“ã®è§’åº¦ä»¥å†…ãªã‚‰ä»–ã®è»ŠãŒåŒã˜å‘ãã‚’èµ°ã£ã¦ã„ã‚‹ã¨åˆ¤æ–­")]
         [SerializeField] private float runningJointSameDirectionThreshold = 60f;
 
-        [Tooltip("‘ÎŒüÔ‚ª‚±‚Ì‹——£ˆÈ“à‚É—ˆ‚½‚ç’âÔ‚·‚éB")]
+        [Tooltip("å¯¾å‘è»ŠãŒã“ã®è·é›¢ä»¥å†…ã«æ¥ãŸã‚‰åœè»Šã™ã‚‹ã€‚")]
         [SerializeField] private float runningJointStopDistance = 0.5f;
 
-        [Header("changingLane‚Ì‘¬“xƒ‚ƒfƒ‹")]
+        [Header("changingLaneã®é€Ÿåº¦ãƒ¢ãƒ‡ãƒ«")]
 
-        [Tooltip("‘O‚ÌÔ‚Æ‚Ì‹——£‚ª‚±‚ê–¢–‚È‚ç’âÔ")]
+        [Tooltip("å‰ã®è»Šã¨ã®è·é›¢ãŒã“ã‚Œæœªæº€ãªã‚‰åœè»Š")]
         [SerializeField] private float changingLaneStopDistance = 0.5f;
 
-        [Header("‘¬“xŠÖŒW")]
+        [Header("é€Ÿåº¦é–¢ä¿‚")]
 
-        [Tooltip("Ôü•ÏX‰ñ“ª‚Ì‰ñ“]‘¬“x")]
+        [Tooltip("è»Šç·šå¤‰æ›´æ™‚å›é ­ã®å›è»¢é€Ÿåº¦")]
         [SerializeField] private float changingLaneRotationSpeed = 10f;
 
-        [Tooltip("Ôü•ÏX‰ñ“]ˆÚ“®‚Ì‰ñ“]‘¬“x")]
+        [Tooltip("è»Šç·šå¤‰æ›´æ™‚å›è»¢ç§»å‹•ã®å›è»¢é€Ÿåº¦")]
         [SerializeField] private float changingLaneAngularSpeed = 10f;
 
-        [Header("ƒXƒRƒAE–‘«“xŠÖŒW")]
+        [Header("ã‚¹ã‚³ã‚¢ãƒ»æº€è¶³åº¦é–¢ä¿‚")]
 
-        [Tooltip("‚±‚ÌŠÔŠu‚Å‘¬“x‚ğ‹L˜^‚·‚éi•bj")]
+        [Tooltip("ã“ã®é–“éš”ã§é€Ÿåº¦ã‚’è¨˜éŒ²ã™ã‚‹ï¼ˆç§’ï¼‰")]
         [SerializeField] private float saveSpeedInterval = 0.5f;
 
-        [Tooltip("–‘«“x‚ğ‘Œ¸‚³‚¹‚éŠÔŠui•bj")]
+        [Tooltip("æº€è¶³åº¦ã‚’å¢—æ¸›ã•ã›ã‚‹é–“éš”ï¼ˆç§’ï¼‰")]
         [SerializeField] private float happinessCalculationInterval = 1f;
 
-        [Tooltip("–‘«“x‘Œ¸‚Ìè‡’liŠó–]‘¬“x‚É‘Î‚·‚éŠ„‡j")]
+        [Tooltip("æº€è¶³åº¦å¢—æ¸›ã®é–¾å€¤ï¼ˆå¸Œæœ›é€Ÿåº¦ã«å¯¾ã™ã‚‹å‰²åˆï¼‰")]
         [SerializeField] private float[] happinessChangeThresholds;
 
-        [Tooltip("–‘«“x‚Ì•Ï‰»—Ê")]
+        [Tooltip("æº€è¶³åº¦ã®å¤‰åŒ–é‡")]
         [SerializeField] private int[] happinessChangements;
 
-        [Tooltip("–‘«“x‚Ì‰Šú’l")]
+        [Tooltip("æº€è¶³åº¦ã®åˆæœŸå€¤")]
         [SerializeField] private int happiness = 80;
 
         private const int happinessMin = 0;
@@ -121,87 +121,87 @@ namespace InGame
         }
 
         /// <summary>
-        /// ¶¬‚³‚ê‚½RoadJoint
+        /// ç”Ÿæˆã•ã‚ŒãŸRoadJoint
         /// </summary>
         public RoadJoint spawnPoint { get; private set; }
 
         /// <summary>
-        /// –Ú“I’nRoadJoint
+        /// ç›®çš„åœ°RoadJoint
         /// </summary>
         public RoadJoint destination { get; private set; }
 
         /// <summary>
-        /// ‚±‚Ì”z—ñ‚Ì‡‚É‰ˆ‚Á‚Ä‘–sBJoint‹È‚ª‚èI‚¦‚½“_‚ÅÁ”ï
+        /// ã“ã®é…åˆ—ã®é †ã«æ²¿ã£ã¦èµ°è¡Œã€‚Jointæ›²ãŒã‚Šçµ‚ãˆãŸæ™‚ç‚¹ã§æ¶ˆè²»
         /// </summary>
         public Queue<Road> routes { get; private set; }
 
         ///<summary>
-        ///Œ»İ‘–‚Á‚Ä‚¢‚é“¹˜H
+        ///ç¾åœ¨èµ°ã£ã¦ã„ã‚‹é“è·¯
         ///</summary>
         public Road currentRoad { get; private set; }
 
         /// <summary>
-        /// Œ»İ‘–‚Á‚Ä‚¢‚é“¹˜H‚ÌÔü”Ô†
+        /// ç¾åœ¨èµ°ã£ã¦ã„ã‚‹é“è·¯ã®è»Šç·šç•ªå·
         /// </summary>
         public uint currentLane { get; private set; } = 0;
 
         /// <summary>
-        /// ‘OƒtƒŒ[ƒ€‚Ü‚Å‚Ì‘¬“x
+        /// å‰ãƒ•ãƒ¬ãƒ¼ãƒ ã¾ã§ã®é€Ÿåº¦
         /// </summary>
         public float currentSpeed { get; private set; }
 
         /// <summary> 
-        /// Œ»İg‚Á‚Ä‚é“¹‰ˆ‚¢ƒxƒNƒgƒ‹
+        /// ç¾åœ¨ä½¿ã£ã¦ã‚‹é“æ²¿ã„ãƒ™ã‚¯ãƒˆãƒ«
         /// </summary>
         public Vector2 currentAlongRoad { get; private set; }
 
         /// <summary>
-        /// “ü‚Á‚Ä‚«‚½•û‚ÌEdgeIDBrunningRoadŠJn‚ÉXV
+        /// å…¥ã£ã¦ããŸæ–¹ã®EdgeIDã€‚runningRoadé–‹å§‹æ™‚ã«æ›´æ–°
         /// </summary>
         public uint currentEdgeIDFrom { get; private set; }
 
         /// <summary>
-        /// Œ»İ‘–‚Á‚Ä‚é“¹‚Å‘–s‚µ‚½‹——£
+        /// ç¾åœ¨èµ°ã£ã¦ã‚‹é“ã§èµ°è¡Œã—ãŸè·é›¢
         /// </summary>
         private float currentDistanceInRoad = 0f;
 
         /// <summary>
-        /// ‚±‚Ì‹——£‚Ü‚Å“’B‚·‚ê‚ÎrunningRoadI—¹
+        /// ã“ã®è·é›¢ã¾ã§åˆ°é”ã™ã‚Œã°runningRoadçµ‚äº†
         /// </summary>
         private float targetDistanceInRoad = 0f;
 
         /// <summary>
-        /// Œ»İ‚ÌJointˆÚ“®‹O“¹BJoint‚ğˆÚ“®‚µI‚¦‚½“_‚ÅXV‚µAŸ‚ÌJoint‚Ì‹O“¹‚ğ‘ã“ü
+        /// ç¾åœ¨ã®Jointç§»å‹•è»Œé“ã€‚Jointã‚’ç§»å‹•ã—çµ‚ãˆãŸæ™‚ç‚¹ã§æ›´æ–°ã—ã€æ¬¡ã®Jointã®è»Œé“ã‚’ä»£å…¥
         /// </summary>
         private CurveRoute currentCurveRoute;
 
         /// <summary>
-        /// RunningJoint’†‚Ì‰ñ“]Šp
+        /// RunningJointä¸­ã®å›è»¢è§’
         /// </summary>
         private float currentAngle;
 
         /// <summary>
-        /// Ÿ‚ÌRunningRoad‚ÌlaneIDBrunningRoadŠJn‚ÉXV
+        /// æ¬¡ã®RunningRoadã®laneIDã€‚runningRoadé–‹å§‹æ™‚ã«æ›´æ–°
         /// </summary>
         private uint nextLaneID;
 
         /// <summary>
-        /// Ÿ‚ÌRoadJointBrunningRoadŠJn‚ÉXV
+        /// æ¬¡ã®RoadJointã€‚runningRoadé–‹å§‹æ™‚ã«æ›´æ–°
         /// </summary>
         private RoadJoint nextRoadJoint;
 
         /// <summary>
-        /// Ÿ‚ÖŒü‚©‚¤“¹˜H‚ª•½s‚È‚Æ‚«Btrue‚È‚çrunningJoint‚Å‚Í‚È‚­changingLane‚ÉˆÚ‚éB
+        /// æ¬¡ã¸å‘ã‹ã†é“è·¯ãŒå¹³è¡Œãªã¨ãã€‚trueãªã‚‰runningJointã§ã¯ãªãchangingLaneã«ç§»ã‚‹ã€‚
         /// </summary>
         private bool nextIsParallel;
 
         /// <summary>
-        /// Œ»İl‚¦‚é‚×‚«‘ÎÛ‚ÌM†‹@
+        /// ç¾åœ¨è€ƒãˆã‚‹ã¹ãå¯¾è±¡ã®ä¿¡å·æ©Ÿ
         /// </summary>
         private TrafficLight currentTrafficLight;
 
         /// <summary>
-        /// Ô—¼‚Ì³–ÊƒxƒNƒgƒ‹
+        /// è»Šä¸¡ã®æ­£é¢ãƒ™ã‚¯ãƒˆãƒ«
         /// </summary>
         public Vector2 front
         {
@@ -211,47 +211,47 @@ namespace InGame
             }
         }
 
-        [Header("Ôü•ÏX")]
+        [Header("è»Šç·šå¤‰æ›´")]
 
-        [Tooltip("“¹˜H‚ÌŠp“xi“xj‚ª‚±‚êˆÈ‰º‚È‚ç•½s‚Æ‚İ‚È‚·")]
+        [Tooltip("é“è·¯ã®è§’åº¦ï¼ˆåº¦ï¼‰ãŒã“ã‚Œä»¥ä¸‹ãªã‚‰å¹³è¡Œã¨ã¿ãªã™")]
         [SerializeField] private float roadsParallelThreshold = 10f;
 
-        [Tooltip("Ôü•ÏXA–Ú“I‚ÌÔü‚Ü‚Å‚Ì‰ñ“]”¼Œa‚ª‚±‚êˆÈ‰º‚É‚È‚Á‚½‚ç‰ñ“]ˆÚ“®‚É‚æ‚é’²®‚ğŠJn‚·‚éB")]
+        [Tooltip("è»Šç·šå¤‰æ›´æ™‚ã€ç›®çš„ã®è»Šç·šã¾ã§ã®å›è»¢åŠå¾„ãŒã“ã‚Œä»¥ä¸‹ã«ãªã£ãŸã‚‰å›è»¢ç§»å‹•ã«ã‚ˆã‚‹èª¿æ•´ã‚’é–‹å§‹ã™ã‚‹ã€‚")]
         [SerializeField] private float thresholdRadiusChangingLane = 5f;
 
-        [Tooltip("Ôü•ÏXA–Ú“I‚ÌÔü‚Æ‚ÌÅ‘åŠp“x")]
+        [Tooltip("è»Šç·šå¤‰æ›´æ™‚ã€ç›®çš„ã®è»Šç·šã¨ã®æœ€å¤§è§’åº¦")]
         [SerializeField] private float angleMaxChangingLane = 10f;
 
-        [Tooltip("Ôü•ÏXA“¹˜H‚Æ‚ÌŠp“x‚ª‚±‚êˆÈ‰º‚É‚È‚Á‚½‚ç“¹˜H‚Æ•½s‚Æ‚İ‚È‚·")]
+        [Tooltip("è»Šç·šå¤‰æ›´æ™‚ã€é“è·¯ã¨ã®è§’åº¦ãŒã“ã‚Œä»¥ä¸‹ã«ãªã£ãŸã‚‰é“è·¯ã¨å¹³è¡Œã¨ã¿ãªã™")]
         [SerializeField] private float parallelThresholdChangingLane = 3f;
 
-        [Header("ƒZƒ“ƒVƒ“ƒO")]
-        [Tooltip("ŒŸoƒr[ƒ€n“_")]
+        [Header("ã‚»ãƒ³ã‚·ãƒ³ã‚°")]
+        [Tooltip("æ¤œå‡ºãƒ“ãƒ¼ãƒ å§‹ç‚¹")]
         [SerializeField] private Transform detectionRayStart;
 
-        [Tooltip("ŒŸoƒr[ƒ€I“_E‘O")]
+        [Tooltip("æ¤œå‡ºãƒ“ãƒ¼ãƒ çµ‚ç‚¹ãƒ»å‰")]
         [SerializeField] private Transform[] detectionRayDestinationsFront;
 
-        [Tooltip("ŒŸoƒr[ƒ€I“_E¶‘O")]
+        [Tooltip("æ¤œå‡ºãƒ“ãƒ¼ãƒ çµ‚ç‚¹ãƒ»å·¦å‰")]
         [SerializeField] private Transform[] detectionRayDestinationsFrontLeft;
 
-        [Tooltip("ŒŸoƒr[ƒ€I“_E‰E‘O")]
+        [Tooltip("æ¤œå‡ºãƒ“ãƒ¼ãƒ çµ‚ç‚¹ãƒ»å³å‰")]
         [SerializeField] private Transform[] detectionRayDestinationsFrontRight;
 
-        [Tooltip("ŒŸoƒr[ƒ€I“_E¶")]
+        [Tooltip("æ¤œå‡ºãƒ“ãƒ¼ãƒ çµ‚ç‚¹ãƒ»å·¦")]
         [SerializeField] private Transform[] detectionRayDestinationsLeft;
 
-        [Tooltip("ŒŸoƒr[ƒ€I“_E‰E")]
+        [Tooltip("æ¤œå‡ºãƒ“ãƒ¼ãƒ çµ‚ç‚¹ãƒ»å³")]
         [SerializeField] private Transform[] detectionRayDestinationsRight;
 
-        [Header("‚»‚Ì‘¼")]
-        [Tooltip("“¯ˆê’¼üã‚Æ”»’f‚·‚éŠOÏ‚Ìè‡’l")]
+        [Header("ãã®ä»–")]
+        [Tooltip("åŒä¸€ç›´ç·šä¸Šã¨åˆ¤æ–­ã™ã‚‹å¤–ç©ã®é–¾å€¤")]
         [SerializeField] private float onSameLineThreshold = 0.05f;
 
-        [Tooltip("ƒJƒ‰[ƒŠƒ“ƒO")]
+        [Tooltip("ã‚«ãƒ©ãƒ¼ãƒªãƒ³ã‚°")]
         [SerializeField] private CarColor colorObject;
 
-        //ŒŸo‚³‚ê‚½Ô
+        //æ¤œå‡ºã•ã‚ŒãŸè»Š
         private List<Car> carsDetectedFront = new List<Car>();
         private List<Car> carsDetectedFrontLeft = new List<Car>();
         private List<Car> carsDetectedFrontRight = new List<Car>();
@@ -259,12 +259,12 @@ namespace InGame
         private List<Car> carsDetectedRight = new List<Car>();
 
         /// <summary>
-        /// Ôü•ÏX‚ÅƒJ[ƒuƒ‚[ƒh‚É“ü‚Á‚½
+        /// è»Šç·šå¤‰æ›´ã§ã‚«ãƒ¼ãƒ–ãƒ¢ãƒ¼ãƒ‰ã«å…¥ã£ãŸ
         /// </summary>
         private bool changingLaneRotating = false;
 
         /// <summary>
-        /// Ôü•ÏX‚Ì‰~ŒÊ‹O“¹
+        /// è»Šç·šå¤‰æ›´æ™‚ã®å††å¼§è»Œé“
         /// </summary>
         private CurveRoute curveChangingLane;
 
@@ -282,7 +282,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// ƒXƒ|[ƒ“‚Ì‰‘¬“x‚ğİ’è
+        /// ã‚¹ãƒãƒ¼ãƒ³æ™‚ã®åˆé€Ÿåº¦ã‚’è¨­å®š
         /// </summary>
         private void InitializeSpeed()
         {
@@ -290,7 +290,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// ‘–sB‘Oi‚à‹È‚ª‚è‚àŒ“‚Ë‚é
+        /// èµ°è¡Œã€‚å‰é€²ã‚‚æ›²ãŒã‚Šã‚‚å…¼ã­ã‚‹
         /// </summary>
         private void Run()
         {
@@ -311,7 +311,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// ŒŸoƒr[ƒ€‚ğ”­Ë‚µ‚ÄAüˆÍ‚Ì•¨‘Ì‚ğŒŸo‚·‚éB
+        /// æ¤œå‡ºãƒ“ãƒ¼ãƒ ã‚’ç™ºå°„ã—ã¦ã€å‘¨å›²ã®ç‰©ä½“ã‚’æ¤œå‡ºã™ã‚‹ã€‚
         /// </summary>
         private void Detect()
         {
@@ -319,49 +319,49 @@ namespace InGame
         }
 
         /// <summary>
-        /// ¶¬‚Ì‰Šú‰»ˆ—
+        /// ç”Ÿæˆæ™‚ã®åˆæœŸåŒ–å‡¦ç†
         /// </summary>
         public void Initialize(RoadJoint spawnPoint, Road spawnRoad, uint spawnLane, RoadJoint destination = null)
         {
-            //¶¬ƒ|ƒCƒ“ƒg
+            //ç”Ÿæˆãƒã‚¤ãƒ³ãƒˆ
             this.spawnPoint = spawnPoint;
 
-            //–Ú“I’n
+            //ç›®çš„åœ°
             if (destination == null)
             {
-                //‚±‚¿‚ç‚Å–Ú“I’n‚ğİ’è
+                //ã“ã¡ã‚‰ã§ç›®çš„åœ°ã‚’è¨­å®š
                 this.destination = ChooseDestinationRadomly(this.spawnPoint);
             }
             else
             {
-                //–Ú“I’n‚ªw’è‚³‚ê‚Ä‚¢‚é
+                //ç›®çš„åœ°ãŒæŒ‡å®šã•ã‚Œã¦ã„ã‚‹
                 this.destination = destination;
             }
 
-            //‰Šú“¹˜H‚ÍŠm’è‚µ‚Ä‚¢‚é‚Ì‚ÅA‚»‚ÌŸ‚Ìjoint‚©‚ç‚Ìƒ‹[ƒg‚ğ“¾‚é
+            //åˆæœŸé“è·¯ã¯ç¢ºå®šã—ã¦ã„ã‚‹ã®ã§ã€ãã®æ¬¡ã®jointã‹ã‚‰ã®ãƒ«ãƒ¼ãƒˆã‚’å¾—ã‚‹
             this.routes = GetRoute(spawnRoad.GetDiffrentEdge(spawnPoint), this.destination);
 
-            //‘–‚èn‚ß‚é
+            //èµ°ã‚Šå§‹ã‚ã‚‹
             StartRunningRoad(spawnRoad, spawnLane, spawnPoint, true);
         }
 
         /// <summary>
-        /// ƒ‰ƒ“ƒ_ƒ€‚É–Ú“I’n‚ğŒˆ‚ß‚é
+        /// ãƒ©ãƒ³ãƒ€ãƒ ã«ç›®çš„åœ°ã‚’æ±ºã‚ã‚‹
         /// </summary>
         private RoadJoint ChooseDestinationRadomly(RoadJoint spawnPoint)
         {
-            //spawnPoint‚Æ‚Ìd•¡‚ğ”ğ‚¯‚éƒ‹[ƒv
+            //spawnPointã¨ã®é‡è¤‡ã‚’é¿ã‘ã‚‹ãƒ«ãƒ¼ãƒ—
             RoadJoint destination;
             OutsideConnection[] outsideConnectionsAll = FindObjectsOfType<OutsideConnection>();
             while (true)
             {
-                //ƒ‰ƒ“ƒ_ƒ€‚É–Ú“I’n‚ğŒˆ‚ß‚é
+                //ãƒ©ãƒ³ãƒ€ãƒ ã«ç›®çš„åœ°ã‚’æ±ºã‚ã‚‹
                 destination = outsideConnectionsAll[Random.Range(0, outsideConnectionsAll.Length - 1)];
 
-                //d•¡ƒ`ƒFƒbƒN
+                //é‡è¤‡ãƒã‚§ãƒƒã‚¯
                 if (destination != spawnPoint)
                 {
-                    //>>¶¬ƒ|ƒCƒ“ƒg‚Æ–Ú“I’n‚ªd•¡‚µ‚Ä‚¢‚È‚¢
+                    //>>ç”Ÿæˆãƒã‚¤ãƒ³ãƒˆã¨ç›®çš„åœ°ãŒé‡è¤‡ã—ã¦ã„ãªã„
                     break;
                 }
             }
@@ -370,17 +370,17 @@ namespace InGame
         }
 
         /// <summary>
-        /// ƒ‹[ƒg‚ğæ“¾
+        /// ãƒ«ãƒ¼ãƒˆã‚’å–å¾—
         /// </summary>
-        /// <param name="startingPoint">ŠJnˆÊ’u</param>
-        /// <param name="target">–Ú“I’n</param>
+        /// <param name="startingPoint">é–‹å§‹ä½ç½®</param>
+        /// <param name="target">ç›®çš„åœ°</param>
         /// <returns></returns>
         private Queue<Road> GetRoute(RoadJoint startingPoint, RoadJoint target)
         {
-            //Navigator‚æ‚èƒ‹[ƒg‚ğæ“¾
+            //Navigatorã‚ˆã‚Šãƒ«ãƒ¼ãƒˆã‚’å–å¾—
             Road[] routeArray = Navigator.Instance.GetRoute(startingPoint, target);
 
-            //ƒLƒ…[‚É’¼‚·
+            //ã‚­ãƒ¥ãƒ¼ã«ç›´ã™
             Queue<Road> routeQueue = new Queue<Road>();
             foreach(Road road in routeArray)
             {
@@ -391,13 +391,13 @@ namespace InGame
         }
 
         /// <summary>
-        /// “¹˜H‚ğ‘–‚èn‚ß‚é
+        /// é“è·¯ã‚’èµ°ã‚Šå§‹ã‚ã‚‹
         /// </summary>
         private void StartRunningRoad(Road road, uint laneID, RoadJoint startingJoint, bool first = false)
         {
             uint edgeID = road.GetEdgeID(startingJoint);
 
-            //‹L‰¯
+            //è¨˜æ†¶
             currentRoad = road;
             currentLane = laneID;
             currentDistanceInRoad = 0f;
@@ -405,103 +405,103 @@ namespace InGame
             nextRoadJoint = road.GetDiffrentEdge(startingJoint);
             currentEdgeIDFrom = edgeID;
 
-            //Œ»İˆÊ’u‚ğ“¹˜H‚ÉŠJnˆÊ’u‚É’²®
+            //ç¾åœ¨ä½ç½®ã‚’é“è·¯ã«é–‹å§‹ä½ç½®ã«èª¿æ•´
             AdjustStartingPositionInRoad(road, laneID, edgeID, first);
 
-            //Œ»İ‚Ìs‚«æ‚ÌÀ•W
+            //ç¾åœ¨ã®è¡Œãå…ˆã®åº§æ¨™
             Vector2 destinationPoint;
 
             if(routes.Count > 0)
             {
-                //Ÿ‚É‘–‚éÔü‚ğæ“¾
+                //æ¬¡ã«èµ°ã‚‹è»Šç·šã‚’å–å¾—
                 Road[] nextRoads = routes.ToArray();
                 if (routes.Count >= 2)
                 {
-                    //uŸ‚ÌŸv‚ª‘¶İ
+                    //ã€Œæ¬¡ã®æ¬¡ã€ãŒå­˜åœ¨
                     nextLaneID = GetNextLane(nextRoads[0], nextRoads[1]);
                 }
                 else
                 {
-                    //Ÿ‚ÌŸ‚ÍI“_
+                    //æ¬¡ã®æ¬¡ã¯çµ‚ç‚¹
                     nextLaneID = GetNextLane(nextRoads[0], null);
                 }
 
-                //>>Ÿ‚ÌJoint‚ª‘¶İ
-                //Ÿ‚ÌJoint‰ñ“]‚ğŒvZ
+                //>>æ¬¡ã®JointãŒå­˜åœ¨
+                //æ¬¡ã®Jointå›è»¢ã‚’è¨ˆç®—
                 if (TryGetNextCurveRoute(road.GetDiffrentEdge(startingJoint)))
                 {
                     nextIsParallel = false;
 
-                    //Ÿ‚ÌJointˆÚ“®‚ª‚ ‚éê‡A‰ñ“]ŠJnˆÊ’u‚Ü‚ÅrunningRoad
+                    //æ¬¡ã®Jointç§»å‹•ãŒã‚ã‚‹å ´åˆã€å›è»¢é–‹å§‹ä½ç½®ã¾ã§runningRoad
                     destinationPoint = currentCurveRoute.startingPoint;
                 }
                 else
                 {
-                    //>>•½s
+                    //>>å¹³è¡Œ
                     nextIsParallel = true;
 
-                    //Joint‚Ü‚Å‘–‚é
+                    //Jointã¾ã§èµ°ã‚‹
                     destinationPoint = road.GetDiffrentEdge(startingJoint).transform.position;
                 }
             }
             else
             {
-                //>>Ÿ‚ªI“_
-                //Ÿ‚ÌJointˆÚ“®‚ª‚È‚¢ê‡iI“_‚Ìê‡jAJoint‚Ü‚Å‘–‚é
+                //>>æ¬¡ãŒçµ‚ç‚¹
+                //æ¬¡ã®Jointç§»å‹•ãŒãªã„å ´åˆï¼ˆçµ‚ç‚¹ã®å ´åˆï¼‰ã€Jointã¾ã§èµ°ã‚‹
                 destinationPoint = road.GetDiffrentEdge(startingJoint).transform.position;
             }
 
-            //–Ú•W‘–s‹——£
+            //ç›®æ¨™èµ°è¡Œè·é›¢
             targetDistanceInRoad = Vector2.Distance(road.GetStartingPoint(edgeID, laneID), destinationPoint);
 
-            //ŠJnˆÊ’u“_‚Å‚Ì‘–s‹——£
+            //é–‹å§‹ä½ç½®æ™‚ç‚¹ã§ã®èµ°è¡Œè·é›¢
             currentDistanceInRoad = targetDistanceInRoad - Vector2.Distance(transform.position, destinationPoint);
 
-            //M†‹@‚ğŒŸ’m
+            //ä¿¡å·æ©Ÿã‚’æ¤œçŸ¥
             currentTrafficLight = DetectTrafficLight(currentRoad, edgeID);
 
-            //ƒXƒe[ƒg‚ğ•ÏX
+            //ã‚¹ãƒ†ãƒ¼ãƒˆã‚’å¤‰æ›´
             state = State.runningRoad;
         }
 
         /// <summary>
-        /// RunningRoadŠJn‚ÌˆÊ’u’²®
+        /// RunningRoadé–‹å§‹æ™‚ã®ä½ç½®èª¿æ•´
         /// </summary>
         private void AdjustStartingPositionInRoad(Road road, uint laneID, uint edgeID, bool first)
         {
-            //À•W
+            //åº§æ¨™
             if (!MyMath.CheckOnLine(transform.position, road.GetStartingPoint(edgeID, laneID), road.alongVectors[edgeID], onSameLineThreshold))
             {
-                //’¼üó–³‚¢ê‡‚Í‚ü‚Ì‘«‚Ö’²®
+                //ç›´ç·šçŠ¶ç„¡ã„å ´åˆã¯å‚ç·šã®è¶³ã¸èª¿æ•´
                 transform.position = MyMath.GetFootOfPerpendicular(transform.position, road.GetStartingPoint(edgeID, laneID), road.alongVectors[edgeID]);
             }
 
-            //‰‰ñ‚Ìê‡AÀ•W‚ğ‡‚í‚¹‚é
+            //åˆå›ã®å ´åˆã€åº§æ¨™ã‚’åˆã‚ã›ã‚‹
             if (first)
             {
                 transform.position = road.GetStartingPoint(edgeID, laneID);
             }
 
-            //‰ñ“]
+            //å›è»¢
             transform.rotation = Quaternion.Euler(0,0,GetRotatoinInRoad(road.alongVectors[edgeID]));
         }
 
         /// <summary>
-        /// Ÿ‚ÌcurveRoute‚ğæ“¾
+        /// æ¬¡ã®curveRouteã‚’å–å¾—
         /// </summary>
-        /// <returns>•½s‚Ìê‡‚Ífalse</returns>
+        /// <returns>å¹³è¡Œã®å ´åˆã¯false</returns>
         private bool TryGetNextCurveRoute(RoadJoint curvingJoint)
         {
-            //Ÿ‚ÌRoad
+            //æ¬¡ã®Road
             Road nextRoad = routes.Peek();
 
-            //Ÿ‚Æ•½s
+            //æ¬¡ã¨å¹³è¡Œ
             if (MyMath.IsParallel(currentRoad.alongVectors[0], nextRoad.alongVectors[0], roadsParallelThreshold))
             {
                 return false;
             }
 
-            //æ“¾
+            //å–å¾—
             currentCurveRoute = GetCurveRoute(
                 curvingJoint,
                 currentRoad,
@@ -514,7 +514,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// Ÿ‚ÌRoad‚Å‘–‚éÔü‚ğ‘I‚Ô
+        /// æ¬¡ã®Roadã§èµ°ã‚‹è»Šç·šã‚’é¸ã¶
         /// </summary>
         private uint GetNextLane(Road roadSelecting, Road roadNext)
         {
@@ -531,7 +531,7 @@ namespace InGame
                     break;
 
                 default:
-                    Debug.LogError("–¢À‘•ƒGƒ‰[");
+                    Debug.LogError("æœªå®Ÿè£…ã‚¨ãƒ©ãƒ¼");
                     output = 0;
                     break;
             }
@@ -541,16 +541,16 @@ namespace InGame
         }
 
         /// <summary>
-        /// 2Ôü‚©‚çÔü‚ğ‘I‚Ô
+        /// 2è»Šç·šã‹ã‚‰è»Šç·šã‚’é¸ã¶
         /// </summary>
         private uint ChooseLaneFrom2(Road selectingRoad, Road nextRoad)
         {
-            //‹¤’Ê‚·‚éRoadJoint‚ğ’T‚·
+            //å…±é€šã™ã‚‹RoadJointã‚’æ¢ã™
             RoadJoint commonJoint = RoadJoint.FindCommonJoint(selectingRoad, nextRoad);
 
             if(nextRoad == null)
             {
-                //>>Ÿ‚ªI“_‚Ì‚Æ‚«
+                //>>æ¬¡ãŒçµ‚ç‚¹ã®ã¨ã
                 return (uint)Random.Range(0, 2);
             }
 
@@ -572,14 +572,14 @@ namespace InGame
 
                     if (leftHandIndex == toIndex)
                     {
-                        //¶è‘¤‚És‚­—\’è
-                        //¶‘¤Ôü‚Ö
+                        //å·¦æ‰‹å´ã«è¡Œãäºˆå®š
+                        //å·¦å´è»Šç·šã¸
                         return 0;
                     }
                     else
                     {
-                        //‰Eè‘¤‚És‚­—\’è
-                        //‰E‘¤Ôü‚Ö
+                        //å³æ‰‹å´ã«è¡Œãäºˆå®š
+                        //å³å´è»Šç·šã¸
                         return 1;
                     }
 
@@ -592,86 +592,86 @@ namespace InGame
                     if (leftHandIndex == toIndex)
                     {
 
-                        //¶è‘¤‚És‚­—\’è
-                        //¶‘¤Ôü‚Ö
+                        //å·¦æ‰‹å´ã«è¡Œãäºˆå®š
+                        //å·¦å´è»Šç·šã¸
                         return 0;
                     }
                     else
                     {
-                        //^‚ñ’†A‰Eè‘¤‚És‚­—\’è
-                        //‰E‘¤Ôü‚Ö
+                        //çœŸã‚“ä¸­ã€å³æ‰‹å´ã«è¡Œãäºˆå®š
+                        //å³å´è»Šç·šã¸
                         return 1;
                     }
 
                 default:
-                    Debug.LogError("–¢À‘•ƒGƒ‰[");
+                    Debug.LogError("æœªå®Ÿè£…ã‚¨ãƒ©ãƒ¼");
                     return 0;
             }
         }
 
         /// <summary>
-        /// runningJointƒXƒe[ƒg‚É“ü‚é
+        /// runningJointã‚¹ãƒ†ãƒ¼ãƒˆã«å…¥ã‚‹
         /// </summary>
         private void StartRunningJoint()
         {
-            //ˆÊ’u‚ğ’²®
+            //ä½ç½®ã‚’èª¿æ•´
             AdjustStartingPositionInJoint();
 
-            //Šp“xî•ñ‚Ì‰Šú‰»
+            //è§’åº¦æƒ…å ±ã®åˆæœŸåŒ–
             currentAngle = currentCurveRoute.startingAngle;
 
-            //ƒXƒe[ƒg‚ğ•ÏX
+            //ã‚¹ãƒ†ãƒ¼ãƒˆã‚’å¤‰æ›´
             state = State.runningJoint;
         }
 
         /// <summary>
-        /// RunningJointŠJn‚ÌˆÊ’u’²®
+        /// RunningJointé–‹å§‹æ™‚ã®ä½ç½®èª¿æ•´
         /// </summary>
         private void AdjustStartingPositionInJoint()
         {
-            //À•W
+            //åº§æ¨™
             transform.position = currentCurveRoute.startingPoint;
 
-            //‰ñ“]
+            //å›è»¢
             transform.rotation = GetRotationInJoint(currentCurveRoute.startingAngle, currentCurveRoute.clockwise);
         }
 
         /// <summary>
-        /// runningRoad‚Ì‘–sˆ—
+        /// runningRoadæ™‚ã®èµ°è¡Œå‡¦ç†
         /// </summary>
         private void RunRoad()
         {
-            //‘Oi
+            //å‰é€²
             AdvanceRoad();
             
-            //I’[‚ğ’Ê‚è‰ß‚¬‚½‚©Šm”F
+            //çµ‚ç«¯ã‚’é€šã‚ŠéããŸã‹ç¢ºèª
             if (currentDistanceInRoad >= targetDistanceInRoad)
             {
                 if(routes.Count > 0)
                 {
-                    //>>‚Ü‚¾I“_‚Ü‚Å—ˆ‚Ä‚¢‚È‚¢
+                    //>>ã¾ã çµ‚ç‚¹ã¾ã§æ¥ã¦ã„ãªã„
                     if (nextIsParallel)
                     {
-                        //Ôü•ÏXƒ‚[ƒh
+                        //è»Šç·šå¤‰æ›´ãƒ¢ãƒ¼ãƒ‰
                         StartChangingLane();
                     }
                     else
                     {
-                        //Joint‰ñ“]ƒ‚[ƒh‚É“ü‚é
+                        //Jointå›è»¢ãƒ¢ãƒ¼ãƒ‰ã«å…¥ã‚‹
                         StartRunningJoint();
                     }
                 }
                 else
                 {
-                    //>>I“_‚Ü‚Å—ˆ‚½
-                    //“’…ˆ—
+                    //>>çµ‚ç‚¹ã¾ã§æ¥ãŸ
+                    //åˆ°ç€æ™‚å‡¦ç†
                     OnArrivedDestination();
                 }
             }
         }
 
         /// <summary>
-        /// runningRoad‚Ì‘–sˆ—
+        /// runningRoadæ™‚ã®èµ°è¡Œå‡¦ç†
         /// </summary>
         private void AdvanceRoad()
         {
@@ -688,21 +688,21 @@ namespace InGame
             }
             
             float advancedDistance = GetSpeedInRoad(currentRoad, currentEdgeIDFrom, nextRoad, nextEdgeID) * Time.deltaTime;
-            //ŠO•”iƒ[ƒ‹ƒhj“I
+            //å¤–éƒ¨ï¼ˆãƒ¯ãƒ¼ãƒ«ãƒ‰ï¼‰çš„
             transform.position += (Vector3)(currentAlongRoad.normalized * advancedDistance);
-            //“à•”“I
+            //å†…éƒ¨çš„
             currentDistanceInRoad += advancedDistance;
         }
 
         /// <summary>
-        /// runningRoad‚Ìó‹µ‚É‘Î‰‚·‚é‘¬“x‚ğ‹‚ß‚é
+        /// runningRoadæ™‚ã®çŠ¶æ³ã«å¯¾å¿œã™ã‚‹é€Ÿåº¦ã‚’æ±‚ã‚ã‚‹
         /// </summary>
         private float GetSpeedInRoad(Road currentRoad, uint currentEdgeIDFrom, Road nextRoad, uint nextEdgeIDFrom)
         {
-            //‘O‚ğ‘–‚Á‚Ä‚¢‚éÔ‚ğæ“¾
+            //å‰ã‚’èµ°ã£ã¦ã„ã‚‹è»Šã‚’å–å¾—
             Car frontCar = GetFrontCar();
 
-            //‘O‚ÌÔ‚ª‘¶İ‚µ‚È‚¢‚Æ‚«‚Ìƒpƒ‰ƒ[ƒ^[
+            //å‰ã®è»ŠãŒå­˜åœ¨ã—ãªã„ã¨ãã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼
             float frontSpeed = runningRoadV0;
             float s = float.MaxValue;
 
@@ -717,42 +717,42 @@ namespace InGame
                     && (frontCar.state != State.runningRoad)
                     && (distance <= runningRoadStopDistanceThreshold))
                 {
-                    //>>’âÔğŒF‘ÎŒüÔ‚ª—ˆ‚Ä‚¢‚é+è‡’l‚æ‚è‹ß‚¢+
+                    //>>åœè»Šæ¡ä»¶ï¼šå¯¾å‘è»ŠãŒæ¥ã¦ã„ã‚‹+é–¾å€¤ã‚ˆã‚Šè¿‘ã„+
 
-                    //>>è‡’l‚æ‚è‹ß‚¢
-                    //’âÔ‚·‚é
+                    //>>é–¾å€¤ã‚ˆã‚Šè¿‘ã„
+                    //åœè»Šã™ã‚‹
                     currentSpeed = 0f;
                     return currentSpeed;
                 }
                 else if (!((frontCar.state == State.runningRoad) && !isRelatedRoad))
                 {
-                    //>>’ÊíFŠÖŒW‚È‚¢“¹˜H‚ÌrunningRoad‚ğœŠO
+                    //>>é€šå¸¸æ™‚ï¼šé–¢ä¿‚ãªã„é“è·¯ã®runningRoadã‚’é™¤å¤–
 
-                    //‘O‚ğ‘–‚Á‚Ä‚¢‚éÔ‚ª‘¶İ‚·‚é
+                    //å‰ã‚’èµ°ã£ã¦ã„ã‚‹è»ŠãŒå­˜åœ¨ã™ã‚‹
                     frontSpeed = frontCar.currentSpeed;
                     s = distance;
                 }
             }
 
-            //M†‹@
+            //ä¿¡å·æ©Ÿ
             if ((currentTrafficLight != null)
                 && (currentTrafficLight.color != TrafficLight.Color.green))
             {
-                //‘ÎÛ‚ÌM†‹@‚ª‘¶İ‚µ‚Ä‚¢‚ÄA‰©F‚©ÔF
+                //å¯¾è±¡ã®ä¿¡å·æ©ŸãŒå­˜åœ¨ã—ã¦ã„ã¦ã€é»„è‰²ã‹èµ¤è‰²
 
-                //‹——£
+                //è·é›¢
                 float distanceFromLight = Vector2.Distance(this.transform.position, currentTrafficLight.transform.position);
 
                 if (s >= distanceFromLight)
                 {
-                    //>>‘ÎÛ‚Æ‚Ì‹——£‚æ‚è‹ß‚¢
-                    //‘O‚É’â~Ô—¼‚ª‚ ‚é‚Æ‚µ‚Ä‚·‚è‘Ö‚¦
+                    //>>å¯¾è±¡ã¨ã®è·é›¢ã‚ˆã‚Šè¿‘ã„
+                    //å‰ã«åœæ­¢è»Šä¸¡ãŒã‚ã‚‹ã¨ã—ã¦ã™ã‚Šæ›¿ãˆ
                     s = distanceFromLight;
                     frontSpeed = 0f;
                 }
             }
 
-            //‘¬“xŒvZ
+            //é€Ÿåº¦è¨ˆç®—
             currentSpeed = CalculateGFM(
                     currentSpeed,
                     s,
@@ -770,27 +770,27 @@ namespace InGame
         }
 
         /// <summary>
-        /// Joint‚ğ‰ñ‚é
+        /// Jointã‚’å›ã‚‹
         /// </summary>
         private void RunJoint()
         {
-            //ˆÚ“®
+            //ç§»å‹•
             TurnJoint();
 
-            //I’[‚ğ’Ê‚è‰ß‚¬‚½‚©Šm”F
+            //çµ‚ç«¯ã‚’é€šã‚ŠéããŸã‹ç¢ºèª
             if (CheckPassedJoint())
             {
-                //’Ê‚è‰ß‚¬‚½
+                //é€šã‚ŠéããŸ
                 StartRunningRoad(routes.Dequeue(), nextLaneID, currentCurveRoute.curvingJoint);
             }
         }
 
         /// <summary>
-        /// RoadJoint‚ğ‰ñ‚é
+        /// RoadJointã‚’å›ã‚‹
         /// </summary>
         private void TurnJoint()
         {
-            //ŒvE”½Œv‰ñ‚è‚Å³•‰”½“]‚·‚é
+            //æ™‚è¨ˆãƒ»åæ™‚è¨ˆå›ã‚Šã§æ­£è² åè»¢ã™ã‚‹
             int coef;
             if (currentCurveRoute.clockwise)
             {
@@ -801,18 +801,18 @@ namespace InGame
                 coef = 1;
             }
 
-            //‰ñ“]
+            //å›è»¢
             currentAngle += GetAngularSpeedInJoint() * coef * Time.deltaTime;
 
-            //À•W
+            //åº§æ¨™
             transform.position = MyMath.GetPositionFromPolar(currentCurveRoute.center, currentCurveRoute.radius, currentAngle);
 
-            //‰ñ“]
+            //å›è»¢
             transform.rotation = GetRotationInJoint(currentAngle, currentCurveRoute.clockwise);
         }
 
         /// <summary>
-        /// RunningJoint’†‚ÉI’[‚ğ’Ê‚è‰ß‚¬‚½‚©Šm”F
+        /// RunningJointä¸­ã«çµ‚ç«¯ã‚’é€šã‚ŠéããŸã‹ç¢ºèª
         /// </summary>
         private bool CheckPassedJoint()
         {
@@ -820,11 +820,11 @@ namespace InGame
         }
 
         /// <summary>
-        /// Ôü•ÏX‚ğŠJn
+        /// è»Šç·šå¤‰æ›´ã‚’é–‹å§‹
         /// </summary>
         private void StartChangingLane()
         {
-            //Ôü•ÏX‚Ì•K—v‚ª‚È‚¢‚©Šm”F
+            //è»Šç·šå¤‰æ›´ã®å¿…è¦ãŒãªã„ã‹ç¢ºèª
             if (CheckChangingLaneNecessary())
             {
                 StartRunningRoad(routes.Dequeue(), nextLaneID, nextRoadJoint);
@@ -838,7 +838,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// Ôü•ÏX
+        /// è»Šç·šå¤‰æ›´
         /// </summary>
         private void ChangeLane()
         {
@@ -854,18 +854,18 @@ namespace InGame
 
             if (changingLaneRotating)
             {
-                //‰ñ“]ˆÚ“®
+                //å›è»¢ç§»å‹•
                 ChangeLaneRotation(nextLaneStartingPoint, nextVector, curveChangingLane);
             }
             else
             {
-                //‘Oi‚µ‚È‚ª‚ç‹È‚ª‚é
+                //å‰é€²ã—ãªãŒã‚‰æ›²ãŒã‚‹
                 ChangeLaneForward(nextLaneStartingPoint, nextVector);
             }
         }
 
         /// <summary>
-        /// Ôü•ÏX‚ª•K—v‚©Šm”F‚·‚é
+        /// è»Šç·šå¤‰æ›´ãŒå¿…è¦ã‹ç¢ºèªã™ã‚‹
         /// </summary>
         private bool CheckChangingLaneNecessary()
         {
@@ -879,68 +879,68 @@ namespace InGame
         }
 
         /// <summary>
-        /// Ôü•ÏXA‰~ŒÊˆÚ“®‚ğ‰¼’è‚µ‚ÄA‰ñ“]ˆÚ“®ƒ‚[ƒh‚É“ü‚é‚©”»’f
+        /// è»Šç·šå¤‰æ›´æ™‚ã€å††å¼§ç§»å‹•ã‚’ä»®å®šã—ã¦ã€å›è»¢ç§»å‹•ãƒ¢ãƒ¼ãƒ‰ã«å…¥ã‚‹ã‹åˆ¤æ–­
         /// </summary>
         private bool TryMakeCurveChangingLane(Vector2 nextLaneStartingPoint, Vector2 nextVector)
         {
-            //•½s‚È‚çfalse
+            //å¹³è¡Œãªã‚‰false
             if(MyMath.IsParallel(nextVector, front, parallelThresholdChangingLane))
             {
                 return false;
             }
 
-            //>>‰ñ“]ˆÚ“®‚·‚é‚Æ‰¼’è‚µ‚½‚Æ‚«‚Ì”¼ŒaE’†S‚ğ‹‚ß‚é
-            //Œ»İ‚Ìis•ûŒü‚Ì–@üƒxƒNƒgƒ‹
+            //>>å›è»¢ç§»å‹•ã™ã‚‹ã¨ä»®å®šã—ãŸã¨ãã®åŠå¾„ãƒ»ä¸­å¿ƒã‚’æ±‚ã‚ã‚‹
+            //ç¾åœ¨ã®é€²è¡Œæ–¹å‘ã®æ³•ç·šãƒ™ã‚¯ãƒˆãƒ«
             Vector2 perpendicularFromAhead = MyMath.GetPerpendicular(front);
 
-            //is•ûŒü‚ÆÔü•ûŒü‚ÌŠp‚Ì“ñ“™•ªüƒxƒNƒgƒ‹
+            //é€²è¡Œæ–¹å‘ã¨è»Šç·šæ–¹å‘ã®è§’ã®äºŒç­‰åˆ†ç·šãƒ™ã‚¯ãƒˆãƒ«
             Vector2 bisector = MyMath.GetBisector(-front, nextVector);
 
-            //is•ûŒü‚ÆÔü‚ÌŒğ“_
+            //é€²è¡Œæ–¹å‘ã¨è»Šç·šã®äº¤ç‚¹
             Vector2 intersection = MyMath.GetIntersection(transform.position, front, nextLaneStartingPoint, nextVector);
 
-            //‰ñ“]’†S‚ÌÀ•W
+            //å›è»¢ä¸­å¿ƒã®åº§æ¨™
             Vector2 rotationCenter = MyMath.GetIntersection(transform.position, perpendicularFromAhead, intersection, bisector);
 
-            //‰ñ“]”¼Œa
+            //å›è»¢åŠå¾„
             float radius = Vector2.Distance(rotationCenter, transform.position);
 
             if (radius <= thresholdRadiusChangingLane)
             {
-                //‰ñ“]ˆÚ“®‚ğŠJn
+                //å›è»¢ç§»å‹•ã‚’é–‹å§‹
                 changingLaneRotating = true;
 
-                //>>‰ñ“]‹O“¹‚Ì‹ï‘Ì‰»
-                //‰ñ“]•ûŒü‚ğZo
+                //>>å›è»¢è»Œé“ã®å…·ä½“åŒ–
+                //å›è»¢æ–¹å‘ã‚’ç®—å‡º
                 float angularDiference = MyMath.GetAngularDifference(front, nextVector);
                 bool clockwise;
                 if (angularDiference < 180f)
                 {
-                    //”½Œv‰ñ‚è
+                    //åæ™‚è¨ˆå›ã‚Š
                     clockwise = false;
                 }
                 else
                 {
-                    //Œv‰ñ‚è
+                    //æ™‚è¨ˆå›ã‚Š
                     clockwise = true;
                 }
 
-                //ƒJ[ƒu‚Ìn“_EI“_‚ğ‹‚ß‚é
+                //ã‚«ãƒ¼ãƒ–ã®å§‹ç‚¹ãƒ»çµ‚ç‚¹ã‚’æ±‚ã‚ã‚‹
                 Vector2 startingPoint = transform.position;
                 Vector2 endingPoint = MyMath.GetFootOfPerpendicular(rotationCenter, nextLaneStartingPoint, nextVector);
 
-                //Šp“x‚ğ‹‚ß‚é
+                //è§’åº¦ã‚’æ±‚ã‚ã‚‹
                 float startingAngle = MyMath.GetAngular(startingPoint - rotationCenter);
                 float endingAngle = MyMath.GetAngular(endingPoint - rotationCenter);
 
-                //‹O“¹‚Ì•Û‘¶
+                //è»Œé“ã®ä¿å­˜
                 curveChangingLane.center = rotationCenter;
                 curveChangingLane.radius = radius;
                 curveChangingLane.clockwise = clockwise;
                 curveChangingLane.startingAngle = startingAngle;
                 curveChangingLane.endingAngle = endingAngle;
 
-                //Œ»İ‚ÌŠp“x
+                //ç¾åœ¨ã®è§’åº¦
                 currentAngle = startingAngle;
 
                 return true;
@@ -950,29 +950,29 @@ namespace InGame
         }
 
         /// <summary>
-        /// Ôü•ÏXA‘Oi‚µ‚È‚ª‚ç‹È‚ª‚é
+        /// è»Šç·šå¤‰æ›´æ™‚ã€å‰é€²ã—ãªãŒã‚‰æ›²ãŒã‚‹
         /// </summary>
         private void ChangeLaneForward(Vector2 targetLanePoint, Vector2 targetLaneVector)
         {
-            //‹È‚ª‚é•ûŒü‚ğZo
+            //æ›²ãŒã‚‹æ–¹å‘ã‚’ç®—å‡º
             bool shouldTurnRight = !MyMath.IsRightFromVector(transform.position, targetLanePoint, targetLaneVector);
 
-            //is•ûŒü‚É‘Î‚·‚éÔü‚ÌŠp“x
+            //é€²è¡Œæ–¹å‘ã«å¯¾ã™ã‚‹è»Šç·šã®è§’åº¦
             float angularDifference = Vector2.Angle(front, targetLaneVector);
 
-            //‰ñ“]Šp‚ğZo
+            //å›è»¢è§’ã‚’ç®—å‡º
             float angularMovement = Mathf.Min(angleMaxChangingLane - angularDifference, changingLaneRotationSpeed* Time.deltaTime);
 
             if (shouldTurnRight)
             {
-                //‰E‚É‹È‚ª‚éê‡A³•‰”½“]
+                //å³ã«æ›²ãŒã‚‹å ´åˆã€æ­£è² åè»¢
                 angularMovement = -angularMovement;
             }
 
-            //‰ñ“]
+            //å›è»¢
             transform.rotation = transform.rotation * Quaternion.Euler(0, 0, angularMovement);
 
-            //‰ñ“]Œã‚É‘Oi
+            //å›è»¢å¾Œã«å‰é€²
             Road[] roads = routes.ToArray();
             Road currentRoad = roads[0];
             uint currentRoadEdgeIDFrom = currentRoad.GetEdgeID(nextRoadJoint);
@@ -992,11 +992,11 @@ namespace InGame
         }
 
         /// <summary>
-        /// Ôü•ÏX‚ÌAÅŒã‚Ì‰ñ“]ˆÚ“®
+        /// è»Šç·šå¤‰æ›´æ™‚ã®ã€æœ€å¾Œã®å›è»¢ç§»å‹•
         /// </summary>
         private void ChangeLaneRotation(Vector2 targetLanePoint, Vector2 targetLaneVector, CurveRoute curve)
         {
-            //Šp“x‚ğˆÚ“®‚³‚¹‚é
+            //è§’åº¦ã‚’ç§»å‹•ã•ã›ã‚‹
             if (curveChangingLane.clockwise)
             {
                 currentAngle -= GetAngularSpeedInChangingLane(curve.radius) * Time.deltaTime;
@@ -1007,23 +1007,23 @@ namespace InGame
             }
 
             if(CheckCircularFinished(currentAngle, curve)){
-                //>>s‚«‰ß‚¬‚½‚Ì‚ÅÔü•ûŒü‚Ö–ß‚·
+                //>>è¡ŒãéããŸã®ã§è»Šç·šæ–¹å‘ã¸æˆ»ã™
 
-                //À•W
+                //åº§æ¨™
                 transform.position = MyMath.GetPositionFromPolar(curve.center, curve.radius, curve.endingAngle);
 
-                //‰ñ“]
+                //å›è»¢
                 transform.rotation = GetRotationInJoint(curve.endingAngle, curve.clockwise);
 
-                //Ôü•ÏX‚ğI—¹
+                //è»Šç·šå¤‰æ›´ã‚’çµ‚äº†
                 StartRunningRoad(routes.Dequeue(), nextLaneID, nextRoadJoint);
             }
             else
             {
-                //À•W
+                //åº§æ¨™
                 transform.position = MyMath.GetPositionFromPolar(curve.center, curve.radius, currentAngle);
 
-                //‰ñ“]
+                //å›è»¢
                 transform.rotation = GetRotationInJoint(currentAngle, curve.clockwise);
             }
         }
@@ -1034,14 +1034,14 @@ namespace InGame
 
             if(frontCar != null)
             {
-                //>>‘O‚ÌÔ‚ª‘¶İ
+                //>>å‰ã®è»ŠãŒå­˜åœ¨
 
                 float distance = Vector2.Distance(frontCar.transform.position, this.transform.position);
 
                 if (distance <= changingLaneStopDistance)
                 {
-                    //>>‹ß‚·‚¬‚é
-                    //’âÔ
+                    //>>è¿‘ã™ãã‚‹
+                    //åœè»Š
                     currentSpeed = 0f;
                     return currentSpeed;
                 }
@@ -1050,30 +1050,30 @@ namespace InGame
             return changingLaneAngularSpeed;
         }
 
-        /// <summary>‚Æ‚«
-        /// –Ú“I’n‚É“’…‚µ‚ÄAÁ‚¦‚ÄGameManager‚É•ñ
+        /// <summary>ã¨ã
+        /// ç›®çš„åœ°ã«åˆ°ç€ã—ã¦ã€æ¶ˆãˆã¦GameManagerã«å ±å‘Š
         /// </summary>
         private void OnArrivedDestination()
         {
             float speedAverage = CalculateAverageSpeed();
 
-            //GameManager‚É’Ê’B
+            //GameManagerã«é€šé”
             GameManager.Instance.OnCarArrived(speedAverage, runningRoadV0);
 
-            //Á‚¦‚é
+            //æ¶ˆãˆã‚‹
             Destroy(this.gameObject);
         }
 
         /// <summary>
-        /// Joint‰ñ“]’†‚ÌŠp‘¬“x
+        /// Jointå›è»¢ä¸­ã®è§’é€Ÿåº¦
         /// </summary>
         /// <returns></returns>
         private float GetAngularSpeedInJoint()
         {
-            //‘O‚ğ‘–‚Á‚Ä‚¢‚éÔ‚ğæ“¾
+            //å‰ã‚’èµ°ã£ã¦ã„ã‚‹è»Šã‚’å–å¾—
             Car frontCar = DetectFrontCarInJoint(currentCurveRoute);
 
-            //‘O‚ÌÔ‚ª‘¶İ‚µ‚È‚¢‚Æ‚«‚Ìƒpƒ‰ƒ[ƒ^[
+            //å‰ã®è»ŠãŒå­˜åœ¨ã—ãªã„ã¨ãã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼
             float frontSpeed = runningJointV0;
             float s = float.MaxValue;
 
@@ -1085,24 +1085,24 @@ namespace InGame
                     && (s <= runningJointStopDistance)
                     && !((frontCar.state == State.runningRoad) && (frontCar.currentRoad != this.routes.Peek())))
                 {
-                    //>>’âÔğŒF‘ÎŒüÔ‚ª—ˆ‚Ä‚¢‚é+è‡’l‚æ‚è‹ß‚¢+
+                    //>>åœè»Šæ¡ä»¶ï¼šå¯¾å‘è»ŠãŒæ¥ã¦ã„ã‚‹+é–¾å€¤ã‚ˆã‚Šè¿‘ã„+
 
-                    //>>è‡’l‚æ‚è‹ß‚¢
-                    //’âÔ‚·‚é
+                    //>>é–¾å€¤ã‚ˆã‚Šè¿‘ã„
+                    //åœè»Šã™ã‚‹
                     currentSpeed = 0f;
                     return currentSpeed;
                 }
                 else if(!((frontCar.state == State.runningRoad) && (frontCar.currentRoad != this.routes.Peek())))
                 {
-                    //>>’ÊíF‘¼‚Ì“¹˜H‚ÅrunningRoad‚µ‚Ä‚¢‚éCar‚ÍœŠO
+                    //>>é€šå¸¸æ™‚ï¼šä»–ã®é“è·¯ã§runningRoadã—ã¦ã„ã‚‹Carã¯é™¤å¤–
 
-                    //‘O‚ğ‘–‚Á‚Ä‚¢‚éÔ‚ª‘¶İ‚·‚é
+                    //å‰ã‚’èµ°ã£ã¦ã„ã‚‹è»ŠãŒå­˜åœ¨ã™ã‚‹
                     frontSpeed = frontCar.currentSpeed;
                     s = distance;
                 }
             }
 
-            //‘¬“xŒvZ
+            //é€Ÿåº¦è¨ˆç®—
             currentSpeed = CalculateGFM(
                     currentSpeed,
                     s,
@@ -1116,12 +1116,12 @@ namespace InGame
                     runningJointD
                 );
 
-            //Šp‘¬“x‚É•ÏŠ·‚µ‚Ä•Ô‚·
+            //è§’é€Ÿåº¦ã«å¤‰æ›ã—ã¦è¿”ã™
             return MyMath.GetAngularSpeed(currentSpeed, currentCurveRoute.radius);
         }
 
         /// <summary>
-        /// RunRoad‚Ì‰ñ“]‚ğ•Ô‚·
+        /// RunRoadæ™‚ã®å›è»¢ã‚’è¿”ã™
         /// </summary>
         private float GetRotatoinInRoad(Vector2 alongVector)
         {
@@ -1129,10 +1129,10 @@ namespace InGame
         }
 
         /// <summary>
-        /// “ñ‚Â‚Ì“¹‚©‚çƒJ[ƒu‹O“¹‚ğæ“¾
+        /// äºŒã¤ã®é“ã‹ã‚‰ã‚«ãƒ¼ãƒ–è»Œé“ã‚’å–å¾—
         /// </summary>
-        /// <param name="startingEdgeID">Œğ·“_‘¤‚ÌedgeID</param>
-        /// <param name="endingRoad">Œğ·“_‘¤‚ÌedgeID</param>
+        /// <param name="startingEdgeID">äº¤å·®ç‚¹å´ã®edgeID</param>
+        /// <param name="endingRoad">äº¤å·®ç‚¹å´ã®edgeID</param>
         private CurveRoute GetCurveRoute(
             RoadJoint curvingJoint,
             Road startingRoad, 
@@ -1145,29 +1145,29 @@ namespace InGame
 
             output.curvingJoint = curvingJoint;
 
-            //EdgeID‚ğæ“¾
+            //EdgeIDã‚’å–å¾—
             uint startingEdgeID = startingRoad.GetEdgeID(curvingJoint);
             uint endingEdgeID = endingRoad.GetEdgeID(curvingJoint);
 
-            //>>Œv‰ñ‚è‚©‚ğæ“¾
+            //>>æ™‚è¨ˆå›ã‚Šã‹ã‚’å–å¾—
             Vector2 startingAlongVector = startingRoad.alongVectors[Road.GetDifferentEdgeID(startingEdgeID)];
             Vector2 endingAlongVector = endingRoad.alongVectors[endingEdgeID];
             float angularDiference = MyMath.GetAngularDifference(startingAlongVector, endingAlongVector);
             if (angularDiference < 180f)
             {
-                //”½Œv‰ñ‚è
+                //åæ™‚è¨ˆå›ã‚Š
                 output.clockwise = false;
             }
             else
             {
-                //Œv‰ñ‚è
+                //æ™‚è¨ˆå›ã‚Š
                 output.clockwise = true;
             }
 
-            //>>’†S‚ğæ“¾
-            //Ôü‚Ì‘¤–Ê‚ÌŒğ“_‚ª’†S‚É‚È‚é
+            //>>ä¸­å¿ƒã‚’å–å¾—
+            //è»Šç·šã®å´é¢ã®äº¤ç‚¹ãŒä¸­å¿ƒã«ãªã‚‹
 
-            //l—¶‚·‚éü•ª
+            //è€ƒæ…®ã™ã‚‹ç·šåˆ†
             Vector2 startingRoadSideLinePoint;
             Vector2 startingRoadSideLineVector;
             Vector2 endingRoadSideLinePoint;
@@ -1175,40 +1175,40 @@ namespace InGame
 
             if (output.clockwise)
             {
-                //>>Œv‰ñ‚è
+                //>>æ™‚è¨ˆå›ã‚Š
 
-                //starting: Ôü‚Ì‰E‘¤
+                //starting: è»Šç·šã®å³å´
                 startingRoadSideLinePoint = startingRoad.GetRightPoint(Road.GetDifferentEdgeID(startingEdgeID), startingLaneID);
                 startingRoadSideLineVector = startingRoad.alongVectors[Road.GetDifferentEdgeID(startingEdgeID)];
 
-                //ending: Ôü‚Ì‰E‘¤
+                //ending: è»Šç·šã®å³å´
                 endingRoadSideLinePoint = endingRoad.GetRightPoint(endingEdgeID, endingLaneID);
                 endingRoadSideLineVector = endingRoad.alongVectors[endingEdgeID];
             }
             else
             {
-                //>>”½Œv‰ñ‚è
+                //>>åæ™‚è¨ˆå›ã‚Š
                 
-                //starting: Ôü‚Ì¶‘¤
+                //starting: è»Šç·šã®å·¦å´
                 startingRoadSideLinePoint = startingRoad.GetLeftPoint(Road.GetDifferentEdgeID(startingEdgeID), startingLaneID);
                 startingRoadSideLineVector = startingRoad.alongVectors[Road.GetDifferentEdgeID(startingEdgeID)];
 
-                //ending: Ôü‚Ì¶‘¤
+                //ending: è»Šç·šã®å·¦å´
                 endingRoadSideLinePoint = endingRoad.GetLeftPoint(endingEdgeID, endingLaneID);
                 endingRoadSideLineVector = endingRoad.alongVectors[endingEdgeID];
             }
 
-            //Œğ“_‚ğ‹‚ß‚é
+            //äº¤ç‚¹ã‚’æ±‚ã‚ã‚‹
             output.center = MyMath.GetIntersection(startingRoadSideLinePoint, startingRoadSideLineVector, endingRoadSideLinePoint, endingRoadSideLineVector);
 
-            //ƒJ[ƒu‚Ìn“_EI“_‚ğ‹‚ß‚é
+            //ã‚«ãƒ¼ãƒ–ã®å§‹ç‚¹ãƒ»çµ‚ç‚¹ã‚’æ±‚ã‚ã‚‹
             Vector2 startingPoint = MyMath.GetFootOfPerpendicular(output.center, startingRoad.GetStartingPoint(Road.GetDifferentEdgeID(startingEdgeID), startingLaneID), startingRoad.alongVectors[Road.GetDifferentEdgeID(startingEdgeID)]);
             Vector2 endingPoint = MyMath.GetFootOfPerpendicular(output.center, endingRoad.GetStartingPoint(endingEdgeID, endingLaneID), endingRoad.alongVectors[endingEdgeID]);
 
-            //”¼Œa‚ğ‹‚ß‚é
+            //åŠå¾„ã‚’æ±‚ã‚ã‚‹
             output.radius = Vector2.Distance(startingPoint, output.center);
 
-            //Šp“x‚ğ‹‚ß‚é
+            //è§’åº¦ã‚’æ±‚ã‚ã‚‹
             output.startingAngle = MyMath.GetAngular(startingPoint - output.center);
             output.endingAngle = MyMath.GetAngular(endingPoint - output.center);
 
@@ -1216,13 +1216,13 @@ namespace InGame
         }
 
         /// <summary>
-        /// RunningJoint’†‚Ì‰ñ“]‚ğæ“¾
+        /// RunningJointä¸­ã®å›è»¢ã‚’å–å¾—
         /// </summary>
         private Quaternion GetRotationInJoint(float angleInCurve, bool clockwise)
         {
             float addition;
 
-            //90“x‘«‚µˆø‚«‚·‚é‚±‚Æ‚Åis•ûŒü‚ğŒü‚­
+            //90åº¦è¶³ã—å¼•ãã™ã‚‹ã“ã¨ã§é€²è¡Œæ–¹å‘ã‚’å‘ã
             if (clockwise)
             {
                 addition = -90f;
@@ -1236,42 +1236,42 @@ namespace InGame
         }
 
         /// <summary>
-        /// ‰ñ“]‰^“®‚ªI—¹‚µ‚½‚©Šm”F
+        /// å›è»¢é‹å‹•ãŒçµ‚äº†ã—ãŸã‹ç¢ºèª
         /// </summary>
         private static bool CheckCircularFinished(float currentAngle, CurveRoute curveRoute)
         {
             if (curveRoute.clockwise)
             {
-                //Œv‰ñ‚è
+                //æ™‚è¨ˆå›ã‚Š
                 if (curveRoute.startingAngle > curveRoute.endingAngle)
                 {
-                    //x²³‚ğŒo‰ß‚µ‚È‚¢
+                    //xè»¸æ­£ã‚’çµŒéã—ãªã„
                     return (currentAngle <= curveRoute.endingAngle);
                 }
                 else
                 {
-                    //x²³‚ğŒo‰ß
+                    //xè»¸æ­£ã‚’çµŒé
                     return (currentAngle <= curveRoute.endingAngle - 360);
                 }
             }
             else
             {
-                //”½Œv‰ñ‚è
+                //åæ™‚è¨ˆå›ã‚Š
                 if (curveRoute.startingAngle < curveRoute.endingAngle)
                 {
-                    //x²³‚ğŒo‰ß‚µ‚È‚¢
+                    //xè»¸æ­£ã‚’çµŒéã—ãªã„
                     return (currentAngle >= curveRoute.endingAngle);
                 }
                 else
                 {
-                    //x²³‚ğŒo‰ß
+                    //xè»¸æ­£ã‚’çµŒé
                     return (currentAngle >= curveRoute.endingAngle + 360);
                 }
             }
         }
 
         /// <summary>
-        /// Generalized Force Model‚ğŒvZ
+        /// Generalized Force Modelã‚’è¨ˆç®—
         /// </summary>
         private float CalculateGFM(
             float formerSpeed,
@@ -1316,7 +1316,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// Ô‚ğŒŸo
+        /// è»Šã‚’æ¤œå‡º
         /// </summary>
         private void DetectCars()
         {
@@ -1328,26 +1328,26 @@ namespace InGame
         }
 
         /// <summary>
-        /// M†‹@‚ğŒŸo
+        /// ä¿¡å·æ©Ÿã‚’æ¤œå‡º
         /// </summary>
         private TrafficLight DetectTrafficLight(Road road, uint startingEdgeID)
         {
-            //n“_‚Æ”½‘Î‘¤‚ÌM†‹@‚ğŒŸo
+            //å§‹ç‚¹ã¨åå¯¾å´ã®ä¿¡å·æ©Ÿã‚’æ¤œå‡º
             TrafficLight trafficLight = road.trafficLights[Road.GetDifferentEdgeID(startingEdgeID)];
 
             if (trafficLight.enabled)
             {
-                //M†‹@‚ª‹N“®‚µ‚Ä‚¢‚é
+                //ä¿¡å·æ©ŸãŒèµ·å‹•ã—ã¦ã„ã‚‹
                 return trafficLight;
             }
             else{
-                //M†‹@‚ª‹N“®‚³‚ê‚Ä‚¢‚È‚¢
+                //ä¿¡å·æ©ŸãŒèµ·å‹•ã•ã‚Œã¦ã„ãªã„
                 return null;
             }
         }
 
         /// <summary>
-        /// ŒŸoƒr[ƒ€‚ğ”­Ë‚µ‚ÄAŒŸo‚³‚ê‚½Ô‚Ì”z—ñ‚ğ•Ô‚·
+        /// æ¤œå‡ºãƒ“ãƒ¼ãƒ ã‚’ç™ºå°„ã—ã¦ã€æ¤œå‡ºã•ã‚ŒãŸè»Šã®é…åˆ—ã‚’è¿”ã™
         /// </summary>
         private List<Car> LunchDetectionRayForCars(Transform rayStartTransform, Transform[] rayEndTransforms)
         {
@@ -1364,7 +1364,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// ŒŸoƒr[ƒ€‚ğ”­Ë‚µ‚ÄAŒŸo‚³‚ê‚½Ô‚Ì”z—ñ‚ğ•Ô‚·
+        /// æ¤œå‡ºãƒ“ãƒ¼ãƒ ã‚’ç™ºå°„ã—ã¦ã€æ¤œå‡ºã•ã‚ŒãŸè»Šã®é…åˆ—ã‚’è¿”ã™
         /// </summary>
         private List<Car> LunchDetectionRayForCars(Vector2 rayStart, Vector2[] rayEnds)
         {
@@ -1372,7 +1372,7 @@ namespace InGame
 
             foreach (Vector2 rayEnd in rayEnds)
             {
-                //ŒŸoƒr[ƒ€‚ğ”­Ë
+                //æ¤œå‡ºãƒ“ãƒ¼ãƒ ã‚’ç™ºå°„
                 output.AddRange(LunchDetectionRayForCars(rayStart, rayEnd));
             }
 
@@ -1380,24 +1380,24 @@ namespace InGame
         }
 
         /// <summary>
-        /// ŒŸoƒr[ƒ€‚ğ”­Ë‚µ‚ÄAŒŸo‚³‚ê‚½Ô‚Ì”z—ñ‚ğ•Ô‚·
+        /// æ¤œå‡ºãƒ“ãƒ¼ãƒ ã‚’ç™ºå°„ã—ã¦ã€æ¤œå‡ºã•ã‚ŒãŸè»Šã®é…åˆ—ã‚’è¿”ã™
         /// </summary>
         private List<Car> LunchDetectionRayForCars(Vector2 rayStart, Vector2 rayEnd)
         {
             List<Car> output = new List<Car>();
             
-            //ŒŸoƒr[ƒ€‚ğ”­Ë
+            //æ¤œå‡ºãƒ“ãƒ¼ãƒ ã‚’ç™ºå°„
             RaycastHit2D[] hitteds = Physics2D.RaycastAll(rayStart, rayEnd - rayStart, (rayEnd - rayStart).magnitude);
 
-            //Õ“Ë‚µ‚½ƒIƒuƒWƒFƒNƒg‚©‚çÔ‚ğ—ñ‹“
+            //è¡çªã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰è»Šã‚’åˆ—æŒ™
             foreach (RaycastHit2D hitted in hitteds)
             {
-                //CarƒRƒ“ƒ|[ƒlƒ“ƒg‚ª‚ ‚é‚©+©•ª©g‚Å‚Í‚È‚¢‚©‚ğŠm”F
+                //Carã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆãŒã‚ã‚‹ã‹+è‡ªåˆ†è‡ªèº«ã§ã¯ãªã„ã‹ã‚’ç¢ºèª
                 Car car = hitted.collider.gameObject.GetComponent<Car>();
                 if ((car != null)
                     && (car != this))
                 {
-                    //Ô‚Å‚ ‚é
+                    //è»Šã§ã‚ã‚‹
                     output.Add(car);
                 }
             }
@@ -1406,16 +1406,16 @@ namespace InGame
         }
 
         /// <summary>
-        /// “¯‚¶“¹˜H‚ÅrunningRoad‚µ‚Ä‚¢‚éˆê‚Â‚ÌCar‚ğæ“¾
+        /// åŒã˜é“è·¯ã§runningRoadã—ã¦ã„ã‚‹ä¸€ã¤ã®Carã‚’å–å¾—
         /// </summary>
         private Car GetFrontCar()
         {
-            //Å‚à‹ß‚¢‚à‚Ì‚ğüŒ`’Tõ
+            //æœ€ã‚‚è¿‘ã„ã‚‚ã®ã‚’ç·šå½¢æ¢ç´¢
             float nearestDistance = float.MaxValue;
             Car nearestCar = null;
             foreach (Car car in carsDetectedFront)
             {
-                //”j‰óÏ‚İ‚È‚ç”ò‚Î‚·
+                //ç ´å£Šæ¸ˆã¿ãªã‚‰é£›ã°ã™
                 if (car == null)
                 {
                     continue;
@@ -1434,32 +1434,32 @@ namespace InGame
         }
 
         /// <summary>
-        /// runningJoint’†‚Ìˆê‚Â‘O‚ÌCar‚ğæ“¾
+        /// runningJointä¸­ã®ä¸€ã¤å‰ã®Carã‚’å–å¾—
         /// </summary>
         private Car GetFrontCarRunningJoint()
         {
-            //’Tõ‘ÎÛ‚ğ—ñ‹“
+            //æ¢ç´¢å¯¾è±¡ã‚’åˆ—æŒ™
             List<Car> targets = new List<Car>();
             targets.AddRange(carsDetectedFront);
             if (currentCurveRoute.clockwise)
             {
-                //Œv‰ñ‚è‚È‚ç‰E‚ğŒ©‚é
+                //æ™‚è¨ˆå›ã‚Šãªã‚‰å³ã‚’è¦‹ã‚‹
                 targets.AddRange(carsDetectedFrontRight);
                 targets.AddRange(carsDetectedRight);
             }
             else
             {
-                //”½Œv‰ñ‚è‚È‚ç¶‚ğŒ©‚é
+                //åæ™‚è¨ˆå›ã‚Šãªã‚‰å·¦ã‚’è¦‹ã‚‹
                 targets.AddRange(carsDetectedFrontLeft);
                 targets.AddRange(carsDetectedLeft);
             }
 
-            //Å‚à‹ß‚¢‚à‚Ì‚ğüŒ`’Tõ
+            //æœ€ã‚‚è¿‘ã„ã‚‚ã®ã‚’ç·šå½¢æ¢ç´¢
             float nearestDistance = float.MaxValue;
             Car nearestCar = null;
             foreach (Car car in targets)
             {
-                //”j‰óÏ‚İ‚È‚ç”ò‚Î‚·
+                //ç ´å£Šæ¸ˆã¿ãªã‚‰é£›ã°ã™
                 if (car == null)
                 {
                     continue;
@@ -1481,7 +1481,7 @@ namespace InGame
         {
             const float angleUnit = 5f;
 
-            //>>‰~ŒÊã‚ÉŒŸoƒr[ƒ€‚ğo‚·
+            //>>å††å¼§ä¸Šã«æ¤œå‡ºãƒ“ãƒ¼ãƒ ã‚’å‡ºã™
             float angle = currentAngle;
             float angleEnd = curveRoute.endingAngle;
             Car target = null;
@@ -1492,12 +1492,12 @@ namespace InGame
 
                 if (curveRoute.clockwise)
                 {
-                    //Œv‰ñ‚è
+                    //æ™‚è¨ˆå›ã‚Š
                     angle -= angleUnit;
                 }
                 else
                 {
-                    //”½Œv‰ñ‚è
+                    //åæ™‚è¨ˆå›ã‚Š
                     angle += angleUnit;
                 }
 
@@ -1511,8 +1511,8 @@ namespace InGame
                 List<Car> hittedCars = LunchDetectionRayForCars(rayStart, rayEnd);
                 if (hittedCars.Count > 0)
                 {
-                    //>>‘¶İ
-                    //rayStart‚ÉÅ‚à‹ß‚¢‚à‚Ì‚ğ’T‚·
+                    //>>å­˜åœ¨
+                    //rayStartã«æœ€ã‚‚è¿‘ã„ã‚‚ã®ã‚’æ¢ã™
                     Car nearestCar = null;
                     float nearestDistance = float.MaxValue;
                     foreach(Car car in hittedCars)
@@ -1534,7 +1534,7 @@ namespace InGame
                 }
             }
 
-            //–¢ŒŸo‚Ìê‡AŸ‚Ì“¹˜H‚Ì”¼•ª‚àŒ©‚é
+            //æœªæ¤œå‡ºã®å ´åˆã€æ¬¡ã®é“è·¯ã®åŠåˆ†ã‚‚è¦‹ã‚‹
             if(target == null)
             {
                 Road nextRoad = routes.Peek();
@@ -1544,7 +1544,7 @@ namespace InGame
 
                 List<Car> cars = LunchDetectionRayForCars(rayStart, rayStart + direction);
 
-                //Å‚à‹ß‚¢‚à‚Ì‚ğ’T‚·
+                //æœ€ã‚‚è¿‘ã„ã‚‚ã®ã‚’æ¢ã™
                 Car nearestCar = null;
                 float nearestDistance = float.MaxValue;
                 foreach(Car car in cars)
@@ -1565,62 +1565,62 @@ namespace InGame
         }
 
         /// <summary>
-        /// –‘«“x‚ÌŠÇ—‚ğ‚·‚é
+        /// æº€è¶³åº¦ã®ç®¡ç†ã‚’ã™ã‚‹
         /// </summary>
         private void ManageHappiness()
         {
-            //‘¬“x‚Ì•Û‘¶
+            //é€Ÿåº¦ã®ä¿å­˜
             SaveSpeed();
 
-            //–‘«“x‚ğŒvZ
+            //æº€è¶³åº¦ã‚’è¨ˆç®—
             CalculateHappiness();
 
-            //F‚ğXV
+            //è‰²ã‚’æ›´æ–°
             colorObject.UpdateColor(happinessRatio);
         }
 
         /// <summary>
-        /// ‘¬“x‚ğ•Û‘¶‚·‚é
+        /// é€Ÿåº¦ã‚’ä¿å­˜ã™ã‚‹
         /// </summary>
         private void SaveSpeed()
         {
-            //ƒ^ƒCƒ}[i‚ß‚é
+            //ã‚¿ã‚¤ãƒãƒ¼é€²ã‚ã‚‹
             saveSpeedTimer += Time.deltaTime;
 
             if(saveSpeedTimer < saveSpeedInterval)
             {
-                //‚Ü‚¾ƒ^ƒCƒ}[‚ªØ‚ê‚Ä‚¢‚È‚¢
+                //ã¾ã ã‚¿ã‚¤ãƒãƒ¼ãŒåˆ‡ã‚Œã¦ã„ãªã„
                 return;
             }
-            //>>ƒ^ƒCƒ}[‚ªØ‚ê‚½
+            //>>ã‚¿ã‚¤ãƒãƒ¼ãŒåˆ‡ã‚ŒãŸ
 
-            //‘¬“x‚ğ•Û‘¶
+            //é€Ÿåº¦ã‚’ä¿å­˜
             savedSpeeds.Add(currentSpeed);
 
-            //ƒ^ƒCƒ}[ƒŠƒZƒbƒg
+            //ã‚¿ã‚¤ãƒãƒ¼ãƒªã‚»ãƒƒãƒˆ
             saveSpeedTimer = saveSpeedTimer % saveSpeedInterval;
         }
 
         /// <summary>
-        /// –‘«“x‚ÌŒvZ
+        /// æº€è¶³åº¦ã®è¨ˆç®—
         /// </summary>
         private void CalculateHappiness()
         {
-            //ƒ^ƒCƒ}[i‚ß‚é
+            //ã‚¿ã‚¤ãƒãƒ¼é€²ã‚ã‚‹
             happinessCalculationTimer += Time.deltaTime;
 
             if(happinessCalculationTimer < happinessCalculationInterval)
             {
-                //‚Ü‚¾ƒ^ƒCƒ}[‚ªØ‚ê‚Ä‚¢‚È‚¢
+                //ã¾ã ã‚¿ã‚¤ãƒãƒ¼ãŒåˆ‡ã‚Œã¦ã„ãªã„
                 return;
             }
-            //>>ƒ^ƒCƒ}[‚ªØ‚ê‚½
+            //>>ã‚¿ã‚¤ãƒãƒ¼ãŒåˆ‡ã‚ŒãŸ
 
-            //–‘«“x‚ğ‘Œ¸
+            //æº€è¶³åº¦ã‚’å¢—æ¸›
             int changement = GetHappinessChangement();
             happiness += changement;
 
-            //”ÍˆÍŠÇ—
+            //ç¯„å›²ç®¡ç†
             if (happiness < happinessMin)
             {
                 happiness = happinessMin;
@@ -1630,25 +1630,25 @@ namespace InGame
                 happiness = happinessMax;
             }
 
-            //ƒ^ƒCƒ}[ƒŠƒZƒbƒg
+            //ã‚¿ã‚¤ãƒãƒ¼ãƒªã‚»ãƒƒãƒˆ
             happinessCalculationTimer = happinessCalculationTimer % happinessCalculationInterval;
         }
 
         /// <summary>
-        /// K•Ÿ“x‚Ì•Ï‰»—Ê‚ğŒvZ
+        /// å¹¸ç¦åº¦ã®å¤‰åŒ–é‡ã‚’è¨ˆç®—
         /// </summary>
         private int GetHappinessChangement()
         {
-            //Å‚‘¬“x‚É‘Î‚·‚éŠ„‡
+            //æœ€é«˜é€Ÿåº¦ã«å¯¾ã™ã‚‹å‰²åˆ
             float speedRatio = currentSpeed / runningJointV0;
 
-            //‘Î‰‚·‚é•Ï‰»—Ê‚ğ’T‚·
+            //å¯¾å¿œã™ã‚‹å¤‰åŒ–é‡ã‚’æ¢ã™
             int output = happinessChangements[happinessChangeThresholds.Length - 1];
             for(int cnt = 0; cnt < happinessChangeThresholds.Length; cnt++)
             {
                 if(speedRatio <= happinessChangeThresholds[cnt])
                 {
-                    //cnt‚ªŠY“–‚·‚éƒCƒ“ƒfƒbƒNƒX
+                    //cntãŒè©²å½“ã™ã‚‹ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
                     output = happinessChangements[cnt];
                     
                     break;
@@ -1659,7 +1659,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// •½‹Ï‘¬“x‚ğŒvZ
+        /// å¹³å‡é€Ÿåº¦ã‚’è¨ˆç®—
         /// </summary>
         private float CalculateAverageSpeed()
         {
@@ -1673,37 +1673,37 @@ namespace InGame
         }
 
         /// <summary>
-        /// Joint‚ğ‹È‚ª‚é‚Æ‚«A‰~ŒÊ‚ğ•`‚­B‚»‚Ì‰~ŒÊ‚Ìn“_AI“_A’†SB
+        /// Jointã‚’æ›²ãŒã‚‹ã¨ãã€å††å¼§ã‚’æãã€‚ãã®å††å¼§ã®å§‹ç‚¹ã€çµ‚ç‚¹ã€ä¸­å¿ƒã€‚
         /// </summary>
         private struct CurveRoute
         {
             /// <summary>
-            /// ‰ñ‚Á‚Ä‚¢‚éRoadJoint
+            /// å›ã£ã¦ã„ã‚‹RoadJoint
             /// </summary>
             public RoadJoint curvingJoint;
 
             /// <summary>
-            /// ‰~ŒÊ‚Ì’†S
+            /// å††å¼§ã®ä¸­å¿ƒ
             /// </summary>
             public Vector2 center;
 
             /// <summary>
-            /// ‰~ŒÊ”¼Œa
+            /// å††å¼§åŠå¾„
             /// </summary>
             public float radius;
 
             /// <summary>
-            /// n“_‚ÌŠp“xi‚˜²‚©‚ç”½Œv‰ñ‚è‚Éj
+            /// å§‹ç‚¹ã®è§’åº¦ï¼ˆï½˜è»¸ã‹ã‚‰åæ™‚è¨ˆå›ã‚Šã«ï¼‰
             /// </summary>
             public float startingAngle;
 
             /// <summary>
-            /// I“_‚ÌŠp“xi‚˜²‚©‚ç”½Œv‰ñ‚è‚Éj
+            /// çµ‚ç‚¹ã®è§’åº¦ï¼ˆï½˜è»¸ã‹ã‚‰åæ™‚è¨ˆå›ã‚Šã«ï¼‰
             /// </summary>
             public float endingAngle;
 
             /// <summary>
-            /// Œv‰ñ‚è‚©
+            /// æ™‚è¨ˆå›ã‚Šã‹
             /// </summary>
             public bool clockwise;
 

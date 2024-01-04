@@ -5,14 +5,14 @@ using UnityEngine;
 namespace InGame
 {
     /// <summary>
-    /// Ô‚ÌƒJƒ‰[ƒŠƒ“ƒO
-    /// CarƒNƒ‰ƒX‚É–½‚¶‚ç‚ê‚Ä“®ì‚·‚éB
-    /// ‚±‚ê‚ÍSprite—p
+    /// è»Šã®ã‚«ãƒ©ãƒ¼ãƒªãƒ³ã‚°
+    /// Carã‚¯ãƒ©ã‚¹ã«å‘½ã˜ã‚‰ã‚Œã¦å‹•ä½œã™ã‚‹ã€‚
+    /// ã“ã‚Œã¯Spriteç”¨
     /// </summary>
     public class CarColorSprite : CarColor
     {
         /// <summary>
-        /// ÀÛ‚ÉF‚ğ•Ï‚¦‚é
+        /// å®Ÿéš›ã«è‰²ã‚’å¤‰ãˆã‚‹
         /// </summary>
         protected override void SetColor(Color color)
         {

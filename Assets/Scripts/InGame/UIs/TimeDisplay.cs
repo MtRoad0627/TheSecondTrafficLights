@@ -6,18 +6,18 @@ using TMPro;
 namespace InGame.UI
 {
     /// <summary>
-    /// c‚èŠÔ‚ğ•\¦
+    /// æ®‹ã‚Šæ™‚é–“ã‚’è¡¨ç¤º
     /// </summary>
     public class TimeDisplay : MonoBehaviour
     {
-        [Tooltip("c‚èŠÔ‚ª‚±‚ê–¢–‚É‚È‚é‚ÆÔ‚­‚È‚é")]
+        [Tooltip("æ®‹ã‚Šæ™‚é–“ãŒã“ã‚Œæœªæº€ã«ãªã‚‹ã¨èµ¤ããªã‚‹")]
         [SerializeField] private float timeRed = 10f;
 
         void Update()
         {
             GetComponent<TextMeshProUGUI>().text = MakeText();
 
-            //c‚è10•b–¢–‚É‚È‚é‚ÆÔ‚­‚·‚é
+            //æ®‹ã‚Š10ç§’æœªæº€ã«ãªã‚‹ã¨èµ¤ãã™ã‚‹
             if(GameManager.Instance.gameTimeLeft < timeRed)
             {
                 GetComponent<TextMeshProUGUI>().color = Color.red;
@@ -38,7 +38,7 @@ namespace InGame.UI
             int second = currentTime % 60;
             if(second < 10)
             {
-                //u08v‚Ì‚æ‚¤‚É•\¦‚³‚¹‚é
+                //ã€Œ08ã€ã®ã‚ˆã†ã«è¡¨ç¤ºã•ã›ã‚‹
                 output += "0";
             }
             output += second;

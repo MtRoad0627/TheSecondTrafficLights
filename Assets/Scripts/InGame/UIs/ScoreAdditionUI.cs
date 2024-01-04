@@ -6,22 +6,22 @@ using TMPro;
 namespace InGame.UI
 {
     /// <summary>
-    /// ‰Á“_‚ÉAƒtƒF[ƒhƒAƒEƒg‚µ‚Ä‚¢‚­UIB
-    /// Animationƒx[ƒX‚Å“®‚­
+    /// åŠ ç‚¹æ™‚ã«ã€ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆã—ã¦ã„ãUIã€‚
+    /// Animationãƒ™ãƒ¼ã‚¹ã§å‹•ã
     /// </summary>
     public class ScoreAdditionUI : MonoBehaviour
     {
         /// <summary>
-        /// ‰Šú‰»
+        /// åˆæœŸåŒ–
         /// </summary>
-        /// <param name="scoreAdditional">‰Á“_‚³‚ê‚½—Ê</param>
+        /// <param name="scoreAdditional">åŠ ç‚¹ã•ã‚ŒãŸé‡</param>
         public void Initialize(int scoreAdditional)
         {
             GetComponent<TextMeshProUGUI>().text = MakeText(scoreAdditional);
         }
 
         /// <summary>
-        /// ƒAƒjƒ[ƒVƒ‡ƒ“‚ªI‚í‚Á‚½‚çAÁ‚¦‚é
+        /// ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ãŒçµ‚ã‚ã£ãŸã‚‰ã€æ¶ˆãˆã‚‹
         /// </summary>
         public void OnAnimationFinished()
         {

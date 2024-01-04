@@ -17,61 +17,61 @@ namespace InGame
         public Sequence sequence { get; private set; } = Sequence.countDown;
 
         /// <summary>
-        /// “¾“_
+        /// å¾—ç‚¹
         /// </summary>
         public static int score { get; private set; } = 0;
 
         /// <summary>
-        /// ƒ{[ƒiƒX
+        /// ãƒœãƒ¼ãƒŠã‚¹
         /// </summary>
         public static int bonus { get; private set; } = 0;
 
-        [Header("ƒXƒRƒAŠÖŒW")]
+        [Header("ã‚¹ã‚³ã‚¢é–¢ä¿‚")]
 
-        [Tooltip("Å‚‘¬“x‚Æ‚Ì·‚É‰½æ‚·‚é‚©")]
+        [Tooltip("æœ€é«˜é€Ÿåº¦ã¨ã®å·®ã«ä½•ä¹—ã™ã‚‹ã‹")]
         [SerializeField] private float scoreExponent = 2f;
 
-        [Tooltip("“¾“_‚ğ’PƒŠg‘å‚·‚é")]
+        [Tooltip("å¾—ç‚¹ã‚’å˜ç´”æ‹¡å¤§ã™ã‚‹")]
         [SerializeField] private float scoreCoef = 100f;
 
-        [Tooltip("ƒ{[ƒiƒXÅ‘å")]
+        [Tooltip("ãƒœãƒ¼ãƒŠã‚¹æœ€å¤§")]
         [SerializeField] private int bonusMax = 400;
 
-        [Tooltip("C¨B")]
+        [Tooltip("Câ†’B")]
         [SerializeField] private int _bThreshold = 900;
 
-        [Tooltip("B¨A")]
+        [Tooltip("Bâ†’A")]
         [SerializeField] private int _aThreshold = 1300;
 
         public static int bThreahold = 0;
         public static int aThreahold = 0;
 
-        [Header("ƒ^ƒCƒ€")]
+        [Header("ã‚¿ã‚¤ãƒ ")]
 
-        [Tooltip("ƒQ[ƒ€ŠÔi•bj")]
+        [Tooltip("ã‚²ãƒ¼ãƒ æ™‚é–“ï¼ˆç§’ï¼‰")]
         [SerializeField] private float gameTime = 61f;
 
-        [Header("ƒQ[ƒ€I—¹")]
+        [Header("ã‚²ãƒ¼ãƒ çµ‚äº†")]
         
-        [Tooltip("ƒQ[ƒ€I—¹‚µ‚Ä‚©‚çƒŠƒUƒ‹ƒg‰æ–Ê‚ÉˆÚ‚é‚Ü‚Å‚ÌŠÔ")]
+        [Tooltip("ã‚²ãƒ¼ãƒ çµ‚äº†ã—ã¦ã‹ã‚‰ãƒªã‚¶ãƒ«ãƒˆç”»é¢ã«ç§»ã‚‹ã¾ã§ã®æ™‚é–“")]
         [SerializeField] private float gameFinishedWait = 3f;
 
-        [Tooltip("ƒŠƒUƒ‹ƒg‰æ–Ê‚ÌƒV[ƒ“–¼")]
+        [Tooltip("ãƒªã‚¶ãƒ«ãƒˆç”»é¢ã®ã‚·ãƒ¼ãƒ³å")]
         [SerializeField] private string resultSceneName = "Result";
 
-        [Tooltip("ƒXƒ^[ƒg‰æ–Ê‚ÌƒV[ƒ“–¼")]
+        [Tooltip("ã‚¹ã‚¿ãƒ¼ãƒˆç”»é¢ã®ã‚·ãƒ¼ãƒ³å")]
         [SerializeField] private string startSceneName = "Start";
 
         public float countDownTimeLeft { get; private set; } = 3f;
 
         public float gameTimeLeft { get; private set; } = 61f;
 
-        //‘STrafficLightsSystem‚ª‰Šú‰»Ï‚İ‚©
+        //å…¨TrafficLightsSystemãŒåˆæœŸåŒ–æ¸ˆã¿ã‹
         private bool afterConnectionInitialized = false;
 
         private void Start()
         {
-            //•Ï”‰Šú‰»
+            //å¤‰æ•°åˆæœŸåŒ–
             gameTimeLeft = gameTime;
             score = 0;
             aThreahold = _aThreshold;
@@ -80,8 +80,8 @@ namespace InGame
 
         private void Update()
         {
-            //TrafficLightsSystem‚ğ‰Šú‰»
-            //Start()‚É’u‚­‚ÆRoadÚ‘±‚Éæ‰ñ‚è‚µ‚Ä‚µ‚Ü‚¤‚½‚ß‚±‚±‚É”z’u
+            //TrafficLightsSystemã‚’åˆæœŸåŒ–
+            //Start()ã«ç½®ãã¨Roadæ¥ç¶šã«å…ˆå›ã‚Šã—ã¦ã—ã¾ã†ãŸã‚ã“ã“ã«é…ç½®
             if (!afterConnectionInitialized)
             {
                 InitilizeAfterRoadConnection();
@@ -91,52 +91,52 @@ namespace InGame
         }
 
         /// <summary>
-        /// ‘S“¹˜H‚ªÚ‘±Ï‚İ‚©Šm”F‚µ‚ÄA‚»‚ÌŒã‚É‰Šú‰»‚ª•K—v‚ÈƒIƒuƒWƒFƒNƒg‚ğ‰Šú‰»‚³‚¹‚é
+        /// å…¨é“è·¯ãŒæ¥ç¶šæ¸ˆã¿ã‹ç¢ºèªã—ã¦ã€ãã®å¾Œã«åˆæœŸåŒ–ãŒå¿…è¦ãªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’åˆæœŸåŒ–ã•ã›ã‚‹
         /// </summary>
         private void InitilizeAfterRoadConnection()
         {
-            //–¢Ú‘±‚Ì“¹˜H‚ª‘¶İ‚µ‚Ä‚¢‚ê‚ÎƒLƒƒƒ“ƒZƒ‹
+            //æœªæ¥ç¶šã®é“è·¯ãŒå­˜åœ¨ã—ã¦ã„ã‚Œã°ã‚­ãƒ£ãƒ³ã‚»ãƒ«
             Road[] allRoads = FindObjectsOfType<Road>();
             foreach(Road road in allRoads)
             {
                 if (!road.isInitialized)
                 {
-                    //>>–¢Ú‘±
+                    //>>æœªæ¥ç¶š
                     return;
                 }
             }
 
-            //>>‘S“¹˜H‚ªÚ‘±Ï‚İ
+            //>>å…¨é“è·¯ãŒæ¥ç¶šæ¸ˆã¿
             
-            //Œğ·“_EM†‹@‚ğ‰Šú‰»
+            //äº¤å·®ç‚¹ãƒ»ä¿¡å·æ©Ÿã‚’åˆæœŸåŒ–
             InitializeIntersections();
 
-            //CarGenerator‚ğ‰Šú‰»
+            //CarGeneratorã‚’åˆæœŸåŒ–
             CarGenerator.Initialize();
 
-            //Navigator‚ğ‰Šú‰»
+            //Navigatorã‚’åˆæœŸåŒ–
             Navigator.Instance.SetUp();
         }
 
         /// <summary>
-        /// ‘STrafficLightsSystem‚ğ‰Šú‰»‚³‚¹‚é
+        /// å…¨TrafficLightsSystemã‚’åˆæœŸåŒ–ã•ã›ã‚‹
         /// </summary>
         private void InitializeIntersections()
         {
-            //‘SRoadJoints‚ÌŒv‰ñ‚èƒ\[ƒg‚ğÏ‚Ü‚¹‚é
-            //+‘STrafficLightsSystem‚ğ‰Šú‰»‚³‚¹‚é
+            //å…¨RoadJointsã®æ™‚è¨ˆå›ã‚Šã‚½ãƒ¼ãƒˆã‚’æ¸ˆã¾ã›ã‚‹
+            //+å…¨TrafficLightsSystemã‚’åˆæœŸåŒ–ã•ã›ã‚‹
             RoadJoint[] allJoints = FindObjectsOfType<RoadJoint>();
             foreach (RoadJoint roadJoint in allJoints)
             {
                 roadJoint.ArrangeRoadsAnticlockwise();
             }
 
-            //‰Šú‰»Ï‚İ‚É
+            //åˆæœŸåŒ–æ¸ˆã¿ã«
             afterConnectionInitialized = true;
         }
 
         /// <summary>
-        /// c‚èŠÔ‚ÌŠÇ—
+        /// æ®‹ã‚Šæ™‚é–“ã®ç®¡ç†
         /// </summary>
         private void ManageTime()
         {
@@ -145,7 +145,7 @@ namespace InGame
                 case Sequence.countDown:
                     countDownTimeLeft -= Time.deltaTime;
 
-                    //ŠÔ‚ª—ˆ‚½‚çplayingƒV[ƒPƒ“ƒX‚ÉØ‚è‘Ö‚¦
+                    //æ™‚é–“ãŒæ¥ãŸã‚‰playingã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã«åˆ‡ã‚Šæ›¿ãˆ
                     if(countDownTimeLeft <= 0f)
                     {
                         TransferToPlaying();
@@ -164,7 +164,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// PlayingƒV[ƒPƒ“ƒX‚ÉˆÚs
+        /// Playingã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã«ç§»è¡Œ
         /// </summary>
         private void TransferToPlaying()
         {
@@ -174,7 +174,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// FinishedƒV[ƒPƒ“ƒX‚ÉˆÚs
+        /// Finishedã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã«ç§»è¡Œ
         /// </summary>
         private void TransferToFinished()
         {
@@ -188,48 +188,48 @@ namespace InGame
         }
 
         /// <summary>
-        /// Ô“’B‚É‰Á“_
+        /// è»Šåˆ°é”æ™‚ã«åŠ ç‚¹
         /// </summary>
         public void OnCarArrived(float speedAverage, float speedMax)
         {
-            //PlayingƒV[ƒPƒ“ƒX‚Ì‚İ
+            //Playingã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®ã¿
             if(sequence != Sequence.playing)
             {
                 return;
             }
 
-            //‚¢‚­‚ç‰Á“_‚·‚é‚©ŒvZ
+            //ã„ãã‚‰åŠ ç‚¹ã™ã‚‹ã‹è¨ˆç®—
             int scoreAddition = CalculatePoint(speedAverage, speedMax);
 
-            //‰Á“_
+            //åŠ ç‚¹
             AddPoint(scoreAddition);
         }
 
         /// <summary>
-        /// •½‹ÏƒXƒs[ƒh‚ğ“¾“_‚É•ÏŠ·‚·‚é
+        /// å¹³å‡ã‚¹ãƒ”ãƒ¼ãƒ‰ã‚’å¾—ç‚¹ã«å¤‰æ›ã™ã‚‹
         /// </summary>
         private int CalculatePoint(float speedAverage, float speedMax)
         {
-            float difference = speedAverage@/ speedMax;
+            float difference = speedAverageã€€/ speedMax;
             float powered = Mathf.Pow(difference, scoreExponent);
 
             return (int)(powered * scoreCoef);
         }
 
         /// <summary>
-        /// ‰Á“_
+        /// åŠ ç‚¹
         /// </summary>
         private void AddPoint(int addition)
         {
-            //‰Á“_
+            //åŠ ç‚¹
             score += addition;
 
-            //UIXV
+            //UIæ›´æ–°
             UIManager.Instance.OnPointsChanged(addition);
         }
 
         /// <summary>
-        /// ƒ{[ƒiƒXƒ|ƒCƒ“ƒg‚ğŒˆ‚ß‚é
+        /// ãƒœãƒ¼ãƒŠã‚¹ãƒã‚¤ãƒ³ãƒˆã‚’æ±ºã‚ã‚‹
         /// </summary>
         private void SetBonus()
         {
@@ -240,7 +240,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// Result‰æ–Ê‚Ö‘JˆÚ
+        /// Resultç”»é¢ã¸é·ç§»
         /// </summary>
         private void GotoResult()
         {
@@ -248,7 +248,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// ƒ^ƒCƒgƒ‹‚Ö–ß‚é
+        /// ã‚¿ã‚¤ãƒˆãƒ«ã¸æˆ»ã‚‹
         /// </summary>
         public void Quit()
         {

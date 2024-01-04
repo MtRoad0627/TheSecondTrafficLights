@@ -7,13 +7,13 @@ using System.Linq;
 namespace InGame
 {
     /// <summary>
-    /// Intersection‚Éˆê‘Îˆê‘Î‰
-    /// •¡”‚ÌTrafficLight‚ğæ‚è‚Ü‚Æ‚ß‚é
-    /// ƒvƒŒƒCƒ„[‚Ì“ü—Í‚Í–{ƒNƒ‰ƒX‚ªó‚¯æ‚é
+    /// Intersectionã«ä¸€å¯¾ä¸€å¯¾å¿œ
+    /// è¤‡æ•°ã®TrafficLightã‚’å–ã‚Šã¾ã¨ã‚ã‚‹
+    /// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å…¥åŠ›ã¯æœ¬ã‚¯ãƒ©ã‚¹ãŒå—ã‘å–ã‚‹
     /// </summary>
     public class TrafficLightsSystem : MonoBehaviour
     {
-        [Tooltip("‘Î‰‚·‚éM†‹@")]
+        [Tooltip("å¯¾å¿œã™ã‚‹ä¿¡å·æ©Ÿ")]
         [SerializeField] private TrafficLight[] trafficLights;
 
         private Dictionary<Road, TrafficLight> correspondingTrafficLight = new Dictionary<Road, TrafficLight>();
@@ -28,7 +28,7 @@ namespace InGame
         public States state { get; private set; } = States.initializing;
 
         /// <summary>
-        /// —ÎF‚É‚È‚Á‚Ä‚¢‚éM†‹@‚Ì‘g‚İ‡‚í‚¹
+        /// ç·‘è‰²ã«ãªã£ã¦ã„ã‚‹ä¿¡å·æ©Ÿã®çµ„ã¿åˆã‚ã›
         /// </summary>
         public enum GreenPattern
         {
@@ -36,57 +36,57 @@ namespace InGame
             even
         }
 
-        [Tooltip("‰Šúó‘Ô‚Å—ÎM†‚É‚È‚é‚à‚Ì")]
+        [Tooltip("åˆæœŸçŠ¶æ…‹ã§ç·‘ä¿¡å·ã«ãªã‚‹ã‚‚ã®")]
         [SerializeField] private GreenPattern initiallyGreen = GreenPattern.even;
 
-        //Œ»İ—Î‚É‚È‚Á‚Ä‚¢‚éƒpƒ^[ƒ“
+        //ç¾åœ¨ç·‘ã«ãªã£ã¦ã„ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³
         private GreenPattern currentPattern;
 
-        [Tooltip("‰©FM†‚É‚È‚Á‚Ä‚¢‚éŠÔi•bj")]
+        [Tooltip("é»„è‰²ä¿¡å·ã«ãªã£ã¦ã„ã‚‹æ™‚é–“ï¼ˆç§’ï¼‰")]
         [SerializeField] private float yellowTime = 1.5f;
 
         /// <summary>
-        /// ‹N“®Ï‚İ‚ÌTrafficLight‚ğ“o˜^BŠeTrafficLight‚Ì‰Šú‰»ˆ—‚à‚·‚é
+        /// èµ·å‹•æ¸ˆã¿ã®TrafficLightã‚’ç™»éŒ²ã€‚å„TrafficLightã®åˆæœŸåŒ–å‡¦ç†ã‚‚ã™ã‚‹
         /// </summary>
-        /// <param name="roads">Œv‰ñ‚è‚É“o˜^‚·‚é‚±‚Æ</param>
+        /// <param name="roads">æ™‚è¨ˆå›ã‚Šã«ç™»éŒ²ã™ã‚‹ã“ã¨</param>
         public void RegisterTrafficLights(Road[] roads, Dictionary<Road, int> edges)
         {
-            //Œv‰ñ‚è‡‚ÉTrafficLight‚ğ‹N“®E“o˜^
+            //æ™‚è¨ˆå›ã‚Šé †ã«TrafficLightã‚’èµ·å‹•ãƒ»ç™»éŒ²
             trafficLights = new TrafficLight[roads.Length];
             for(int cnt = 0; cnt < roads.Length; cnt++)
             {
-                //TrafficLight‚ğ“o˜^
+                //TrafficLightã‚’ç™»éŒ²
                 trafficLights[cnt] = roads[cnt].ActivateTrafficLight(edges[roads[cnt]]);
 
-                //Road‚à“o˜^
+                //Roadã‚‚ç™»éŒ²
                 correspondingTrafficLight[roads[cnt]] = trafficLights[cnt];
             }
 
-            //•À‚Ñ‘Ö‚¦
+            //ä¸¦ã³æ›¿ãˆ
             trafficLights = RearrangeLight(trafficLights);
 
-            //‰ŠúF‚ğƒZƒbƒg
+            //åˆæœŸè‰²ã‚’ã‚»ãƒƒãƒˆ
             SetInitialLight();
 
-            //‰Šú‰»Š®—¹
+            //åˆæœŸåŒ–å®Œäº†
             state = States.still;
         }
 
         /// <summary>
-        /// M†‚Ì”‚É‚ ‚í‚¹‚Ä”z—ñ“à‚ÌM†‚Ì‡”Ô‚ğ‚¸‚ç‚·
+        /// ä¿¡å·ã®æ•°ã«ã‚ã‚ã›ã¦é…åˆ—å†…ã®ä¿¡å·ã®é †ç•ªã‚’ãšã‚‰ã™
         /// </summary>
         private TrafficLight[] RearrangeLight(TrafficLight[] trafficLights)
         {
             TrafficLight[] newArray = new TrafficLight[trafficLights.Length];
 
-            //n”Ô–Ú‚Ì•ûˆÊŠp
+            //nç•ªç›®ã®æ–¹ä½è§’
             float[] angles = new float[trafficLights.Length];
             for(int cnt = 0; cnt < trafficLights.Length; cnt++)
             {
                 angles[cnt] = MyMath.GetAngular(trafficLights[cnt].transform.position - transform.position);
             }
 
-            //n -> n+1 ‚ÌŠp“x·
+            //n -> n+1 ã®è§’åº¦å·®
             float[] angularDifferences = new float[trafficLights.Length];
             for(int cnt = 0; cnt < trafficLights.Length -1; cnt++)
             {
@@ -94,12 +94,12 @@ namespace InGame
             }
             angularDifferences[trafficLights.Length - 1] = (angles[0] + 360) - angles[trafficLights.Length - 1];
 
-            //M†”‚É‚æ‚Á‚Äê‡•ª‚¯
+            //ä¿¡å·æ•°ã«ã‚ˆã£ã¦å ´åˆåˆ†ã‘
             switch (trafficLights.Length)
             {
                 case 3:
-                    //>>ˆê”ÔŠJ‚¢‚½Šp‚Ì‚à‚Ì‚ª“¯‚É—ÎorÔ‚É‚È‚é‚æ‚¤‚É‚·‚é
-                    //Å‘åŠp‚ğ’T‚·
+                    //>>ä¸€ç•ªé–‹ã„ãŸè§’ã®ã‚‚ã®ãŒåŒæ™‚ã«ç·‘orèµ¤ã«ãªã‚‹ã‚ˆã†ã«ã™ã‚‹
+                    //æœ€å¤§è§’ã‚’æ¢ã™
                     float angleMax = 0f;
                     int indexMax = -1;
                     for(int cnt = 0; cnt < trafficLights.Length; cnt++)
@@ -111,7 +111,7 @@ namespace InGame
                         }
                     }
 
-                    //indexMax‚ğ2”Ô–Ú‚É‚È‚é‚æ‚¤‚É‚¸‚ç‚¹‚Î—Ç‚¢
+                    //indexMaxã‚’2ç•ªç›®ã«ãªã‚‹ã‚ˆã†ã«ãšã‚‰ã›ã°è‰¯ã„
                     int addition = 2 - indexMax;
                     for(int oldIndex = 0; oldIndex < trafficLights.Length; oldIndex++)
                     {
@@ -130,34 +130,34 @@ namespace InGame
         }
 
         /// <summary>
-        /// TrafficLight‚Ì‰ŠúF‚ğƒZƒbƒg
-        /// ‹ô”‚ ‚é‚¢‚ÍŠï”‚ÌTrafficLight‚ğ—Î‚É‚µAc‚è‚ğÔ‚É‚·‚é
+        /// TrafficLightã®åˆæœŸè‰²ã‚’ã‚»ãƒƒãƒˆ
+        /// å¶æ•°ã‚ã‚‹ã„ã¯å¥‡æ•°ã®TrafficLightã‚’ç·‘ã«ã—ã€æ®‹ã‚Šã‚’èµ¤ã«ã™ã‚‹
         /// </summary>
         private void SetInitialLight()
         {
-            //M†‹@‚ÌF‚ğƒZƒbƒg
+            //ä¿¡å·æ©Ÿã®è‰²ã‚’ã‚»ãƒƒãƒˆ
             SetLightsStill(initiallyGreen);
 
-            //ƒpƒ^[ƒ“‚ğ‹L‰¯
+            //ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¨˜æ†¶
             currentPattern = initiallyGreen;
         }
 
         /// <summary>
-        /// Stilló‘Ôi—ÎEÔj‚Ìƒpƒ^[ƒ“‚É‚È‚é‚æ‚¤‚ÉM†‹@‚ÌF‚ğƒZƒbƒg‚·‚é
+        /// StillçŠ¶æ…‹ï¼ˆç·‘ãƒ»èµ¤ï¼‰ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã«ãªã‚‹ã‚ˆã†ã«ä¿¡å·æ©Ÿã®è‰²ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
         /// </summary>
         private void SetLightsStill(GreenPattern greenPattern)
         {
-            //—ÎEÔM†‚ğæ“¾
+            //ç·‘ãƒ»èµ¤ä¿¡å·ã‚’å–å¾—
             TrafficLight[] greens = GetGreenLightsInPattern(greenPattern);
             TrafficLight[] reds = GetRedLightsInPattern(greenPattern);
 
-            //—ÎM†‚ğƒZƒbƒg
+            //ç·‘ä¿¡å·ã‚’ã‚»ãƒƒãƒˆ
             foreach(TrafficLight light in greens)
             {
                 light.SetLight(TrafficLight.Color.green);
             }
 
-            //ÔM†‚ğƒZƒbƒg
+            //èµ¤ä¿¡å·ã‚’ã‚»ãƒƒãƒˆ
             foreach(TrafficLight light in reds)
             {
                 light.SetLight(TrafficLight.Color.red);
@@ -165,22 +165,22 @@ namespace InGame
         }
 
         /// <summary>
-        /// YellowChangingó‘Ôi‰©FEÔj‚Ìƒpƒ^[ƒ“‚É‚È‚é‚æ‚¤‚ÉM†‹@‚ÌF‚ğƒZƒbƒg‚·‚é
+        /// YellowChangingçŠ¶æ…‹ï¼ˆé»„è‰²ãƒ»èµ¤ï¼‰ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã«ãªã‚‹ã‚ˆã†ã«ä¿¡å·æ©Ÿã®è‰²ã‚’ã‚»ãƒƒãƒˆã™ã‚‹
         /// </summary>
         private void SetLightsYellow(GreenPattern greenPattern)
         {
-            //‰©EÔM†‚ğæ“¾
-            //GreenPattern‚É‚¨‚¯‚é—Î‚ğ‰©F‚ÉƒZƒbƒg‚É‚·‚ê‚Î‚¢‚¢
+            //é»„ãƒ»èµ¤ä¿¡å·ã‚’å–å¾—
+            //GreenPatternã«ãŠã‘ã‚‹ç·‘ã‚’é»„è‰²ã«ã‚»ãƒƒãƒˆã«ã™ã‚Œã°ã„ã„
             TrafficLight[] yellows = GetGreenLightsInPattern(greenPattern);
             TrafficLight[] reds = GetRedLightsInPattern(greenPattern);
 
-            //‰©M†‚ğƒZƒbƒg
+            //é»„ä¿¡å·ã‚’ã‚»ãƒƒãƒˆ
             foreach (TrafficLight light in yellows)
             {
                 light.SetLight(TrafficLight.Color.yellow);
             }
 
-            //ÔM†‚ğƒZƒbƒg
+            //èµ¤ä¿¡å·ã‚’ã‚»ãƒƒãƒˆ
             foreach (TrafficLight light in reds)
             {
                 light.SetLight(TrafficLight.Color.red);
@@ -188,13 +188,13 @@ namespace InGame
         }
 
         /// <summary>
-        /// —^‚¦‚ç‚ê‚½ƒpƒ^[ƒ“‚Å—ÎM†‚É‚È‚éM†‚ğ•Ô‚·
+        /// ä¸ãˆã‚‰ã‚ŒãŸãƒ‘ã‚¿ãƒ¼ãƒ³ã§ç·‘ä¿¡å·ã«ãªã‚‹ä¿¡å·ã‚’è¿”ã™
         /// </summary>
         private TrafficLight[] GetGreenLightsInPattern(GreenPattern greenPattern)
         {
             List<TrafficLight> output = new List<TrafficLight>();
 
-            //üŒ`’Tõ
+            //ç·šå½¢æ¢ç´¢
             for (int cnt = 0; cnt < trafficLights.Length; cnt++)
             {
                 switch (greenPattern)
@@ -219,22 +219,22 @@ namespace InGame
         }
 
         /// <summary>
-        /// —^‚¦‚ç‚ê‚½ƒpƒ^[ƒ“‚ÅÔM†‚É‚È‚éM†‹@‚ğ•Ô‚·
+        /// ä¸ãˆã‚‰ã‚ŒãŸãƒ‘ã‚¿ãƒ¼ãƒ³ã§èµ¤ä¿¡å·ã«ãªã‚‹ä¿¡å·æ©Ÿã‚’è¿”ã™
         /// </summary>
         private TrafficLight[] GetRedLightsInPattern(GreenPattern greenPattern)
         {
-            //—ÎM†‚ğæ“¾
+            //ç·‘ä¿¡å·ã‚’å–å¾—
             TrafficLight[] green = GetGreenLightsInPattern(greenPattern);
 
-            //—]–ÛiÔj‚ğæ“¾
+            //ä½™äº‹è±¡ï¼ˆèµ¤ï¼‰ã‚’å–å¾—
             List<TrafficLight> output = new List<TrafficLight>();
             foreach(TrafficLight light in trafficLights)
             {
                 if (!green.Contains(light))
                 {
-                    //>>—ÎM†‚Å‚Í‚È‚¢
+                    //>>ç·‘ä¿¡å·ã§ã¯ãªã„
 
-                    //“o˜^
+                    //ç™»éŒ²
                     output.Add(light);
                 }
             }
@@ -243,64 +243,64 @@ namespace InGame
         }
 
         /// <summary>
-        /// M†‹@Ø‚è‘Ö‚¦
+        /// ä¿¡å·æ©Ÿåˆ‡ã‚Šæ›¿ãˆ
         /// </summary>
         public void ToggleLights()
         {
-            //Stilló‘Ô‚¶‚á‚È‚¯‚ê‚ÎƒLƒƒƒ“ƒZƒ‹
-            //‰©FM†’†‚Éd•¡‚ğó‚¯•t‚¯‚È‚¢
+            //StillçŠ¶æ…‹ã˜ã‚ƒãªã‘ã‚Œã°ã‚­ãƒ£ãƒ³ã‚»ãƒ«
+            //é»„è‰²ä¿¡å·ä¸­ã«é‡è¤‡ã‚’å—ã‘ä»˜ã‘ãªã„
             if (state != States.still)
             {
                 return;
             }
 
-            //‰©FM†‚ğn‚ß‚é
+            //é»„è‰²ä¿¡å·ã‚’å§‹ã‚ã‚‹
             StartYellow();
 
-            //M†Ø‚è‘Ö‚¦‚ğ—\–ñ
+            //ä¿¡å·åˆ‡ã‚Šæ›¿ãˆã‚’äºˆç´„
             Invoke(nameof(StartNextPatternLights), yellowTime);
         }
 
         /// <summary>
-        /// ‰©FM†‚ªI‚í‚èAŸ‚Ìƒpƒ^[ƒ“‚ÌM†‚ğ•\¦‚·‚é
+        /// é»„è‰²ä¿¡å·ãŒçµ‚ã‚ã‚Šã€æ¬¡ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ä¿¡å·ã‚’è¡¨ç¤ºã™ã‚‹
         /// </summary>
         public void StartNextPatternLights()
         {
-            //ƒXƒe[ƒgã‚ÌƒK[ƒhˆ—
+            //ã‚¹ãƒ†ãƒ¼ãƒˆä¸Šã®ã‚¬ãƒ¼ãƒ‰å‡¦ç†
             if (state != States.yellowChanging)
             {
                 return;
             }
 
-            //Ÿ‚Ìƒpƒ^[ƒ“‚ÖˆÚ‚é
+            //æ¬¡ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã¸ç§»ã‚‹
             currentPattern = GetNextPattern(currentPattern);
 
-            //‚»‚Ìƒpƒ^[ƒ“‚Ì—ÎÔM†‚ğ•\¦
+            //ãã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ç·‘èµ¤ä¿¡å·ã‚’è¡¨ç¤º
             SetLightsStill(currentPattern);
 
-            //—ÎÔƒXƒe[ƒg‚É
+            //ç·‘èµ¤ã‚¹ãƒ†ãƒ¼ãƒˆã«
             state = States.still;
         }
 
         /// <summary>
-        /// ‰©FM†‚ğn‚ß‚é
+        /// é»„è‰²ä¿¡å·ã‚’å§‹ã‚ã‚‹
         /// </summary>
         private void StartYellow()
         {
-            //‰©FM†ƒXƒe[ƒg‚É
+            //é»„è‰²ä¿¡å·ã‚¹ãƒ†ãƒ¼ãƒˆã«
             state = States.yellowChanging;
 
-            //‰©FM†‚É
+            //é»„è‰²ä¿¡å·ã«
             SetLightsYellow(currentPattern);
         }
 
         /// <summary>
-        /// w’è‚³‚ê‚½ƒpƒ^[ƒ“‚ÌŸ‚Ìƒpƒ^[ƒ“‚ğ•Ô‚·
-        /// w’è‚³‚ê‚½‚Ì‚ªÅŒã‚È‚ç‚ÎÅ‰‚Ìƒpƒ^[ƒ“‚ğ•Ô‚·
+        /// æŒ‡å®šã•ã‚ŒãŸãƒ‘ã‚¿ãƒ¼ãƒ³ã®æ¬¡ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¿”ã™
+        /// æŒ‡å®šã•ã‚ŒãŸã®ãŒæœ€å¾Œãªã‚‰ã°æœ€åˆã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’è¿”ã™
         /// </summary>
         private GreenPattern GetNextPattern(GreenPattern pattern)
         {
-            //ˆø”‚ª‰½”Ô–Ú‚©‚ğæ“¾‚·‚é
+            //å¼•æ•°ãŒä½•ç•ªç›®ã‹ã‚’å–å¾—ã™ã‚‹
             GreenPattern[] allPatterns = Enum.GetValues(typeof(GreenPattern)).Cast<GreenPattern>().ToArray();
             int thisIndex = Array.IndexOf(allPatterns, pattern);
 

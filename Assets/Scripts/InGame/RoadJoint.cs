@@ -6,71 +6,71 @@ using System.Linq;
 namespace InGame
 {
     /// <summary>
-    /// Road‚ÆRoad‚ğ‚Â‚È‚®Joint
-    /// ‹È‚ª‚èŠp‚É‚Í‚±‚ÌRoadJoint
-    /// Œğ·“_AŠOŠE‚Ö‚ÌÚ‘±Œû‚ÍqƒNƒ‰ƒX‚ğg—p
+    /// Roadã¨Roadã‚’ã¤ãªãJoint
+    /// æ›²ãŒã‚Šè§’ã«ã¯ã“ã®RoadJoint
+    /// äº¤å·®ç‚¹ã€å¤–ç•Œã¸ã®æ¥ç¶šå£ã¯å­ã‚¯ãƒ©ã‚¹ã‚’ä½¿ç”¨
     /// </summary>
     public class RoadJoint : MonoBehaviour
     {
         /// <summary>
-        /// ‚±‚ÌJoint‚ÉÚ‘±‚µ‚Ä‚¢‚éRoad
+        /// ã“ã®Jointã«æ¥ç¶šã—ã¦ã„ã‚‹Road
         /// </summary>
         public List<Road> connectedRoads { get; private set; } = new List<Road>();
 
         /// <summary>
-        /// connectedRoads‚ª”½Œv‰ñ‚è‚É•À‚×‘Ö‚¦Ï‚İ‚©
+        /// connectedRoadsãŒåæ™‚è¨ˆå›ã‚Šã«ä¸¦ã¹æ›¿ãˆæ¸ˆã¿ã‹
         /// </summary>
         public bool sortedAnticlockwise { get; private set; } = false;
 
         /// <summary>
-        /// ŠeconnectedRoad‚Ì‚Ç‚¿‚ç‚Ì’[‚ªŒq‚ª‚Á‚Ä‚¢‚é‚©
+        /// å„connectedRoadã®ã©ã¡ã‚‰ã®ç«¯ãŒç¹‹ãŒã£ã¦ã„ã‚‹ã‹
         /// </summary>
         public Dictionary<Road, int> edges { get; private set; } = new Dictionary<Road, int>();
 
         /// <summary>
-        /// Œq‚ª‚Á‚½“¹‚ğ“o˜^
+        /// ç¹‹ãŒã£ãŸé“ã‚’ç™»éŒ²
         /// </summary>
-        /// <param name="edge">“¹˜H‚Ì‚Ç‚¿‚ç‚Ì’[‚©iRoad.Edge‚Ì”Ô†‚É‘Î‰j</param>
+        /// <param name="edge">é“è·¯ã®ã©ã¡ã‚‰ã®ç«¯ã‹ï¼ˆRoad.Edgeã®ç•ªå·ã«å¯¾å¿œï¼‰</param>
         public void RegisterRoad(Road road, int edge)
         {
-            //“¹‚ğ“o˜^
+            //é“ã‚’ç™»éŒ²
             connectedRoads.Add(road);
 
-            //’[‚ğ“o˜^
+            //ç«¯ã‚’ç™»éŒ²
             edges[road] = edge;
         }
 
         /// <summary>
-        /// Intersection‚©‚çŒ©‚Äroad‚ğ”½Œv‰ñ‚è‚É•À‚×‚é
+        /// Intersectionã‹ã‚‰è¦‹ã¦roadã‚’åæ™‚è¨ˆå›ã‚Šã«ä¸¦ã¹ã‚‹
         /// </summary>
         public virtual void ArrangeRoadsAnticlockwise()
         {
-            //ŠeRoad‚Æ‚Ìx²³•ûŒü‚©‚ç‚ÌŒv‰ñ‚è‚ÌŠp“x‚ğ‹‚ß‚é
+            //å„Roadã¨ã®xè»¸æ­£æ–¹å‘ã‹ã‚‰ã®æ™‚è¨ˆå›ã‚Šã®è§’åº¦ã‚’æ±‚ã‚ã‚‹
             Dictionary<Road, float> angles = new Dictionary<Road, float>();
             foreach (Road road in connectedRoads)
             {
-                //Road‚ÆIntersection‚Ì·ƒxƒNƒgƒ‹
+                //Roadã¨Intersectionã®å·®ãƒ™ã‚¯ãƒˆãƒ«
                 Vector3 dif = road.transform.position - transform.position;
 
                 angles[road] = MyMath.GetAngular(dif);
             }
 
-            //Šp“x‚ª¬‚³‚¢‡‚É•À‚Ñ‘Ö‚¦
+            //è§’åº¦ãŒå°ã•ã„é †ã«ä¸¦ã³æ›¿ãˆ
             List<Road> orderedRoad = new List<Road>();
             foreach (KeyValuePair<Road, float> roadAngle in angles.OrderBy(c => c.Value))
             {
                 orderedRoad.Add(roadAngle.Key);
             }
 
-            //“o˜^‚µ‚È‚¨‚·
+            //ç™»éŒ²ã—ãªãŠã™
             connectedRoads = orderedRoad;
 
-            //•À‚×‘Ö‚¦Ï‚İ‚É
+            //ä¸¦ã¹æ›¿ãˆæ¸ˆã¿ã«
             sortedAnticlockwise = true;
         }
 
         /// <summary>
-        /// “ñ‚Â‚Ì“¹˜H‚É‹¤’Ê‚·‚éRoadJoint
+        /// äºŒã¤ã®é“è·¯ã«å…±é€šã™ã‚‹RoadJoint
         /// </summary>
         public static RoadJoint FindCommonJoint(Road road0, Road road1)
         {

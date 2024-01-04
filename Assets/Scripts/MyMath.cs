@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// ”ŠwŠÖ”
+/// æ•°å­¦é–¢æ•°
 /// </summary>
 public static class MyMath
 {
     /// <summary>
-    /// ƒxƒNƒgƒ‹‚Ì‚˜²³‚©‚ç‚Ì”½Œv‰ñ‚è‚ÌŠp“x(0-360)‚ğZo
+    /// ãƒ™ã‚¯ãƒˆãƒ«ã®ï½˜è»¸æ­£ã‹ã‚‰ã®åæ™‚è¨ˆå›ã‚Šã®è§’åº¦(0-360)ã‚’ç®—å‡º
     /// </summary>
     public static float GetAngular(Vector2 vector)
     {
@@ -18,7 +18,7 @@ public static class MyMath
 
         if (Mathf.Approximately(z, 0f))
         {
-            //180“x‰ñ“]‚Ìê‡Ax, y‰ñ“]‚Æ‚İ‚È‚³‚ê‚Äz‚ª‚O‚É‚È‚Á‚Ä‚¢‚é‰Â”\«‚ª‚ ‚é
+            //180åº¦å›è»¢ã®å ´åˆã€x, yå›è»¢ã¨ã¿ãªã•ã‚Œã¦zãŒï¼ã«ãªã£ã¦ã„ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹
             if ((q.eulerAngles.x > 90f) || (q.eulerAngles.y > 90f))
             {
                 z = 180f;
@@ -29,7 +29,7 @@ public static class MyMath
     }
 
     /// <summary>
-    /// ‚Q‚Â‚ÌƒxƒNƒgƒ‹‚ÌŠp“xiŒv‰ñ‚èj‚ğZo
+    /// ï¼’ã¤ã®ãƒ™ã‚¯ãƒˆãƒ«ã®è§’åº¦ï¼ˆæ™‚è¨ˆå›ã‚Šï¼‰ã‚’ç®—å‡º
     /// </summary>
     public static float GetAngularDifference(Vector2 fromVec, Vector2 toVec)
     {
@@ -39,7 +39,7 @@ public static class MyMath
 
         if (Mathf.Approximately(z, 0f))
         {
-            //180“x‰ñ“]‚Ìê‡Ax, y‰ñ“]‚Æ‚İ‚È‚³‚ê‚Äz‚ª‚O‚É‚È‚Á‚Ä‚¢‚é‰Â”\«‚ª‚ ‚é
+            //180åº¦å›è»¢ã®å ´åˆã€x, yå›è»¢ã¨ã¿ãªã•ã‚Œã¦zãŒï¼ã«ãªã£ã¦ã„ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹
             if ((q.eulerAngles.x > 90f) || (q.eulerAngles.y > 90f))
             {
                 z = 180f;
@@ -50,7 +50,7 @@ public static class MyMath
     }
 
     /// <summary>
-    /// —^‚¦‚ç‚ê‚½ƒxƒNƒgƒ‹‚É‘Î‚µA—^‚¦‚ç‚ê‚½“_‚ª‰E‚É‚ ‚é‚©‚ğ•Ô‚·
+    /// ä¸ãˆã‚‰ã‚ŒãŸãƒ™ã‚¯ãƒˆãƒ«ã«å¯¾ã—ã€ä¸ãˆã‚‰ã‚ŒãŸç‚¹ãŒå³ã«ã‚ã‚‹ã‹ã‚’è¿”ã™
     /// </summary>
     public static bool IsRightFromVector(Vector2 point, Vector2 linePoint, Vector2 lineVector)
     {
@@ -58,18 +58,18 @@ public static class MyMath
 
         if (angularDiference < 180f)
         {
-            //¶‚É‚ ‚é
+            //å·¦ã«ã‚ã‚‹
             return false;
         }
         else
         {
-            //‰E‚É‚ ‚é
+            //å³ã«ã‚ã‚‹
             return true;
         }
     }
 
     /// <summary>
-    /// –@üƒxƒNƒgƒ‹‚ğ‹‚ß‚é
+    /// æ³•ç·šãƒ™ã‚¯ãƒˆãƒ«ã‚’æ±‚ã‚ã‚‹
     /// </summary>
     public static Vector2 GetPerpendicular(Vector2 vec)
     {
@@ -77,7 +77,7 @@ public static class MyMath
     }
 
     /// <summary>
-    /// Šp‚Ì“ñ“™•ªüƒxƒNƒgƒ‹
+    /// è§’ã®äºŒç­‰åˆ†ç·šãƒ™ã‚¯ãƒˆãƒ«
     /// </summary>
     public static Vector2 GetBisector(Vector2 vec0, Vector2 vec1)
     {
@@ -88,23 +88,23 @@ public static class MyMath
     }
 
     /// <summary>
-    /// “_‚Æ’¼ü‚Ì‹——£‚ğ‹‚ß‚é
+    /// ç‚¹ã¨ç›´ç·šã®è·é›¢ã‚’æ±‚ã‚ã‚‹
     /// </summary>
     public static float GetDistance(Vector2 point, Vector2 linePoint, Vector2 lineVector)
     {
-        //point‚Ì‘Š‘ÎÀ•W
+        //pointã®ç›¸å¯¾åº§æ¨™
         Vector2 pointToLineStart = point - linePoint;
 
-        //point‚©‚ç‚Ì³Ë‰e“_
+        //pointã‹ã‚‰ã®æ­£å°„å½±ç‚¹
         float dotProduct = Vector2.Dot(pointToLineStart, lineVector);
         Vector2 projection = linePoint + lineVector * dotProduct;
 
-        //‘Š‘ÎÀ•W‚Æ³Ë‰e“_‚Ì‹——£‚ğ‹‚ß‚ê‚Î—Ç‚¢
+        //ç›¸å¯¾åº§æ¨™ã¨æ­£å°„å½±ç‚¹ã®è·é›¢ã‚’æ±‚ã‚ã‚Œã°è‰¯ã„
         return Vector2.Distance(point, projection);
     }
 
     /// <summary>
-    /// Œë·‚ğ‹–‚µ‚Ä“¯ˆê’l‚ğ•Ô‚·
+    /// èª¤å·®ã‚’è¨±ã—ã¦åŒä¸€å€¤ã‚’è¿”ã™
     /// </summary>
     public static bool IsSame(float v0, float v1, float threshold)
     {
@@ -112,7 +112,7 @@ public static class MyMath
     }
 
     /// <summary>
-    /// “ñ‚Â‚ÌƒxƒNƒgƒ‹‚ª•½s‚©iè‡’lˆÈ‰ºj‚©•Ô‚·
+    /// äºŒã¤ã®ãƒ™ã‚¯ãƒˆãƒ«ãŒå¹³è¡Œã‹ï¼ˆé–¾å€¤ä»¥ä¸‹ï¼‰ã‹è¿”ã™
     /// </summary>
     public static bool IsParallel(Vector2 vec0, Vector2 vec1, float threshold)
     {
@@ -132,7 +132,7 @@ public static class MyMath
     }
 
     /// <summary>
-    /// ‹ÉÀ•W‚©‚ç•½–ÊÀ•W‚É•ÏŠ·
+    /// æ¥µåº§æ¨™ã‹ã‚‰å¹³é¢åº§æ¨™ã«å¤‰æ›
     /// </summary>
     public static Vector2 GetPositionFromPolar(Vector2 pole, float radius, float angular)
     {
@@ -140,21 +140,21 @@ public static class MyMath
     }
 
     /// <summary>
-    /// “_‚ª’¼üã‚É‚ ‚é‚©”»’è‚·‚é
+    /// ç‚¹ãŒç›´ç·šä¸Šã«ã‚ã‚‹ã‹åˆ¤å®šã™ã‚‹
     /// </summary>
     public static bool CheckOnLine(Vector3 point, Vector3 linePoint, Vector3 lineVector, float threshold)
     {
         Vector3 difference = point - linePoint;
 
-        //ŠOÏ‚Ì‘å‚«‚³‚ğ‹‚ß‚é
+        //å¤–ç©ã®å¤§ãã•ã‚’æ±‚ã‚ã‚‹
         float outer = Vector3.Cross(lineVector, difference).magnitude;
 
-        //0‚È‚ç’¼üã
+        //0ãªã‚‰ç›´ç·šä¸Š
         return IsSame(outer, 0f, threshold);
     }
 
     /// <summary>
-    /// ‚ü‚Ì‘«‚ğ‹‚ß‚é
+    /// å‚ç·šã®è¶³ã‚’æ±‚ã‚ã‚‹
     /// </summary>
     public static Vector2 GetFootOfPerpendicular(Vector2 point, Vector2 linePoint, Vector2 lineVector)
     {
@@ -166,21 +166,21 @@ public static class MyMath
     }
 
     /// <summary>
-    /// “ñ‚Â‚Ìü•ª‚ÌŒğ“_‚ğ‹‚ß‚é
+    /// äºŒã¤ã®ç·šåˆ†ã®äº¤ç‚¹ã‚’æ±‚ã‚ã‚‹
     /// </summary>
     public static Vector2 GetIntersection(Vector2 line0Point, Vector2 line0Vector, Vector2 line1Point, Vector2 line1Vector)
     {
-        // ŠOÏ‚ğ‹‚ß‚é
+        // å¤–ç©ã‚’æ±‚ã‚ã‚‹
         float cross = line0Vector.x * line1Vector.y - line0Vector.y * line1Vector.x;
 
-        // ü•ª‚ª•½s‚Å‚ ‚éê‡
+        // ç·šåˆ†ãŒå¹³è¡Œã§ã‚ã‚‹å ´åˆ
         if (Mathf.Approximately(cross, 0f))
         {
-            Debug.LogError("•½s");
+            Debug.LogError("å¹³è¡Œ");
             return Vector2.zero;
         }
 
-        // Œğ“_‚ğ‹‚ß‚é
+        // äº¤ç‚¹ã‚’æ±‚ã‚ã‚‹
         float t = ((line1Point.x - line0Point.x) * line1Vector.y - (line1Point.y - line0Point.y) * line1Vector.x) / cross;
         Vector2 intersectionPoint = line0Point + line0Vector * t;
 
@@ -188,7 +188,7 @@ public static class MyMath
     }
 
     /// <summary>
-    /// ‘¬“x‚©‚çŠp‘¬“x‚ğ‹‚ß‚é
+    /// é€Ÿåº¦ã‹ã‚‰è§’é€Ÿåº¦ã‚’æ±‚ã‚ã‚‹
     /// </summary>
     public static float GetAngularSpeed(float velocity, float radius)
     {

@@ -6,7 +6,7 @@ using TMPro;
 namespace InGame.UI
 {
     /// <summary>
-    /// カウントダウンを表示
+    /// ﾆ谷ﾆ脱ﾆ停愴暖ﾆ胆ﾆ脱ﾆ停懌堙ｰ窶｢\ﾅｽﾂｦ
     /// </summary>
     public class CountDownDisplay : MonoBehaviour
     {
@@ -16,4 +16,3 @@ namespace InGame.UI
         }
     }
 }
-

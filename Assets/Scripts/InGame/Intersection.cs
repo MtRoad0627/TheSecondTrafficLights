@@ -6,29 +6,29 @@ using System.Linq;
 namespace InGame
 {
     /// <summary>
-    /// Œğ·“_B
-    /// ‚R‚ÂˆÈã‚Ì“¹˜H‚ğ‚Â‚È‚®RoadJoint
+    /// äº¤å·®ç‚¹ã€‚
+    /// ï¼“ã¤ä»¥ä¸Šã®é“è·¯ã‚’ã¤ãªãRoadJoint
     /// </summary>
     public class Intersection : RoadJoint
     {
-        [Tooltip("‘Î‰‚·‚éM†‹@ƒVƒXƒeƒ€Bnull‚È‚çM†‹@–³‚µ‚ÌŒğ·“_")]
+        [Tooltip("å¯¾å¿œã™ã‚‹ä¿¡å·æ©Ÿã‚·ã‚¹ãƒ†ãƒ ã€‚nullãªã‚‰ä¿¡å·æ©Ÿç„¡ã—ã®äº¤å·®ç‚¹")]
         [SerializeField] private TrafficLightsSystem trafficLightSystem;
 
         /// <summary>
-        /// TrafficLightsSystem‚É“¹˜HAM†‹@‚ğ“o˜^‚à‚·‚é
-        /// Road‚ª“o˜^‚³‚ê‚é‘O‚ÌStart‚É“o˜^‚·‚é‚Æ•s‹ï‡‚ª”­¶‚·‚é‚Ì‚ÅA‚»‚ÌŒã‚ÉŒÄ‚Ô•K—v‚ª‚ ‚é
+        /// TrafficLightsSystemã«é“è·¯ã€ä¿¡å·æ©Ÿã‚’ç™»éŒ²ã‚‚ã™ã‚‹
+        /// RoadãŒç™»éŒ²ã•ã‚Œã‚‹å‰ã®Startã«ç™»éŒ²ã™ã‚‹ã¨ä¸å…·åˆãŒç™ºç”Ÿã™ã‚‹ã®ã§ã€ãã®å¾Œã«å‘¼ã¶å¿…è¦ãŒã‚ã‚‹
         /// </summary>
         public override void ArrangeRoadsAnticlockwise()
         {
             base.ArrangeRoadsAnticlockwise();
 
-            //M†‹@‚ª–³‚¢ê‡‚ÍƒLƒƒƒ“ƒZƒ‹
+            //ä¿¡å·æ©ŸãŒç„¡ã„å ´åˆã¯ã‚­ãƒ£ãƒ³ã‚»ãƒ«
             if (trafficLightSystem == null)
             {
                 return;
             }
 
-            //TrafficLightsSystem‚É“o˜^
+            //TrafficLightsSystemã«ç™»éŒ²
             trafficLightSystem.RegisterTrafficLights(connectedRoads.ToArray(), edges);
         }
     }

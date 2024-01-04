@@ -5,8 +5,8 @@ using UnityEngine;
 namespace InGame
 {
     /// <summary>
-    /// ŠOŠE‚Æ‚ÌÚ‘±ŒûB
-    /// Ô‚ª‚±‚±‚©‚çƒXƒ|[ƒ“EƒfƒXƒ|[ƒ“‚·‚é
+    /// å¤–ç•Œã¨ã®æ¥ç¶šå£ã€‚
+    /// è»ŠãŒã“ã“ã‹ã‚‰ã‚¹ãƒãƒ¼ãƒ³ãƒ»ãƒ‡ã‚¹ãƒãƒ¼ãƒ³ã™ã‚‹
     /// </summary>
     public class OutsideConnection : RoadJoint
     {

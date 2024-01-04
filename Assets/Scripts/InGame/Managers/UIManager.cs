@@ -6,23 +6,23 @@ using InGame.UI;
 namespace InGame
 {
     /// <summary>
-    /// UI‚Ì“Š‡‚ğs‚¤
+    /// UIã®çµ±æ‹¬ã‚’è¡Œã†
     /// </summary>
     public class UIManager : SingletonMonoBehaviour<UIManager>
     {
-        [Header("“¾“_•\¦UI")]
+        [Header("å¾—ç‚¹è¡¨ç¤ºUI")]
         
         [SerializeField] private ScoreUI scoreUI;
 
-        [Header("‰Á“_UI")]
+        [Header("åŠ ç‚¹UI")]
 
-        [Tooltip("ƒvƒŒƒnƒu")]
+        [Tooltip("ãƒ—ãƒ¬ãƒãƒ–")]
         [SerializeField] private ScoreAdditionUI scoreAdditionUIPrefab;
 
-        [Header("e")]
+        [Header("è¦ª")]
         [SerializeField] private Transform scoreAdditionUIParent;
 
-        [Header("ŠÔ•\¦")]
+        [Header("æ™‚é–“è¡¨ç¤º")]
 
         [SerializeField] private CountDownDisplay countDownDisplay;
 
@@ -35,34 +35,34 @@ namespace InGame
         private GameObject currentTimeDisplayObject;
 
         /// <summary>
-        /// “¾“_XV
+        /// å¾—ç‚¹æ›´æ–°
         /// </summary>
         public void OnPointsChanged(int changement)
         {
-            //XVŒã‚Ì“¾“_‚ğæ“¾
+            //æ›´æ–°å¾Œã®å¾—ç‚¹ã‚’å–å¾—
             int currentPoints = GameManager.score;
 
-            //‘‡“¾“_UI‚ğXV‚³‚¹‚é
+            //ç·åˆå¾—ç‚¹UIã‚’æ›´æ–°ã•ã›ã‚‹
             scoreUI.UpdateScore(currentPoints);
 
-            //‰Á“_UI¶¬
+            //åŠ ç‚¹UIç”Ÿæˆ
             GenerateAdditionalPoint(changement);
         }
 
         /// <summary>
-        /// ‰Á“_UI¶¬
+        /// åŠ ç‚¹UIç”Ÿæˆ
         /// </summary>
         private void GenerateAdditionalPoint(int additionalPoint)
         {
-            //¶¬
+            //ç”Ÿæˆ
             GameObject ui = Instantiate(scoreAdditionUIPrefab.gameObject, scoreAdditionUIParent);
 
-            //‰Šú‰»
+            //åˆæœŸåŒ–
             ui.GetComponent<ScoreAdditionUI>().Initialize(additionalPoint);
         }
 
         /// <summary>
-        /// ƒJƒEƒ“ƒgƒ_ƒEƒ“I—¹ˆ—
+        /// ã‚«ã‚¦ãƒ³ãƒˆãƒ€ã‚¦ãƒ³çµ‚äº†æ™‚å‡¦ç†
         /// </summary>
         public void OnCountDownFinished()
         {
@@ -72,7 +72,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// ƒQ[ƒ€I—¹ˆ—
+        /// ã‚²ãƒ¼ãƒ çµ‚äº†æ™‚å‡¦ç†
         /// </summary>
         public void OnGameFinished()
         {
@@ -82,7 +82,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// I—¹UI‚ğ•\¦
+        /// çµ‚äº†æ™‚UIã‚’è¡¨ç¤º
         /// </summary>
         private void GenerateFinishedUI()
         {

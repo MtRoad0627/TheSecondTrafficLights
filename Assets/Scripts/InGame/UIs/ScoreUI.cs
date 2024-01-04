@@ -6,18 +6,18 @@ using TMPro;
 namespace InGame.UI
 {
     /// <summary>
-    /// “¾“_‚ð•\Ž¦‚·‚éUI
+    /// å¾—ç‚¹ã‚’è¡¨ç¤ºã™ã‚‹UI
     /// </summary>
     public class ScoreUI : MonoBehaviour
     {
         private void Start()
         {
-            //‰Šú‰»ˆ—
+            //åˆæœŸåŒ–å‡¦ç†
             UpdateScore(GameManager.score);
         }
 
         /// <summary>
-        /// •\Ž¦‚ðXV
+        /// è¡¨ç¤ºã‚’æ›´æ–°
         /// </summary>
         public void UpdateScore(int score)
         {
@@ -25,7 +25,7 @@ namespace InGame.UI
         }
 
         /// <summary>
-        /// •\Ž¦‚·‚é•¶Žš—ñ‚ðì‚é
+        /// è¡¨ç¤ºã™ã‚‹æ–‡å­—åˆ—ã‚’ä½œã‚‹
         /// </summary>
         private string MakeText(int score)
         {

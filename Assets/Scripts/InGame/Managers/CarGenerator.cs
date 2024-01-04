@@ -6,20 +6,20 @@ namespace InGame
 {
     public class CarGenerator : SingletonMonoBehaviour<CarGenerator>
     {
-        [Tooltip("Ô‚ÌƒvƒŒƒnƒu")]
+        [Tooltip("è»Šã®ãƒ—ãƒ¬ãƒãƒ–")]
         [SerializeField] private GameObject carPrefab;
-        [Tooltip("¶¬‚³‚ê‚éCarƒIƒuƒWƒFƒNƒg‚ÌeƒIƒuƒWƒFƒNƒg")]
+        [Tooltip("ç”Ÿæˆã•ã‚Œã‚‹Carã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è¦ªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
         [SerializeField] private Transform carParent;
 
-        [Tooltip("1•b‚ÉoŒ»‚·‚éÔ‚ÌŠú‘Ò”")]
+        [Tooltip("1ç§’ã«å‡ºç¾ã™ã‚‹è»Šã®æœŸå¾…æ•°")]
         [SerializeField] private float expectedCars = 1f;
-        [Tooltip("1•b‚ÉoŒ»‚·‚éÔ‚ÌŠú‘Ò”‚Ì”ÍˆÍi•Ğ‘¤‚Ì”ÍˆÍ‚Ì’·‚³j")]
+        [Tooltip("1ç§’ã«å‡ºç¾ã™ã‚‹è»Šã®æœŸå¾…æ•°ã®ç¯„å›²ï¼ˆç‰‡å´ã®ç¯„å›²ã®é•·ã•ï¼‰")]
         [SerializeField] private float expectedCarsRange = 0.2f;
 
-        [Tooltip("ƒXƒ|[ƒ“ƒ|ƒCƒ“ƒgiŠeOutsideConnection‚ÆŒq‚ª‚é’[‚ÌÔü‚²‚ÆjŒÅ—L‚Ì¶¬ƒCƒ“ƒ^[ƒoƒ‹")]
+        [Tooltip("ã‚¹ãƒãƒ¼ãƒ³ãƒã‚¤ãƒ³ãƒˆï¼ˆå„OutsideConnectionã¨ç¹‹ãŒã‚‹ç«¯ã®è»Šç·šã”ã¨ï¼‰å›ºæœ‰ã®ç”Ÿæˆã‚¤ãƒ³ã‚¿ãƒ¼ãƒãƒ«")]
         [SerializeField] private float spawnIntervalInPoint = 1f;
 
-        [Tooltip("ÅŒã”ö‚ÌÔ‚ª‚±‚Ì‹——£–¢–‚¾‚Æ¶¬‚µ‚È‚¢")]
+        [Tooltip("æœ€å¾Œå°¾ã®è»ŠãŒã“ã®è·é›¢æœªæº€ã ã¨ç”Ÿæˆã—ãªã„")]
         [SerializeField] private float notSpawningDistance = 1f;
 
         private SpawnPoint[] spawnPoints;
@@ -39,19 +39,19 @@ namespace InGame
         }
 
         /// <summary>
-        /// ‰Šú‰»ˆ—B“¹˜HÚ‘±Œã‚És‚í‚ê‚é•K—v‚ª‚ ‚é
+        /// åˆæœŸåŒ–å‡¦ç†ã€‚é“è·¯æ¥ç¶šå¾Œã«è¡Œã‚ã‚Œã‚‹å¿…è¦ãŒã‚ã‚‹
         /// </summary>
         public static void Initialize()
         {
-            //ƒXƒ|[ƒ“’n“_‚ğæ“¾
+            //ã‚¹ãƒãƒ¼ãƒ³åœ°ç‚¹ã‚’å–å¾—
             Instance.spawnPoints = GetSpawnPoints();
 
-            //‰Šú‰»Ï‚İ‚É
+            //åˆæœŸåŒ–æ¸ˆã¿ã«
             Instance.initialized = true;
         }
 
         /// <summary>
-        /// ŠeSpawnPoint‚Ìƒ^ƒCƒ}[‚ği‚ß‚é
+        /// å„SpawnPointã®ã‚¿ã‚¤ãƒãƒ¼ã‚’é€²ã‚ã‚‹
         /// </summary>
         private void AdvanceSpawnPointsTimers()
         {
@@ -62,28 +62,28 @@ namespace InGame
         }
 
         /// <summary>
-        /// ƒXƒ|[ƒ“’n“_‚ğæ“¾
+        /// ã‚¹ãƒãƒ¼ãƒ³åœ°ç‚¹ã‚’å–å¾—
         /// </summary>
         private static SpawnPoint[] GetSpawnPoints()
         {
             List<SpawnPoint> pointsList = new List<SpawnPoint>();
             
-            //‘SOutsideConnection‚©‚ç
+            //å…¨OutsideConnectionã‹ã‚‰
             foreach(OutsideConnection outsideConnection in FindObjectsOfType<OutsideConnection>())
             {
-                //Še“¹˜H‚É‚Â‚¢‚Ä
+                //å„é“è·¯ã«ã¤ã„ã¦
                 foreach(Road road in outsideConnection.connectedRoads)
                 {
-                    //‚±‚ÌOutsideConnection‚Ìedge”Ô†
+                    //ã“ã®OutsideConnectionã®edgeç•ªå·
                     uint edge = road.GetEdgeID(outsideConnection);
 
-                    //ŠeÔü‚É‚Â‚¢‚Ä
+                    //å„è»Šç·šã«ã¤ã„ã¦
                     for (uint lane = 0; lane < road.lanes; lane++)
                     {
-                        //ˆÊ’u‚ğæ“¾
+                        //ä½ç½®ã‚’å–å¾—
                         Vector2 spawnPosition = road.GetStartingPoint(edge, lane);
 
-                        //SpawnPoint‚ğ“o˜^
+                        //SpawnPointã‚’ç™»éŒ²
                         SpawnPoint newPoint = new SpawnPoint(outsideConnection, road, lane, spawnPosition, Instance.spawnIntervalInPoint);
                         pointsList.Add(newPoint);
                     }
@@ -94,52 +94,52 @@ namespace InGame
         }
 
         /// <summary>
-        /// Ô‚ğ¶¬‚·‚éBUpdateŠÖ”‚©‚çŒÄ‚Ô‚±‚Æ
+        /// è»Šã‚’ç”Ÿæˆã™ã‚‹ã€‚Updateé–¢æ•°ã‹ã‚‰å‘¼ã¶ã“ã¨
         /// </summary>
         private void SpawnCars()
         {
-            //‚±‚ê‚©‚ç¶¬‚·‚éÔ”
+            //ã“ã‚Œã‹ã‚‰ç”Ÿæˆã™ã‚‹è»Šæ•°
             int spawningCars = GetSpawningCarsN();
 
-            //g—p‚·‚éSpawnPoint‚Ì‡”Ô‚ğŒˆ‚ß‚é
+            //ä½¿ç”¨ã™ã‚‹SpawnPointã®é †ç•ªã‚’æ±ºã‚ã‚‹
             Queue<SpawnPoint> spawnPointsOrder = new Queue<SpawnPoint>(ShuffleSpawnPoints(spawnPoints));
 
-            //w’è‚³‚ê‚½Ô‚Ì”¶¬‚·‚é
+            //æŒ‡å®šã•ã‚ŒãŸè»Šã®æ•°ç”Ÿæˆã™ã‚‹
             for(int carNum = 0; carNum < spawningCars; carNum++)
             {
-                //g—p‰Â”\‚ÈSpawnPoint
+                //ä½¿ç”¨å¯èƒ½ãªSpawnPoint
                 SpawnPoint spawnPoint = GetAvailableSpawnPoint(spawnPointsOrder);
                 
-                //g—p‰Â”\‚ÈspawnPoint‚ª‚È‚­‚È‚Á‚½‚ç’†~
+                //ä½¿ç”¨å¯èƒ½ãªspawnPointãŒãªããªã£ãŸã‚‰ä¸­æ­¢
                 if (spawnPoint == null)
                 {
                     break;
                 }
 
-                //ƒIƒuƒWƒFƒNƒg¶¬
+                //ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆ
                 InstantiateCar(spawnPoint);
 
-                //”‚¦‚é
+                //æ•°ãˆã‚‹
                 spawnedN++;
             }
         }
 
         /// <summary>
-        /// ƒXƒ|[ƒ“”‚ğZo
+        /// ã‚¹ãƒãƒ¼ãƒ³æ•°ã‚’ç®—å‡º
         /// </summary>
         private int GetSpawningCarsN()
         {
-            //Šú‘Ò’l‚Ì”ÍˆÍ
+            //æœŸå¾…å€¤ã®ç¯„å›²
             float expectedMin = expectedCars - expectedCarsRange;
             float expectedMax = expectedCars + expectedCarsRange;
 
-            //‚±‚ÌƒtƒŒ[ƒ€‚Éo‚·‚×‚«Ô‚Ì—Ê‚ğZo
+            //ã“ã®ãƒ•ãƒ¬ãƒ¼ãƒ ã«å‡ºã™ã¹ãè»Šã®é‡ã‚’ç®—å‡º
             float generatingCarsF = Random.Range(expectedMin, expectedMax) * Time.deltaTime;
 
-            //>>®”‚É
+            //>>æ•´æ•°ã«
             int generatingCarsI = (int)generatingCarsF;
 
-            //’[”‚Ìˆ—
+            //ç«¯æ•°ã®å‡¦ç†
             if (Random.value <= generatingCarsF - generatingCarsI)
             {
                 generatingCarsI++;
@@ -149,13 +149,13 @@ namespace InGame
         }
 
         /// <summary>
-        /// g—p‚·‚éSpawnPoint‚Ì‡”Ô‚ğŒˆ‚ß‚é
+        /// ä½¿ç”¨ã™ã‚‹SpawnPointã®é †ç•ªã‚’æ±ºã‚ã‚‹
         /// </summary>
         private SpawnPoint[] ShuffleSpawnPoints(SpawnPoint[] spawnPoints)
         {
             SpawnPoint[] _spawnPoints = (SpawnPoint[])spawnPoints.Clone();
             
-            //ƒVƒƒƒbƒtƒ‹‚·‚é
+            //ã‚·ãƒ£ãƒƒãƒ•ãƒ«ã™ã‚‹
             for(int cnt = 0; cnt < _spawnPoints.Length; cnt++)
             {
                 SpawnPoint temp = _spawnPoints[cnt];
@@ -164,108 +164,108 @@ namespace InGame
                 _spawnPoints[randomIndex] = temp;
             }
 
-            //Queue‚É‚·‚é
+            //Queueã«ã™ã‚‹
             return _spawnPoints;
         }
 
         /// <summary>
-        /// g—p‰Â”\‚ÈSpawnPoint‚ğ•Ô‚·
+        /// ä½¿ç”¨å¯èƒ½ãªSpawnPointã‚’è¿”ã™
         /// </summary>
-        /// <return>g—p‰Â”\‚ÈSpawnPoint‚ª‚È‚­‚È‚Á‚½‚çnull</return>
+        /// <return>ä½¿ç”¨å¯èƒ½ãªSpawnPointãŒãªããªã£ãŸã‚‰null</return>
         private SpawnPoint GetAvailableSpawnPoint(Queue<SpawnPoint> spawnPoints)
         {
-            //ƒLƒ…[‚ª‚È‚­‚È‚é‚Ü‚Å
+            //ã‚­ãƒ¥ãƒ¼ãŒãªããªã‚‹ã¾ã§
             while(spawnPoints.Count > 0)
             {
-                //ƒLƒ…[‚Ìæ“ª‚ğæ‚èo‚µ
+                //ã‚­ãƒ¥ãƒ¼ã®å…ˆé ­ã‚’å–ã‚Šå‡ºã—
                 SpawnPoint checking = spawnPoints.Dequeue();
 
-                //g—p‰Â”\‚©Šm”F
+                //ä½¿ç”¨å¯èƒ½ã‹ç¢ºèª
                 if (CheckSpawnPointAvailable(checking))
                 {
-                    //>>g—p‰Â”\
+                    //>>ä½¿ç”¨å¯èƒ½
                     
-                    //ƒ^ƒCƒ}[ƒŠƒZƒbƒg
+                    //ã‚¿ã‚¤ãƒãƒ¼ãƒªã‚»ãƒƒãƒˆ
                     checking.ResetTimer();
 
-                    //•Ô‚·
+                    //è¿”ã™
                     return checking;
                 }
 
-                //>>g—p‰Â”\‚Å‚È‚¢ËŸ‚Ö
+                //>>ä½¿ç”¨å¯èƒ½ã§ãªã„â‡’æ¬¡ã¸
             }
 
-            //‚±‚±‚Ü‚Å—ˆ‚½‚çAg—p‰Â”\‚ÈSpawnPoint‚ª‚È‚¢
+            //ã“ã“ã¾ã§æ¥ãŸã‚‰ã€ä½¿ç”¨å¯èƒ½ãªSpawnPointãŒãªã„
             return null;
         }
 
         /// <summary>
-        /// ƒXƒ|[ƒ“ƒ|ƒCƒ“ƒg‚ª—˜—p‰Â”\‚©Šm”F‚·‚é
+        /// ã‚¹ãƒãƒ¼ãƒ³ãƒã‚¤ãƒ³ãƒˆãŒåˆ©ç”¨å¯èƒ½ã‹ç¢ºèªã™ã‚‹
         /// </summary>
         private bool CheckSpawnPointAvailable(SpawnPoint spawnPoint)
         {
-            //ƒ^ƒCƒ}[‚É‚Â‚¢‚Ä
+            //ã‚¿ã‚¤ãƒãƒ¼ã«ã¤ã„ã¦
             if(spawnPoint.timer < spawnIntervalInPoint)
             {
-                //>>ƒ^ƒCƒ}[‚ª‚Ü‚¾–—¹‚µ‚Ä‚¢‚È‚¢
+                //>>ã‚¿ã‚¤ãƒãƒ¼ãŒã¾ã æº€äº†ã—ã¦ã„ãªã„
                 return false;
             }
-            //>>ƒ^ƒCƒ}[‚ª–—¹‚µ‚Ä‚¢‚é
+            //>>ã‚¿ã‚¤ãƒãƒ¼ãŒæº€äº†ã—ã¦ã„ã‚‹
 
-            //ÅŒã”ö‚Æ‚Ì‹——£‚É‚Â‚¢‚Ä
+            //æœ€å¾Œå°¾ã¨ã®è·é›¢ã«ã¤ã„ã¦
             Car tailCar = GetTailCar(spawnPoint);
             if(tailCar != null)
             {
-                //>>ÅŒã”ö‚ª‘¶İ
+                //>>æœ€å¾Œå°¾ãŒå­˜åœ¨
                 float distance = Vector2.Distance(tailCar.transform.position, spawnPoint.position);
                 if (distance <= notSpawningDistance)
                 {
-                    //‹ß‚·‚¬‚é
+                    //è¿‘ã™ãã‚‹
                     return false;
                 }
             }
 
-            //‰Â”\
+            //å¯èƒ½
             return true;
         }
 
         /// <summary>
-        /// ÅŒã”ö‚ÌÔ‚ğæ“¾‚·‚é
+        /// æœ€å¾Œå°¾ã®è»Šã‚’å–å¾—ã™ã‚‹
         /// </summary>
-        /// <returns>‘¶İ‚µ‚È‚¢ê‡‚Ínull</returns>
+        /// <returns>å­˜åœ¨ã—ãªã„å ´åˆã¯null</returns>
         private Car GetTailCar(SpawnPoint spawnPoint)
         {
-            //ŒŸoƒr[ƒ€”­Ë
+            //æ¤œå‡ºãƒ“ãƒ¼ãƒ ç™ºå°„
             Road road = spawnPoint.road;
             Vector2 alongVector = road.alongVectors[road.GetEdgeID(spawnPoint.roadJoint)];
             RaycastHit2D[] hitteds = Physics2D.RaycastAll(spawnPoint.position, alongVector, alongVector.magnitude);
 
-            //Å‚à‹ß‚¢‚à‚Ì‚ğ’T‚·
+            //æœ€ã‚‚è¿‘ã„ã‚‚ã®ã‚’æ¢ã™
             float nearestDistance = float.MaxValue;
             Car nearestCar = null;
             foreach(RaycastHit2D hitted in hitteds)
             {
                 GameObject opponent = hitted.collider.gameObject;
 
-                //CarƒIƒuƒWƒFƒNƒg‚Ì‚İ
+                //Carã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã¿
                 Car car = opponent.GetComponent<Car>();
                 if (car == null)
                 {
-                    //>>Car‚Å‚È‚¢
-                    //”ò‚Î‚·
+                    //>>Carã§ãªã„
+                    //é£›ã°ã™
                     continue;
                 }
-                //>>Car‚Å‚ ‚é
+                //>>Carã§ã‚ã‚‹
 
-                //¡l‚¦‚Ä‚¢‚é“¹˜H‚É‘¶İ‚µ‚Ä‚¢‚é‚©
+                //ä»Šè€ƒãˆã¦ã„ã‚‹é“è·¯ã«å­˜åœ¨ã—ã¦ã„ã‚‹ã‹
                 if(car.currentRoad != spawnPoint.road)
                 {
-                    //>>ˆá‚¤“¹˜H
-                    //”ò‚Î‚·
+                    //>>é•ã†é“è·¯
+                    //é£›ã°ã™
                     continue;
                 }
 
-                //‹——£‚ğ‹‚ß‚é
+                //è·é›¢ã‚’æ±‚ã‚ã‚‹
                 float distance = Vector2.Distance(spawnPoint.position, car.transform.position);
                 if (distance < nearestDistance)
                 {
@@ -278,19 +278,19 @@ namespace InGame
         }
 
         /// <summary>
-        /// ÔƒIƒuƒWƒFƒNƒg‚ğ¶¬
+        /// è»Šã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆ
         /// </summary>
         private void InstantiateCar(SpawnPoint spawnPoint)
         {
-            //ƒIƒuƒWƒFƒNƒg¶¬
+            //ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆ
             GameObject carObject = Instantiate(carPrefab, carParent);
 
-            //‰Šú‰»iˆÊ’u‡‚í‚¹‚àCarƒNƒ‰ƒX‚ª’S‚¤j
+            //åˆæœŸåŒ–ï¼ˆä½ç½®åˆã‚ã›ã‚‚Carã‚¯ãƒ©ã‚¹ãŒæ‹…ã†ï¼‰
             carObject.GetComponent<Car>().Initialize(spawnPoint.roadJoint, spawnPoint.road, spawnPoint.laneID, null);
         }
 
         /// <summary>
-        /// ƒXƒ|[ƒ“’n“_‚ÌŠÇ—
+        /// ã‚¹ãƒãƒ¼ãƒ³åœ°ç‚¹ã®ç®¡ç†
         /// </summary>
         private class SpawnPoint
         {
@@ -301,17 +301,17 @@ namespace InGame
 
             public float timer { get; private set; }
 
-            //ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+            //ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
             public SpawnPoint(RoadJoint roadJoint, Road road, uint laneID, Vector2 position, float timerMax)
             {
                 this.roadJoint = roadJoint;
                 this.road = road;
                 this.laneID = laneID;
                 this.position = position;
-                this.timer = timerMax;      //Å‰‚©‚çg—p‰Â”\‚É
+                this.timer = timerMax;      //æœ€åˆã‹ã‚‰ä½¿ç”¨å¯èƒ½ã«
             }
 
-            /// <returns>Œ»İ‚Ìƒ^ƒCƒ}[</returns>
+            /// <returns>ç¾åœ¨ã®ã‚¿ã‚¤ãƒãƒ¼</returns>
             public float AdvanceTimer()
             {
                 timer += Time.deltaTime;

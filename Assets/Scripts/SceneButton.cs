@@ -6,14 +6,14 @@ using UnityEngine.SceneManagement;
 namespace Opening
 {
     /// <summary>
-    /// 押したらシーン遷移するボタン
+    /// 謚ｼ縺励◆繧峨す繝ｼ繝ｳ驕ｷ遘ｻ縺吶ｋ繝懊ち繝ｳ
     /// </summary>
     public class SceneButton : MonoBehaviour
     {
         [SerializeField] private string sceneName;
 
         /// <summary>
-        /// クリックされた際の処理
+        /// 繧ｯ繝ｪ繝�繧ｯ縺輔ｌ縺滄圀縺ｮ蜃ｦ逅�
         /// </summary>
         public void OnClick()
         {

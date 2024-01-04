@@ -5,16 +5,16 @@ using UnityEngine;
 namespace InGame
 {
     /// <summary>
-    /// Ô‚ÌƒJƒ‰[ƒŠƒ“ƒO
-    /// CarƒNƒ‰ƒX‚É–½‚¶‚ç‚ê‚Ä“®ì‚·‚éB
-    /// ‚±‚ÌƒNƒ‰ƒX©‘Ì‚ÍF‚ğ•Ï‚¦‚È‚¢iŒp³ƒNƒ‰ƒX‚ªF‚ğ•Ï‚¦‚éj
+    /// è»Šã®ã‚«ãƒ©ãƒ¼ãƒªãƒ³ã‚°
+    /// Carã‚¯ãƒ©ã‚¹ã«å‘½ã˜ã‚‰ã‚Œã¦å‹•ä½œã™ã‚‹ã€‚
+    /// ã“ã®ã‚¯ãƒ©ã‚¹è‡ªä½“ã¯è‰²ã‚’å¤‰ãˆãªã„ï¼ˆç¶™æ‰¿ã‚¯ãƒ©ã‚¹ãŒè‰²ã‚’å¤‰ãˆã‚‹ï¼‰
     /// </summary>
     public class CarColor : MonoBehaviour
     {
         /// <summary>
-        /// F‚ğXV
+        /// è‰²ã‚’æ›´æ–°
         /// </summary>
-        /// <param name="happinessRatio">–‘«“x‚ÌÅ‘å’l‚É‘Î‚·‚éŠ„‡</param>
+        /// <param name="happinessRatio">æº€è¶³åº¦ã®æœ€å¤§å€¤ã«å¯¾ã™ã‚‹å‰²åˆ</param>
         public void UpdateColor(float happinessRatio)
         {
             Color color = CalculateColor(happinessRatio);
@@ -23,11 +23,11 @@ namespace InGame
         }
 
         /// <summary>
-        /// K•Ÿ“x‚ğF‚É•ÏŠ·
+        /// å¹¸ç¦åº¦ã‚’è‰²ã«å¤‰æ›
         /// </summary>
         protected virtual Color CalculateColor(float happinessRatio)
         {
-            //—Î¨‰©¨Ô
+            //ç·‘â†’é»„â†’èµ¤
 
             float b = 0f;
             float r, g;
@@ -47,7 +47,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// ÀÛ‚ÉF‚ğ•Ï‚¦‚é
+        /// å®Ÿéš›ã«è‰²ã‚’å¤‰ãˆã‚‹
         /// </summary>
         protected virtual void SetColor(Color color){}
     }

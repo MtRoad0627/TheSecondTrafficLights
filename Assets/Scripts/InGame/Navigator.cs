@@ -5,12 +5,12 @@ using UnityEngine;
 namespace InGame
 {
     /// <summary>
-    /// Car‚ª‘–‚éŒo˜H‚ğŒˆ’è‚·‚é
+    /// CarãŒèµ°ã‚‹çµŒè·¯ã‚’æ±ºå®šã™ã‚‹
     /// </summary>
     public class Navigator : SingletonMonoBehaviour<Navigator>
     {
         /// <summary>
-        /// A*—p‚Ìƒm[ƒh
+        /// A*ç”¨ã®ãƒãƒ¼ãƒ‰
         /// </summary>
         private class Node
         {
@@ -18,17 +18,17 @@ namespace InGame
             public int parent;
 
             /// <summary>
-            /// èŠÔƒRƒXƒg
+            /// æ‰‹é–“ã‚³ã‚¹ãƒˆ
             /// </summary>
             public float g;
 
             /// <summary>
-            /// ‹——£ƒRƒXƒg
+            /// è·é›¢ã‚³ã‚¹ãƒˆ
             /// </summary>
             public float h;
 
             /// <summary>
-            /// ‘‡ƒRƒXƒg
+            /// ç·åˆã‚³ã‚¹ãƒˆ
             /// </summary>
             public float f
             {
@@ -38,14 +38,14 @@ namespace InGame
                 }
             }
 
-            //ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+            //ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
             public Node(RoadJoint roadJoint)
             {
                 this.roadJoint = roadJoint;
             }
 
             /// <summary>
-            /// ƒpƒ‰ƒ[ƒ^[‚ğ‰Šú‰»
+            /// ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ãƒ¼ã‚’åˆæœŸåŒ–
             /// </summary>
             public void Initialize()
             {
@@ -55,7 +55,7 @@ namespace InGame
             }
 
             /// <summary>
-            /// 2‚Â‚ÌNode‚ªˆê’v‚·‚é‚©Šm”F
+            /// 2ã¤ã®NodeãŒä¸€è‡´ã™ã‚‹ã‹ç¢ºèª
             /// </summary>
             public bool Equals(Node other)
             {
@@ -83,45 +83,45 @@ namespace InGame
         }
 
         /// <summary>
-        /// —×Ús—ñ
+        /// éš£æ¥è¡Œåˆ—
         /// </summary>
         private Road[,] adjacency;
 
         /// <summary>
-        /// —×Ús—ñ‚Í‚±‚Ì‡
+        /// éš£æ¥è¡Œåˆ—ã¯ã“ã®é †
         /// </summary>
         private Node[] nodes;
 
         /// <summary>
-        /// –{ƒNƒ‰ƒX‚ÌƒZƒbƒgƒAƒbƒvˆ—‚ğs‚¤B
-        /// GetRoute()‘O‚És‚í‚ê‚é•K—v‚ª‚ ‚èA“¹˜HÚ‘±‚ÌŒã‚ÉŒÄ‚Î‚ê‚é•K—v‚ª‚ ‚éB
+        /// æœ¬ã‚¯ãƒ©ã‚¹ã®ã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—å‡¦ç†ã‚’è¡Œã†ã€‚
+        /// GetRoute()å‰ã«è¡Œã‚ã‚Œã‚‹å¿…è¦ãŒã‚ã‚Šã€é“è·¯æ¥ç¶šã®å¾Œã«å‘¼ã°ã‚Œã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
         /// </summary>
         public void SetUp()
         {
-            //‘SRoadJoint
+            //å…¨RoadJoint
             RoadJoint[] roadJoints = FindObjectsOfType<RoadJoint>();
 
-            //node‚É•ÏŠ·
+            //nodeã«å¤‰æ›
             nodes = new Node[roadJoints.Length];
             for(int cnt = 0; cnt < roadJoints.Length; cnt++)
             {
                 nodes[cnt] = new Node(roadJoints[cnt]);
             }
 
-            //—×Ús—ñ‚ğì¬
+            //éš£æ¥è¡Œåˆ—ã‚’ä½œæˆ
             Road[] roads = FindObjectsOfType<Road>();
             adjacency = MakeAdjacencyMatrix(nodes, roads);
         }
 
         /// <summary>
-        /// “’Bƒ‹[ƒg‚ğ•Ô‚·
+        /// åˆ°é”ãƒ«ãƒ¼ãƒˆã‚’è¿”ã™
         /// </summary>
         public Road[] GetRoute(RoadJoint start, RoadJoint destination)
         {
-            //‘Sƒm[ƒh‰Šú‰»
+            //å…¨ãƒãƒ¼ãƒ‰åˆæœŸåŒ–
             InitializeNodes(nodes);
 
-            //—×Ús—ñã‚ÌƒCƒ“ƒfƒbƒNƒX
+            //éš£æ¥è¡Œåˆ—ä¸Šã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹
             int startIndex = FindIndex(start, nodes);
             int destinationIndex = FindIndex(destination, nodes);
 
@@ -136,7 +136,7 @@ namespace InGame
 
             while (openHash.Count > 0)
             {
-                //‚È‚ñ‚Å‚à‚¢‚¢
+                //ãªã‚“ã§ã‚‚ã„ã„
                 int currentIndex = GetMinOfHash(openHash);
 
                 foreach (int index in openHash)
@@ -150,7 +150,7 @@ namespace InGame
                 openHash.Remove(currentIndex);
                 closedHash.Add(currentIndex);
 
-                //“’…
+                //åˆ°ç€
                 if (currentIndex == destinationIndex)
                 {
                     List<int> answerRouteNodes = new List<int>();
@@ -163,39 +163,39 @@ namespace InGame
                         now = nodes[now].parent;
                     }
 
-                    //”½“]in“_¨I“_‚Ì‡‚É‚·‚éj
+                    //åè»¢ï¼ˆå§‹ç‚¹â†’çµ‚ç‚¹ã®é †ã«ã™ã‚‹ï¼‰
                     answerRouteNodes.Reverse();
 
                     return ConvertToRoadRoute(answerRouteNodes).ToArray();
                 }
 
-                //qƒm[ƒh‚Ìw’è
+                //å­ãƒãƒ¼ãƒ‰ã®æŒ‡å®š
                 List<int> children = new List<int>();
 
                 for(int cnt = 0; cnt < nodes.Length; cnt++)
                 {
-                    //ƒRƒXƒg‚ª•‰i—×Ú‚µ‚Ä‚¢‚È‚¢j‚È‚ç–³‹
+                    //ã‚³ã‚¹ãƒˆãŒè² ï¼ˆéš£æ¥ã—ã¦ã„ãªã„ï¼‰ãªã‚‰ç„¡è¦–
                     if (adjacency[currentIndex, cnt] == null){
-                        //>>—×Ú‚µ‚Ä‚¢‚È‚¢
-                        //–³‹‚·‚é
+                        //>>éš£æ¥ã—ã¦ã„ãªã„
+                        //ç„¡è¦–ã™ã‚‹
                         continue;
                     }
                     else
                     {
-                        //>>—×Ú‚µ‚Ä‚¢‚é
-                        //qƒm[ƒh‚Ì”Ô†‚ğ•Û‘¶
+                        //>>éš£æ¥ã—ã¦ã„ã‚‹
+                        //å­ãƒãƒ¼ãƒ‰ã®ç•ªå·ã‚’ä¿å­˜
                         children.Add(cnt);
                     }   
                 }
 
-                //ƒRƒXƒg‚ÌŒvZ
+                //ã‚³ã‚¹ãƒˆã®è¨ˆç®—
                 foreach(int child in children)
                 {
-                    //Œ»İ‚ÌƒRƒXƒg‚ÉˆÚ“®ƒRƒXƒg‚ğ‘«‚·
+                    //ç¾åœ¨ã®ã‚³ã‚¹ãƒˆã«ç§»å‹•ã‚³ã‚¹ãƒˆã‚’è¶³ã™
                     float g = nodes[currentIndex].g + GetCostG(currentIndex, child);
                     Vector2 childPosition = nodes[child].roadJoint.transform.position;
 
-                    //ˆÚ“®æƒm[ƒhiqƒm[ƒhj‚Æ–Ú“I’n‚Ìƒ†[ƒNƒŠƒbƒh‹——£‚ğ‹‚ß‚é
+                    //ç§»å‹•å…ˆãƒãƒ¼ãƒ‰ï¼ˆå­ãƒãƒ¼ãƒ‰ï¼‰ã¨ç›®çš„åœ°ã®ãƒ¦ãƒ¼ã‚¯ãƒªãƒƒãƒ‰è·é›¢ã‚’æ±‚ã‚ã‚‹
                     float h = Vector2.Distance(destinationPosition, childPosition);
 
                     float f = CalculateF(g, h);
@@ -209,7 +209,7 @@ namespace InGame
                         continue;
                     }
 
-                    //‚·‚Å‚ÉƒI[ƒvƒ“—\’è‚Å‚È‚­‚ê‚ÎƒnƒbƒVƒ…‚É‰Á‚¦‚é
+                    //ã™ã§ã«ã‚ªãƒ¼ãƒ—ãƒ³äºˆå®šã§ãªãã‚Œã°ãƒãƒƒã‚·ãƒ¥ã«åŠ ãˆã‚‹
                     if (openHash.Contains(child))
                     {
                         continue;
@@ -221,31 +221,31 @@ namespace InGame
                 }
             }
 
-            //‚±‚±‚Ü‚Å—ˆ‚½‚çAƒS[ƒ‹‚Å‚«‚éƒ‹[ƒg‚ª–³‚¢
-            Debug.LogError("“’B•s‰Â”\‚Èƒ‹[ƒg");
+            //ã“ã“ã¾ã§æ¥ãŸã‚‰ã€ã‚´ãƒ¼ãƒ«ã§ãã‚‹ãƒ«ãƒ¼ãƒˆãŒç„¡ã„
+            Debug.LogError("åˆ°é”ä¸å¯èƒ½ãªãƒ«ãƒ¼ãƒˆ");
 
             return null;
         }
 
         /// <summary>
-        /// —×Ús—ñ‚ğì‚é
+        /// éš£æ¥è¡Œåˆ—ã‚’ä½œã‚‹
         /// </summary>
         private Road[,] MakeAdjacencyMatrix(Node[] nodes, Road[] roads)
         {
-            //‰Šú‰»
+            //åˆæœŸåŒ–
             Road[,] adjacency = new Road[nodes.Length, nodes.Length];
 
-            //‘S“¹˜H‚ğ“o˜^
+            //å…¨é“è·¯ã‚’ç™»éŒ²
             foreach(Road road in roads)
             {
-                //Ú‘±‚µ‚½RoadJoint
+                //æ¥ç¶šã—ãŸRoadJoint
                 RoadJoint[] connected = road.connectedJoints;
 
-                //‚»‚ÌIndex
+                //ãã®Index
                 int index0 = FindIndex(connected[0], nodes);
                 int index1 = FindIndex(connected[1], nodes);
 
-                //“o˜^
+                //ç™»éŒ²
                 adjacency[index0, index1] = road;
                 adjacency[index1, index0] = road;
             }
@@ -254,7 +254,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// Road‚ÌèŠÔƒRƒXƒg’l‚ğ‹‚ß‚éB
+        /// Roadã®æ‰‹é–“ã‚³ã‚¹ãƒˆå€¤ã‚’æ±‚ã‚ã‚‹ã€‚
         /// </summary>
         private float GetCostG(int start, int end)
         {
@@ -264,11 +264,11 @@ namespace InGame
         }
 
         /// <summary>
-        /// ”z—ñ‚Ì’†‚ÌƒCƒ“ƒfƒbƒNƒX‚ğ‹‚ß‚é
+        /// é…åˆ—ã®ä¸­ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æ±‚ã‚ã‚‹
         /// </summary>
         private int FindIndex(Node node, Node[] array)
         {
-            //üŒ`’Tõ
+            //ç·šå½¢æ¢ç´¢
             for(int cnt = 0; cnt < array.Length; cnt++)
             {
                 if (node == array[cnt])
@@ -277,16 +277,16 @@ namespace InGame
                 }
             }
 
-            //Œ©‚Â‚©‚ç‚È‚©‚Á‚½
+            //è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸ
             return -1;
         }
 
         /// <summary>
-        /// ”z—ñ‚Ì’†‚ÌƒCƒ“ƒfƒbƒNƒX‚ğ‹‚ß‚é
+        /// é…åˆ—ã®ä¸­ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æ±‚ã‚ã‚‹
         /// </summary>
         private int FindIndex(RoadJoint node, Node[] array)
         {
-            //üŒ`’Tõ
+            //ç·šå½¢æ¢ç´¢
             for (int cnt = 0; cnt < array.Length; cnt++)
             {
                 if (node == array[cnt].roadJoint)
@@ -295,12 +295,12 @@ namespace InGame
                 }
             }
 
-            //Œ©‚Â‚©‚ç‚È‚©‚Á‚½
+            //è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸ
             return -1;
         }
 
         /// <summary>
-        /// HashSet‚©‚çÅ¬‚Ì—v‘f‚ğ•Ô‚·
+        /// HashSetã‹ã‚‰æœ€å°ã®è¦ç´ ã‚’è¿”ã™
         /// </summary>
         private int GetMinOfHash(HashSet<int> hash)
         {
@@ -318,7 +318,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// ‡˜H‚ÌNodeƒŠƒXƒg‚ğRoad‚ÌƒŠƒXƒg‚É•ÏŠ·
+        /// é †è·¯ã®Nodeãƒªã‚¹ãƒˆã‚’Roadã®ãƒªã‚¹ãƒˆã«å¤‰æ›
         /// </summary>
         /// <param name="nodeRoute"></param>
         /// <returns></returns>
@@ -326,19 +326,19 @@ namespace InGame
         {
             List<Road> output = new List<Road>();
 
-            //ƒXƒ^ƒbƒN‚ª‚È‚­‚È‚é‚Ü‚Å
-            //ÅŒã‚ÌˆêŒÂ‚ÍI“_‚È‚Ì‚Åˆ—‚É—v‚ç‚È‚¢
+            //ã‚¹ã‚¿ãƒƒã‚¯ãŒãªããªã‚‹ã¾ã§
+            //æœ€å¾Œã®ä¸€å€‹ã¯çµ‚ç‚¹ãªã®ã§å‡¦ç†ã«è¦ã‚‰ãªã„
             for(int cnt = 0; cnt < nodeRoute.Count-1; cnt++)
             {
-                //n“_
+                //å§‹ç‚¹
                 int startIndex = nodeRoute[cnt];
-                //I“_
+                //çµ‚ç‚¹
                 int endIndex = nodeRoute[cnt + 1];
 
-                //Œq‚ª‚é“¹
+                //ç¹‹ãŒã‚‹é“
                 Road road = adjacency[startIndex, endIndex];
 
-                //“o˜^
+                //ç™»éŒ²
                 output.Add(road);
             }
 
@@ -346,17 +346,17 @@ namespace InGame
         }
 
         /// <summary>
-        /// ‘‡ƒRƒXƒg‚ğŒvZ
+        /// ç·åˆã‚³ã‚¹ãƒˆã‚’è¨ˆç®—
         /// </summary>
-        /// <param name="g">èŠÔƒRƒXƒg</param>
-        /// <param name="h">‹——£ƒRƒXƒg</param>
+        /// <param name="g">æ‰‹é–“ã‚³ã‚¹ãƒˆ</param>
+        /// <param name="h">è·é›¢ã‚³ã‚¹ãƒˆ</param>
         private static float CalculateF(float g, float h)
         {
             return g + h;
         }
 
         /// <summary>
-        /// node‚ğ‰Šú‰»‚·‚é
+        /// nodeã‚’åˆæœŸåŒ–ã™ã‚‹
         /// </summary>
         private void InitializeNodes(Node[] nodes)
         {

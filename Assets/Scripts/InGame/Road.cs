@@ -6,28 +6,28 @@ using UnityEngine;
 namespace InGame
 {
     /// <summary>
-    /// “¹˜HB
-    /// Ô‚ª‚±‚Ìã‚ğ‘–‚é
-    /// ‰Šú‰»ˆ—‚Æ‚µ‚ÄA©“®“I‚ÉRoadJoint‚ÉÚ‘±‚·‚é
+    /// é“è·¯ã€‚
+    /// è»ŠãŒã“ã®ä¸Šã‚’èµ°ã‚‹
+    /// åˆæœŸåŒ–å‡¦ç†ã¨ã—ã¦ã€è‡ªå‹•çš„ã«RoadJointã«æ¥ç¶šã™ã‚‹
     /// </summary>
     public class Road : MonoBehaviour
     {
-        [Tooltip("“¹˜H‚Ì—¼’[A’†S‚Ì‹óƒIƒuƒWƒFƒNƒg")]
+        [Tooltip("é“è·¯ã®ä¸¡ç«¯ã€ä¸­å¿ƒã®ç©ºã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ")]
         [SerializeField] private Transform[] _edges;
 
-        [Tooltip("—¼’[‚Éİ’u‚³‚ê‚Ä‚¢‚éM†‹@BedgeObjects‚Æ“¯‚¶‡”Ô‚Å“o˜^‚·‚é‚±‚Æ")]
+        [Tooltip("ä¸¡ç«¯ã«è¨­ç½®ã•ã‚Œã¦ã„ã‚‹ä¿¡å·æ©Ÿã€‚edgeObjectsã¨åŒã˜é †ç•ªã§ç™»éŒ²ã™ã‚‹ã“ã¨")]
         [SerializeField] private TrafficLight[] _trafficLights;
 
-        [Tooltip("Edge0‚ÌŠJnˆÊ’uŠO‘¤i¶‘¤jÔü‚©‚ç‚¢‚ê‚é‚±‚Æ")]
+        [Tooltip("Edge0ã®é–‹å§‹ä½ç½®å¤–å´ï¼ˆå·¦å´ï¼‰è»Šç·šã‹ã‚‰ã„ã‚Œã‚‹ã“ã¨")]
         [SerializeField] private Transform[] _startingPoint0;
-        [Tooltip("Edge1‚ÌŠJnˆÊ’uŠO‘¤i¶‘¤jÔü‚©‚ç‚¢‚ê‚é‚±‚Æ")]
+        [Tooltip("Edge1ã®é–‹å§‹ä½ç½®å¤–å´ï¼ˆå·¦å´ï¼‰è»Šç·šã‹ã‚‰ã„ã‚Œã‚‹ã“ã¨")]
         [SerializeField] private Transform[] _startingPoint1;
 
-        [Tooltip("“¹˜H‚ÌŠpBEdge0AEdge1‚Ì‡‚É‚Q‚Â‚¢‚ê‚é‚±‚Æ")]
+        [Tooltip("é“è·¯ã®è§’ã€‚Edge0ã€Edge1ã®é †ã«ï¼’ã¤ã„ã‚Œã‚‹ã“ã¨")]
         [SerializeField] private Transform[] _corners;
 
         /// <summary>
-        /// Edge0‚ÌŠJnˆÊ’uBis•ûŒü¶‘¤‚©‚ç‡‚É
+        /// Edge0ã®é–‹å§‹ä½ç½®ã€‚é€²è¡Œæ–¹å‘å·¦å´ã‹ã‚‰é †ã«
         /// </summary>
         public Vector2[] startingPoint0
         {
@@ -44,7 +44,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// Edge1‚ÌŠJnˆÊ’uBis•ûŒü¶‘¤‚©‚ç‡‚É
+        /// Edge1ã®é–‹å§‹ä½ç½®ã€‚é€²è¡Œæ–¹å‘å·¦å´ã‹ã‚‰é †ã«
         /// </summary>
         public Vector2[] startingPoint1
         {
@@ -61,7 +61,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// •Ğ‘¤Ôü”
+        /// ç‰‡å´è»Šç·šæ•°
         /// </summary>
         public uint lanes
         {
@@ -72,7 +72,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// Šp‚ÌÀ•W
+        /// è§’ã®åº§æ¨™
         /// </summary>
         public Vector2[] corners
         {
@@ -103,7 +103,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// “¹‰ˆ‚¢ƒxƒNƒgƒ‹B0”Ô–Ú‚Íedge0Ëedge1A1”Ô–Ú‚Í”½‘Î
+        /// é“æ²¿ã„ãƒ™ã‚¯ãƒˆãƒ«ã€‚0ç•ªç›®ã¯edge0â‡’edge1ã€1ç•ªç›®ã¯åå¯¾
         /// </summary>
         public Vector2[] alongVectors
         {
@@ -126,80 +126,80 @@ namespace InGame
                
 
         /// <summary>
-        /// —¼’[‚ÉÚ‘±‚µ‚Ä‚¢‚éRoadJoint‚Q‚ÂB‡”Ô‚Íedge‚É‘Î‰B0”Ô–Ú‚Íedge0n“_B
+        /// ä¸¡ç«¯ã«æ¥ç¶šã—ã¦ã„ã‚‹RoadJointï¼’ã¤ã€‚é †ç•ªã¯edgeã«å¯¾å¿œã€‚0ç•ªç›®ã¯edge0å§‹ç‚¹ã€‚
         /// </summary>
         public RoadJoint[] connectedJoints { get; private set; } = new RoadJoint[2];
 
         /// <summary>
-        /// “¹˜H‚ÉÚ‘±Ï‚İ‚©
+        /// é“è·¯ã«æ¥ç¶šæ¸ˆã¿ã‹
         /// </summary>
         public bool isInitialized { get; private set; } = false;
 
         private void Start()
         {
-            //”z’uÅ“K‰»
+            //é…ç½®æœ€é©åŒ–
             OptimizeArrangement();
         }
 
         /// <summary>
-        /// —¼’[‚ÉÅ‹ß–T‚ÌRoadJoint‚ğ’Tõ‚µA”z’u‚ğÅ“K‰»
+        /// ä¸¡ç«¯ã«æœ€è¿‘å‚ã®RoadJointã‚’æ¢ç´¢ã—ã€é…ç½®ã‚’æœ€é©åŒ–
         /// </summary>
         private void OptimizeArrangement()
         {
-            //Ú‘±RoadJoint‚ğæ“¾
+            //æ¥ç¶šRoadJointã‚’å–å¾—
             GetConnectedJoints();
 
-            //Å“K‰»‘O‚Ì—¼’[‚ğŒ‹‚ÔƒxƒNƒgƒ‹
+            //æœ€é©åŒ–å‰ã®ä¸¡ç«¯ã‚’çµã¶ãƒ™ã‚¯ãƒˆãƒ«
             Vector3 originalPath = _edges[0].position - _edges[1].position;
-            //Å“K‰»Œã
+            //æœ€é©åŒ–å¾Œ
             Vector3 optimizedPath = connectedJoints[0].transform.position - connectedJoints[1].transform.position;
 
-            //ˆÚ“®
+            //ç§»å‹•
             transform.position = (connectedJoints[0].transform.position + connectedJoints[1].transform.position) / 2;
 
-            //>>Šg‘å‚ ‚é‚¢‚Ík¬
-            //”{—¦
+            //>>æ‹¡å¤§ã‚ã‚‹ã„ã¯ç¸®å°
+            //å€ç‡
             float extensionCoef = optimizedPath.magnitude / originalPath.magnitude;
-            //‰¡Œü‚«‚ÉŠg‘åEk¬
+            //æ¨ªå‘ãã«æ‹¡å¤§ãƒ»ç¸®å°
             transform.localScale = new Vector3(extensionCoef * transform.localScale.x, transform.localScale.y, transform.localScale.z);
 
-            //‰ñ“]
+            //å›è»¢
             Quaternion rotation = Quaternion.FromToRotation(originalPath, optimizedPath);
             transform.rotation *= rotation;
 
-            //‰Šú‰»Ï‚İ‚É
+            //åˆæœŸåŒ–æ¸ˆã¿ã«
             isInitialized = true;
         }
 
         /// <summary>
-        /// —¼’[‚ÉÅ‹ß–T‚ÌRoadJoint‚ğæ“¾
+        /// ä¸¡ç«¯ã«æœ€è¿‘å‚ã®RoadJointã‚’å–å¾—
         /// </summary>
         private void GetConnectedJoints()
         {
-            //—¼’[‚É‚Â‚¢‚Ä
+            //ä¸¡ç«¯ã«ã¤ã„ã¦
             for (int cnt = 0; cnt < 2; cnt++)
             {
                 Vector3 edgePosition = _edges[cnt].position;
 
-                //Å‹ß–T‚ğ’T‚µ‚Ä“o˜^
+                //æœ€è¿‘å‚ã‚’æ¢ã—ã¦ç™»éŒ²
                 connectedJoints[cnt] = GetNearestJoint(edgePosition);
 
-                //RoadJoint‘¤‚É‚±‚¿‚ç‚ğ“o˜^‚·‚é
+                //RoadJointå´ã«ã“ã¡ã‚‰ã‚’ç™»éŒ²ã™ã‚‹
                 connectedJoints[cnt].RegisterRoad(this, cnt);
             }
         }
 
         /// <summary>
-        /// Å‚à‹ß‚¢RoadJoint‚ğ’T‚·
+        /// æœ€ã‚‚è¿‘ã„RoadJointã‚’æ¢ã™
         /// </summary>
         private RoadJoint GetNearestJoint(Vector3 searchingPoint)
         {
-            //‘SRoadJoint‚ğæ“¾
+            //å…¨RoadJointã‚’å–å¾—
             RoadJoint[] allJoints = FindObjectsOfType<RoadJoint>();
 
             RoadJoint nearestJoint = null;
 
-            //Å‹ß–T‚ğüŒ`’Tõ
+            //æœ€è¿‘å‚ã‚’ç·šå½¢æ¢ç´¢
             float minDistance = float.MaxValue;
             foreach (RoadJoint joint in allJoints)
             {
@@ -213,32 +213,32 @@ namespace InGame
                 }
             }
 
-            //null‚¾‚Æ‚¨‚©‚µ‚¢iRoadJoint‚ªŒŸ’m‚³‚ê‚Ä‚¢‚È‚¢j
+            //nullã ã¨ãŠã‹ã—ã„ï¼ˆRoadJointãŒæ¤œçŸ¥ã•ã‚Œã¦ã„ãªã„ï¼‰
             Debug.Assert(nearestJoint != null);
 
             return nearestJoint;
         }
 
         /// <summary>
-        /// ‰B‚µ‚Ä‚¢‚éM†‹@‚ğ‹N“®
+        /// éš ã—ã¦ã„ã‚‹ä¿¡å·æ©Ÿã‚’èµ·å‹•
         /// </summary>
-        /// <param name="side">“¹‚Ì‚Ç‚¿‚ç‚Ì’[‚ÌM†‹@‚©</param>
-        /// <returns>‹N“®‚µ‚½M†‹@‚ÌQÆ</returns>
+        /// <param name="side">é“ã®ã©ã¡ã‚‰ã®ç«¯ã®ä¿¡å·æ©Ÿã‹</param>
+        /// <returns>èµ·å‹•ã—ãŸä¿¡å·æ©Ÿã®å‚ç…§</returns>
         public TrafficLight ActivateTrafficLight(int side)
         {
-            //M†‹@‚ğ‹N“®
+            //ä¿¡å·æ©Ÿã‚’èµ·å‹•
             trafficLights[side].gameObject.SetActive(true);
 
-            //M†‹@‚ÌQÆ‚ğ•Ô‚·
+            //ä¿¡å·æ©Ÿã®å‚ç…§ã‚’è¿”ã™
             return trafficLights[side];
         }
 
         /// <summary>
-        /// —^‚¦‚ç‚ê‚½road‚É‚Â‚¢‚Äjoint‚ÆˆÙ‚È‚é’[‚ğ•Ô‚·
+        /// ä¸ãˆã‚‰ã‚ŒãŸroadã«ã¤ã„ã¦jointã¨ç•°ãªã‚‹ç«¯ã‚’è¿”ã™
         /// </summary>
         public RoadJoint GetDiffrentEdge(RoadJoint joint)
         {
-            //joint‚ªroad‚Ì‚Ç‚¿‚ç‚©‚Ì’[‚Ì‚Í‚¸
+            //jointãŒroadã®ã©ã¡ã‚‰ã‹ã®ç«¯ã®ã¯ãš
             Debug.Assert(connectedJoints.Contains(joint));
 
             if (connectedJoints[0] == joint)
@@ -252,7 +252,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// “¾‚ç‚ê‚½•û‚Æ”½‘Î‘¤‚ÌEdgeID‚ğ•Ô‚·
+        /// å¾—ã‚‰ã‚ŒãŸæ–¹ã¨åå¯¾å´ã®EdgeIDã‚’è¿”ã™
         /// </summary>
         public static uint GetDifferentEdgeID(uint edgeID)
         {
@@ -271,7 +271,7 @@ namespace InGame
         }
 
         /// <summary>
-        /// —^‚¦‚ç‚ê‚½’[‚Ìedge”Ô†‚ğ•Ô‚·
+        /// ä¸ãˆã‚‰ã‚ŒãŸç«¯ã®edgeç•ªå·ã‚’è¿”ã™
         /// </summary>
         public uint GetEdgeID(RoadJoint edge)
         {
@@ -285,13 +285,13 @@ namespace InGame
             }
             else
             {
-                Debug.LogError("’[‚¶‚á‚È‚¢RoadJoint‚ª“n‚³‚ê‚½");
+                Debug.LogError("ç«¯ã˜ã‚ƒãªã„RoadJointãŒæ¸¡ã•ã‚ŒãŸ");
                 return 0;
             }
         }
 
         /// <summary>
-        /// ŠJnˆÊ’u‚ğ•Ô‚·
+        /// é–‹å§‹ä½ç½®ã‚’è¿”ã™
         /// </summary>
         public Vector2 GetStartingPoint(uint edgeID, uint laneID)
         {
@@ -309,26 +309,26 @@ namespace InGame
         }
 
         /// <summary>
-        /// Ôü¶‘¤‚Ìn“_‚ğ•Ô‚·
+        /// è»Šç·šå·¦å´ã®å§‹ç‚¹ã‚’è¿”ã™
         /// </summary>
         public Vector2 GetLeftPoint(uint edgeID, uint laneID)
         {
-            //Ôü¶‘¤¨Ôü‰E‘¤ƒxƒNƒgƒ‹
+            //è»Šç·šå·¦å´â†’è»Šç·šå³å´ãƒ™ã‚¯ãƒˆãƒ«
             Vector2 laneWidth = (edges[edgeID] - corners[edgeID]) / lanes;
 
-            //laneID‚Í¶‚©‚ç‡
+            //laneIDã¯å·¦ã‹ã‚‰é †
             return corners[edgeID] + (laneWidth * laneID);
         }
 
         /// <summary>
-        /// Ôü‰E‘¤‚Ìn“_‚ğ•Ô‚·
+        /// è»Šç·šå³å´ã®å§‹ç‚¹ã‚’è¿”ã™
         /// </summary>
         public Vector2 GetRightPoint(uint edgeID, uint laneID)
         {
-            //Ôü¶‘¤¨Ôü‰E‘¤ƒxƒNƒgƒ‹
+            //è»Šç·šå·¦å´â†’è»Šç·šå³å´ãƒ™ã‚¯ãƒˆãƒ«
             Vector2 laneWidth = (edges[edgeID] - corners[edgeID]) / lanes;
 
-            //laneID‚Í¶‚©‚ç‡
+            //laneIDã¯å·¦ã‹ã‚‰é †
             return corners[edgeID] + (laneWidth * (laneID+1));
         }
     }

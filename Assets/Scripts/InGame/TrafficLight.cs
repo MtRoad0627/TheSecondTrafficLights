@@ -5,9 +5,9 @@ using UnityEngine;
 namespace InGame
 {
     /// <summary>
-    /// M†‹@B
-    /// Še“¹˜H‚ª—¼’[‚É‚Q‚Â‚¸‚ÂA–³Œø‰»‚³‚ê‚½M†‹@‚ğ‚ÂB
-    /// TrafficLightsSystem‚ğ‚ÂIntersection‚ÉÚ‘±‚·‚é‚±‚Æ‚ÅA—LŒø‚©‚³‚ê‚éB
+    /// ä¿¡å·æ©Ÿã€‚
+    /// å„é“è·¯ãŒä¸¡ç«¯ã«ï¼’ã¤ãšã¤ã€ç„¡åŠ¹åŒ–ã•ã‚ŒãŸä¿¡å·æ©Ÿã‚’æŒã¤ã€‚
+    /// TrafficLightsSystemã‚’æŒã¤Intersectionã«æ¥ç¶šã™ã‚‹ã“ã¨ã§ã€æœ‰åŠ¹ã‹ã•ã‚Œã‚‹ã€‚
     /// </summary>
     public class TrafficLight : MonoBehaviour
     {
@@ -20,7 +20,7 @@ namespace InGame
 
         public Color color { get; private set; }
 
-        //ŠeM†•\¦‚É•\¦‚·‚éSprite
+        //å„ä¿¡å·è¡¨ç¤ºæ™‚ã«è¡¨ç¤ºã™ã‚‹Sprite
         [System.Serializable]
         private class LightColor
         {
@@ -28,36 +28,36 @@ namespace InGame
             public Sprite sprite;
         }
 
-        [Tooltip("ŠeF‚É‘Î‰‚µ‚Ä•\¦‚·‚éƒXƒvƒ‰ƒCƒg")]
+        [Tooltip("å„è‰²ã«å¯¾å¿œã—ã¦è¡¨ç¤ºã™ã‚‹ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆ")]
         [SerializeField] private LightColor[] lightColors;
 
         /// <summary>
-        /// F‚ğØ‚è‘Ö‚¦
+        /// è‰²ã‚’åˆ‡ã‚Šæ›¿ãˆ
         /// </summary>
         public void SetLight(Color color)
         {
-            //F‚ğƒZƒbƒg
+            //è‰²ã‚’ã‚»ãƒƒãƒˆ
             this.color = color;
 
-            //‚»‚ÌF‚ğ•\¦
+            //ãã®è‰²ã‚’è¡¨ç¤º
             ShowColor(color);
         }
 
         /// <summary>
-        /// w’è‚³‚ê‚½F‚ğ•\¦‚·‚é
+        /// æŒ‡å®šã•ã‚ŒãŸè‰²ã‚’è¡¨ç¤ºã™ã‚‹
         /// </summary>
         private void ShowColor(Color color)
         {
             SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
 
-            //‘Î‰‚·‚éƒXƒvƒ‰ƒCƒg‚ğ’T‚·
+            //å¯¾å¿œã™ã‚‹ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆã‚’æ¢ã™
             foreach(LightColor lightColor in lightColors)
             {
                 if(lightColor.color == color)
                 {
-                    //>>‘Î‰‚·‚éƒXƒvƒ‰ƒCƒg
+                    //>>å¯¾å¿œã™ã‚‹ã‚¹ãƒ—ãƒ©ã‚¤ãƒˆ
 
-                    //•\¦‚·‚é
+                    //è¡¨ç¤ºã™ã‚‹
                     spriteRenderer.sprite = lightColor.sprite;
 
                     return;
